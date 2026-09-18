@@ -29,7 +29,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={cn("relative scroll-mt-24 py-20 sm:py-24 lg:py-32", className)}
+      className={cn("relative py-20 sm:py-24 lg:py-32", className)}
     >
       {children}
     </section>
@@ -130,8 +130,10 @@ export function SectionHeading({
 type ButtonVariant = "primary" | "secondary" | "ghost" | "light";
 type ButtonSize = "sm" | "md" | "lg";
 
+// min-h + py (not a fixed h + nowrap) so a label too long for a narrow screen
+// wraps inside the pill instead of spilling out of it. Single-line size is unchanged.
 const base =
-  "group relative inline-flex items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap transition-all duration-300 disabled:pointer-events-none disabled:opacity-60 active:scale-[0.98]";
+  "group relative inline-flex items-center justify-center gap-2 rounded-full text-center font-semibold transition-all duration-300 disabled:pointer-events-none disabled:opacity-60 active:scale-[0.98] [&_svg]:shrink-0";
 
 const variants: Record<ButtonVariant, string> = {
   primary:
@@ -144,9 +146,9 @@ const variants: Record<ButtonVariant, string> = {
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm: "h-9 px-4 text-[13px]",
-  md: "h-11 px-5 text-sm",
-  lg: "h-13 px-7 text-[15px]",
+  sm: "min-h-9 px-4 py-1.5 text-[13px]",
+  md: "min-h-11 px-5 py-2 text-sm",
+  lg: "min-h-13 px-7 py-2.5 text-[15px]",
 };
 
 export function Button({

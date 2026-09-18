@@ -37,10 +37,10 @@ export function Specialities() {
     <Section id="specialities" className="bg-ink-50">
       <Container>
         <SectionHeading
-          eyebrow="Four specialities, four playbooks"
-          title="Different specialities need different content logic."
-          highlight="content logic"
-          lead="A fertility couple, a 62-year-old cataract patient and a parent booking braces are three different people making three different decisions. We do not run one calendar across all of them."
+          eyebrow="Different specialities. Different playbooks"
+          title="Every Speciality Has Its Own Patient Journey And Its Own Marketing Plan!"
+          highlight="And Its Own Marketing Plan!"
+          lead="A couple researching IVF, a 62-year-old worried about their vision, and a parent weighing braces prices are all making real decisions; just not on the same clock. That’s what 10+ years in healthcare marketing taught us: One Calendar Can’t Carry Every Speciality."
           className="max-w-3xl"
         />
 
@@ -49,7 +49,7 @@ export function Specialities() {
           <div
             role="tablist"
             aria-label="Healthcare specialities"
-            className="no-scrollbar -mx-5 flex gap-3 overflow-x-auto px-5 pb-1 lg:mx-0 lg:flex-col lg:overflow-visible lg:px-0 lg:pb-0"
+            className="no-scrollbar -mx-5 flex gap-3 overflow-x-auto px-5 pb-1 sm:-mx-8 sm:px-8 lg:mx-0 lg:flex-col lg:overflow-visible lg:px-0 lg:pb-0"
           >
             {specialities.map((s) => {
               const Icon = icons[s.icon];
@@ -155,11 +155,11 @@ export function Specialities() {
                       {active.metric.placeholder ? <SampleBadge /> : null}
                     </p>
                     <p className="mt-1 text-[13px] text-ink-400">
-                      {active.metric.label} · typical 6-month engagement
+                      {active.metric.label} · Typical 6 Month Engagement
                     </p>
                   </div>
                   <ButtonLink href="#audit" variant="secondary" size="md">
-                    Audit my {active.name.split(" ")[0].toLowerCase()} presence
+                    {active.cta}
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
                   </ButtonLink>
                 </div>

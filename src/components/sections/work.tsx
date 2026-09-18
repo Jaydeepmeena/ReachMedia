@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { Play, Images, Sparkles, TrendingUp } from "lucide-react";
 import {
   Container,
@@ -9,16 +9,11 @@ import {
   SectionHeading,
 } from "@/components/ui/primitives";
 import { SmartImage } from "@/components/ui/smart-image";
+import { Carousel } from "@/components/ui/carousel";
 import { workSamples } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 const filters = ["All", "IVF", "Eye", "Dental", "Hospital"] as const;
-
-const ratioClass: Record<string, string> = {
-  portrait: "aspect-[9/14]",
-  square: "aspect-square",
-  landscape: "aspect-[16/11]",
-};
 
 function SampleFallback({
   type,
@@ -68,9 +63,9 @@ export function Work() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
             eyebrow="Work samples"
-            title="The kind of content we put on your feed."
-            highlight="on your feed"
-            lead="Every asset starts from a question a patient actually asked at your front desk."
+            title="Reels, Carousels & Campaigns We’ve Actually Posted!"
+            highlight="We’ve Actually Posted!"
+            lead="Real work for real clinics, hospitals & doctors, across dental, fertility, eye care and multi-speciality, shaped by the deep-driven process we follow for each account."
             className="max-w-2xl"
           />
 
@@ -78,7 +73,7 @@ export function Work() {
           <div
             role="tablist"
             aria-label="Filter work by speciality"
-            className="no-scrollbar -mx-5 flex shrink-0 gap-2 overflow-x-auto px-5 lg:mx-0 lg:px-0"
+            className="no-scrollbar -mx-5 flex shrink-0 gap-2 overflow-x-auto px-5 sm:-mx-8 sm:px-8 lg:mx-0 lg:px-0"
           >
             {filters.map((f) => (
               <button
@@ -88,7 +83,7 @@ export function Work() {
                 aria-selected={filter === f}
                 onClick={() => setFilter(f)}
                 className={cn(
-                  "relative shrink-0 rounded-full px-4 py-2 text-[13px] font-semibold transition-colors",
+                  "relative min-h-11 shrink-0 rounded-full px-4 py-2 text-[13px] font-semibold transition-colors",
                   filter === f
                     ? "text-white"
                     : "border border-ink-200 text-ink-500 hover:border-brand-300 hover:text-brand-700",
@@ -107,27 +102,24 @@ export function Work() {
           </div>
         </div>
 
+        {/* keyed on the filter: a new filter starts the row from the first card */}
         <motion.div
-          layout
-          className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5"
+          key={filter}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className="mt-12"
         >
-          <AnimatePresence mode="popLayout">
+          <Carousel
+            label="Work samples"
+            slideClassName="basis-[80%] sm:basis-[calc(50%-0.625rem)] lg:basis-[calc(33.333%-0.834rem)]"
+          >
             {visible.map((sample) => (
-              <motion.figure
+              <figure
                 key={sample.id}
-                layout
-                initial={{ opacity: 0, scale: 0.94 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.94 }}
-                transition={{ duration: 0.35, ease: [0.21, 0.47, 0.32, 0.98] }}
-                className="group relative overflow-hidden rounded-3xl border border-ink-200/70 bg-white shadow-soft transition-shadow duration-300 hover:shadow-lift"
+                className="group relative h-full overflow-hidden rounded-3xl border border-ink-200/70 bg-white shadow-soft transition-shadow duration-300 hover:shadow-lift"
               >
-                <div
-                  className={cn(
-                    "relative w-full overflow-hidden bg-ink-100",
-                    ratioClass[sample.ratio] ?? "aspect-square",
-                  )}
-                >
+                <div className="relative aspect-square w-full overflow-hidden bg-ink-100">
                   <SmartImage
                     src={sample.image}
                     alt={sample.title}
@@ -148,8 +140,8 @@ export function Work() {
                     {sample.type}
                   </span>
 
-                  {/* stat on hover */}
-                  <div className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-ink-900/95 to-transparent p-4 pt-10 transition-transform duration-500 group-hover:translate-y-0">
+                  {/* stat: revealed on hover where hover exists, always shown on touch */}
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-900/95 to-transparent p-4 pt-10 transition-transform duration-500 [@media(hover:hover)]:translate-y-full group-hover:translate-y-0">
                     <p className="flex items-center gap-1.5 text-xs font-bold text-brand-300 tabular-nums">
                       <TrendingUp className="size-3.5" />
                       {sample.stat}
@@ -165,9 +157,9 @@ export function Work() {
                     {sample.meta}
                   </p>
                 </figcaption>
-              </motion.figure>
+              </figure>
             ))}
-          </AnimatePresence>
+          </Carousel>
         </motion.div>
       </Container>
     </Section>

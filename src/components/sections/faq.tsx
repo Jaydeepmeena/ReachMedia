@@ -22,17 +22,17 @@ export function Faq() {
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeading
               eyebrow="FAQs"
-              title="The questions clinic owners ask us first."
-              highlight="ask us first"
+              title="What Every Clinic Owner Wants to Know First."
+              highlight="Wants to Know First."
               lead="Still unsure? The audit call answers everything else, and costs nothing."
             />
             <div className="mt-8 rounded-3xl border border-ink-200/70 bg-ink-50 p-6">
               <CircleQuestionMark className="size-7 text-brand-600" strokeWidth={1.8} />
               <p className="mt-4 font-display text-lg font-bold text-ink-900">
-                Something specific to your speciality?
+                Something Specific To Your Speciality?
               </p>
               <p className="mt-1.5 text-[14px] leading-relaxed text-ink-500">
-                Email us the question — a strategist replies, not a bot.
+                Email Us the Question — A Strategist Replies. Not a Bot.
               </p>
               <ButtonLink
                 href={`mailto:${site.email}`}

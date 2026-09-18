@@ -84,8 +84,20 @@ export function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.14 }}
+              className="mt-7 flex flex-wrap items-center gap-x-2.5 gap-y-1 font-display text-base font-bold text-ink-400 sm:text-lg"
+            >
+              <span>{hero.kicker.from}</span>
+              <ArrowRight className="size-4 shrink-0 text-brand-500 sm:size-5" aria-hidden />
+              <span className="sr-only"> turned into </span>
+              <span className="text-brand-700">{hero.kicker.to}</span>
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.18 }}
-              className="mt-7 max-w-xl text-[1.0625rem] leading-relaxed text-ink-500 text-pretty sm:text-lg"
+              className="mt-4 max-w-xl text-[1.0625rem] leading-relaxed text-ink-500 text-pretty sm:text-lg"
             >
               {hero.subtitle}
             </motion.p>
@@ -249,14 +261,7 @@ export function Hero() {
           className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-ink-200/70 bg-ink-200/70 sm:mt-20 lg:grid-cols-4"
         >
           {heroStats.map((stat) => (
-            <div key={stat.label} className="bg-white px-5 py-6 text-center sm:px-6 sm:py-7">
-              <dd className="font-display text-[clamp(1.75rem,3.4vw,2.5rem)] font-extrabold leading-none tracking-tight text-ink-900 tabular-nums">
-                <Counter
-                  value={stat.value}
-                  decimals={stat.decimals}
-                  suffix={stat.suffix}
-                />
-              </dd>
+            <div key={stat.label} className="flex flex-col-reverse bg-white px-5 py-6 text-center sm:px-6 sm:py-7">
               <dt className="mt-2.5 text-[12.5px] font-medium leading-snug text-ink-500">
                 {stat.label}
                 {stat.placeholder ? (
@@ -268,6 +273,13 @@ export function Hero() {
                   </span>
                 ) : null}
               </dt>
+              <dd className="font-display text-[clamp(1.75rem,3.4vw,2.5rem)] font-extrabold leading-none tracking-tight text-ink-900 tabular-nums">
+                <Counter
+                  value={stat.value}
+                  decimals={stat.decimals}
+                  suffix={stat.suffix}
+                />
+              </dd>
             </div>
           ))}
         </motion.dl>

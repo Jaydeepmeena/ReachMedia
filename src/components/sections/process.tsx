@@ -23,13 +23,13 @@ export function Process() {
   });
 
   return (
-    <Section id="process" className="bg-ink-50">
+    <Section id="process" className="overflow-hidden bg-ink-50">
       <Container>
         <SectionHeading
           eyebrow="How we work"
-          title="A simple monthly rhythm. No chasing, no confusion."
-          highlight="No chasing, no confusion."
-          lead="Your team gives us two hours a month. We handle the rest and bring the numbers back to you."
+          title="The Process Behind Every Month, Start to Finish"
+          highlight="Start to Finish"
+          lead="You spend two hours a month with us. We spend the rest of it making sure that time was worth it."
           className="max-w-3xl"
         />
 

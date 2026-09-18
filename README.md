@@ -50,7 +50,7 @@ copy, stat, service, FAQ or testimonial update.
 
    Any missing file falls back to a styled placeholder automatically, so the site
    never breaks on a missing asset. Suggested sizes: proof ≈ 1600×1000 (16:10),
-   samples 1080×1080 (square), 1080×1680 (portrait) or 1600×1100 (landscape).
+   samples 1080×1080 (every work card is square; other shapes are centre-cropped).
 
    **Redact patient names and identifiable details before uploading analytics
    exports**, and keep written consent on file for anything featuring a patient.

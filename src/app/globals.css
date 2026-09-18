@@ -24,7 +24,7 @@
   --color-ink-800: #1f2528;
   --color-ink-700: #333b3f;
   --color-ink-500: #5c686e;
-  --color-ink-400: #808e95;
+  --color-ink-400: #677378; /* ≥4.5:1 on white and ink-50 (was #808e95, 3.2:1) */
   --color-ink-200: #d8dfe2;
   --color-ink-100: #eef2f3;
   --color-ink-50: #f7f9f9;

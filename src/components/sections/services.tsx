@@ -4,6 +4,8 @@ import {
   Share2,
   PenTool,
   Video,
+  Megaphone,
+  Users,
   TrendingUp,
   Check,
   type LucideIcon,
@@ -17,13 +19,29 @@ import {
 } from "@/components/ui/primitives";
 import { RevealGroup, RevealItem } from "@/components/ui/reveal";
 import { services } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 const icons: Record<string, LucideIcon> = {
   Share2,
   PenTool,
   Video,
+  Megaphone,
+  Users,
   TrendingUp,
 };
+
+// First card is full width; the rest fill a 6-col grid (3 per row on lg,
+// 2 on sm) and a short last row stretches instead of leaving a hole.
+function spanClass(i: number) {
+  if (i === 0) return "sm:col-span-6";
+  const rest = services.length - 1;
+  const fromEnd = services.length - i; // 1 = last card
+  return cn(
+    "sm:col-span-3 lg:col-span-2",
+    rest % 2 === 1 && fromEnd === 1 && "sm:col-span-6",
+    rest % 3 !== 0 && fromEnd <= rest % 3 && (rest % 3 === 2 ? "lg:col-span-3" : "lg:col-span-6"),
+  );
+}
 
 export function Services() {
   return (
@@ -35,9 +53,9 @@ export function Services() {
       <Container>
         <SectionHeading
           eyebrow="What we handle"
-          title="Everything from the idea to the appointment."
-          highlight="the appointment"
-          lead="Social media handling, graphics and video production under one retainer — with performance reporting so you can see what the content actually returned."
+          title="Everything From the Idea To the Appointment"
+          highlight="To the Appointment"
+          lead="From the first brief to the calendar, the content, the trends, the shoot, the ads and the reporting, one team runs it all, so you only have to watch for the results."
           align="center"
           className="mx-auto"
         />
@@ -49,7 +67,7 @@ export function Services() {
             return (
               <RevealItem
                 key={service.id}
-                className={featured ? "sm:col-span-6" : "sm:col-span-3 lg:col-span-2"}
+                className={spanClass(i)}
               >
                 <Card className="group h-full p-6 hover:-translate-y-1 hover:border-brand-300 hover:shadow-lift sm:p-8">
                   <div

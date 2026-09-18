@@ -6,7 +6,8 @@ import {
   Section,
   SectionHeading,
 } from "@/components/ui/primitives";
-import { RevealGroup, RevealItem } from "@/components/ui/reveal";
+import { Reveal } from "@/components/ui/reveal";
+import { Carousel } from "@/components/ui/carousel";
 import { SmartImage } from "@/components/ui/smart-image";
 import { ScreenshotFallback, DeltaChip } from "@/components/ui/analytics-mock";
 import { kpiCases } from "@/lib/content";
@@ -25,17 +26,21 @@ export function Results() {
       <Container className="relative">
         <SectionHeading
           tone="dark"
-          eyebrow="KPI indicators"
-          title="Reach, enquiries and bookings — straight from the dashboards."
-          highlight="straight from the dashboards"
-          lead="Not screenshots of likes. These are the numbers clinic owners ask about: how many people saw it, how many came looking, and how many actually booked."
+          eyebrow="Live performance data"
+          title="The Numbers Clinic Owners Have Actually Recorded!"
+          highlight="Have Actually Recorded!"
+          lead="Not screenshots of likes or a highlight reel of engagement. This is the same scoreboard your front desk and your accountant would both recognise: how many people saw it, how many came looking, and how many actually booked."
           className="max-w-3xl"
         />
 
-        <RevealGroup className="mt-12 grid gap-5 lg:mt-14 lg:grid-cols-2 lg:gap-6">
-          {kpiCases.map((item) => (
-            <RevealItem key={item.id}>
-              <article className="group h-full overflow-hidden rounded-4xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm transition-colors duration-300 hover:border-brand-400/40 hover:bg-white/[0.07] sm:p-6">
+        <Reveal className="mt-12 lg:mt-14">
+          <Carousel
+            label="Client results"
+            tone="dark"
+            slideClassName="basis-[88%] sm:basis-[80%] lg:basis-[calc(50%-0.625rem)]"
+          >
+            {kpiCases.map((item) => (
+              <article key={item.id} className="group h-full overflow-hidden rounded-4xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm transition-colors duration-300 hover:border-brand-400/40 hover:bg-white/[0.07] sm:p-6">
                 {/* header */}
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-2.5">
@@ -46,7 +51,7 @@ export function Results() {
                       <p className="font-display text-sm font-bold text-white">
                         {item.speciality}
                       </p>
-                      <p className="text-[11px] text-white/45">{item.platform}</p>
+                      <p className="text-[11px] text-white/55">{item.platform}</p>
                     </div>
                   </div>
                   <span className="rounded-full border border-white/12 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-white/60">
@@ -94,36 +99,39 @@ export function Results() {
                 </figure>
 
                 {/* KPI tiles */}
-                <dl className="mt-4 grid grid-cols-3 gap-2">
+                {/* phones: one row per metric; sm+: three tiles */}
+                <dl className="mt-4 grid gap-2 sm:grid-cols-3">
                   {item.metrics.map((m) => (
                     <div
                       key={m.label}
-                      className="min-w-0 rounded-2xl border border-white/8 bg-white/[0.04] px-3 py-3"
+                      className="flex min-w-0 items-center justify-between gap-3 rounded-2xl border border-white/8 bg-white/[0.04] px-3 py-2.5 sm:block sm:py-3"
                     >
-                      <dt className="truncate text-[10px] font-medium uppercase tracking-wide text-white/40">
+                      <dt className="text-[10px] font-medium uppercase leading-tight tracking-wide text-white/55">
                         {m.label}
                       </dt>
-                      <dd className="mt-1 truncate font-display text-[15px] font-bold tabular-nums text-white">
-                        {m.value}
+                      <dd className="flex items-center gap-2 sm:mt-1 sm:block">
+                        <span className="block font-display text-[15px] font-bold tabular-nums text-white">
+                          {m.value}
+                        </span>
+                        <DeltaChip
+                          value={m.delta}
+                          className="bg-brand-500/15 text-brand-300 sm:mt-1.5"
+                        />
                       </dd>
-                      <DeltaChip
-                        value={m.delta}
-                        className="mt-1.5 bg-brand-500/15 text-brand-300"
-                      />
                     </div>
                   ))}
                 </dl>
 
-                <p className="mt-4 text-[12.5px] leading-relaxed text-white/45">
+                <p className="mt-4 text-[12.5px] leading-relaxed text-white/55">
                   {item.note}
                 </p>
               </article>
-            </RevealItem>
-          ))}
-        </RevealGroup>
+            ))}
+          </Carousel>
+        </Reveal>
 
         {hasPlaceholder ? (
-          <p className="mt-8 flex items-start gap-2 text-[12.5px] leading-relaxed text-white/40">
+          <p className="mt-8 flex items-start gap-2 text-[12.5px] leading-relaxed text-white/55">
             <Info className="mt-0.5 size-4 shrink-0" aria-hidden />
             <span>
               Figures shown are illustrative samples pending client approval.

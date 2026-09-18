@@ -2,7 +2,7 @@
 
 import {
   Stethoscope,
-  Headphones,
+  Megaphone,
   ShieldCheck,
   ChartLine,
   ArrowUpRight,
@@ -20,16 +20,14 @@ import { differentiators, site } from "@/lib/content";
 
 const icons: Record<string, LucideIcon> = {
   Stethoscope,
-  Headphones,
+  Megaphone,
   ShieldCheck,
   ChartLine,
 };
 
 const parentStats = [
-  { value: 115, suffix: "+", label: "Clinic locations supported" },
-  { value: 15, suffix: "", label: "Agent patient call centre" },
-  { value: 8, suffix: " mo", label: "To walk-in growth" },
-  { value: 100, suffix: "%", label: "Healthcare-only focus" },
+  { value: 100, suffix: "%", label: "Healthcare-Only Focus" },
+  { value: 120, suffix: "+", label: "Clinic Locations Supported" },
 ];
 
 export function Why() {
@@ -39,22 +37,22 @@ export function Why() {
         <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeading
-              eyebrow={`Initiated by ${site.parent}`}
-              title="We come from a healthcare growth team, not a generic posting agency."
-              highlight="not a generic posting agency"
-              lead="Reach Media is the social-media arm of Reinvent Digital — a team that already runs performance marketing and a patient call centre for clinics across the country. We have seen what a booked appointment actually costs."
+              eyebrow={`A social initiative by ${site.parent}`}
+              title="A Hardcore Healthcare Marketing Team Not Just A Generic Posting Agency!"
+              highlight="Not Just A Generic Posting Agency!"
+              lead="Reach Media is the social media arm of Reinvent Digital, a team that already runs SEO, paid ads and patient-acquisition reporting for clinics and hospitals across India. We plan content the same way we plan a paid campaign: around what actually turns into an inquiry, not around what gets a like."
             />
 
             <Reveal delay={0.15}>
               <dl className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-ink-200/70 bg-ink-200/70">
                 {parentStats.map((s) => (
-                  <div key={s.label} className="bg-white px-5 py-6">
-                    <dd className="font-display text-3xl font-extrabold tracking-tight text-ink-900 tabular-nums">
-                      <Counter value={s.value} suffix={s.suffix} />
-                    </dd>
+                  <div key={s.label} className="flex flex-col-reverse bg-white px-5 py-6">
                     <dt className="mt-2 text-[12.5px] leading-snug text-ink-500">
                       {s.label}
                     </dt>
+                    <dd className="font-display text-3xl font-extrabold tracking-tight text-ink-900 tabular-nums">
+                      <Counter value={s.value} suffix={s.suffix} />
+                    </dd>
                   </div>
                 ))}
               </dl>

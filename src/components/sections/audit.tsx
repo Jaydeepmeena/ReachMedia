@@ -29,7 +29,7 @@ import { cn } from "@/lib/utils";
  */
 
 const fieldClass =
-  "h-12 w-full rounded-2xl border border-white/15 bg-white/8 px-4 text-[15px] text-white placeholder:text-white/35 transition-colors focus:border-brand-400 focus:bg-white/12 focus:outline-none";
+  "h-12 w-full rounded-2xl border border-white/15 bg-white/8 px-4 text-base text-white placeholder:text-white/50 transition-colors focus:border-brand-400 focus:bg-white/12 focus:outline-none";
 
 export function Audit() {
   const [sent, setSent] = useState(false);
@@ -57,7 +57,7 @@ export function Audit() {
   }
 
   return (
-    <section id="audit" className="relative scroll-mt-24 overflow-hidden bg-ink-900 py-20 sm:py-24 lg:py-28">
+    <section id="audit" className="relative overflow-hidden bg-ink-900 py-20 sm:py-24 lg:py-28">
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:64px_64px]" />
         <div className="absolute -left-24 top-0 size-[32rem] rounded-full bg-[radial-gradient(circle,rgba(31,148,64,0.45),transparent_62%)] blur-3xl" />
@@ -86,17 +86,17 @@ export function Audit() {
               ))}
             </ul>
 
-            <div className="mt-9 flex flex-wrap gap-x-7 gap-y-3 border-t border-white/10 pt-7">
+            <div className="mt-9 flex flex-wrap gap-x-7 border-t border-white/10 pt-5">
               <a
                 href={`mailto:${site.email}`}
-                className="flex items-center gap-2 text-sm font-medium text-white/60 transition-colors hover:text-brand-300"
+                className="flex items-center gap-2 py-2 text-sm font-medium text-white/60 transition-colors hover:text-brand-300"
               >
                 <Mail className="size-4" />
                 {site.email}
               </a>
               <a
                 href={`tel:${site.phone.replace(/\s/g, "")}`}
-                className="flex items-center gap-2 text-sm font-medium text-white/60 transition-colors hover:text-brand-300"
+                className="flex items-center gap-2 py-2 text-sm font-medium text-white/60 transition-colors hover:text-brand-300"
               >
                 <Phone className="size-4" />
                 {site.phone}
@@ -152,6 +152,7 @@ export function Audit() {
                       </span>
                       <input
                         name="clinic"
+                        autoComplete="organization"
                         required
                         placeholder="e.g. Sunrise Fertility Centre"
                         className={fieldClass}
@@ -193,7 +194,7 @@ export function Audit() {
                       <span className="text-[12.5px] font-semibold text-white/70">
                         Your name
                       </span>
-                      <input name="name" required placeholder="Dr. / Mr. / Ms." className={fieldClass} />
+                      <input name="name" required autoComplete="name" placeholder="Dr. / Mr. / Ms." className={fieldClass} />
                     </label>
                     <label className="grid gap-1.5">
                       <span className="text-[12.5px] font-semibold text-white/70">
@@ -204,6 +205,7 @@ export function Audit() {
                         type="tel"
                         required
                         inputMode="tel"
+                        autoComplete="tel"
                         placeholder="+91"
                         className={fieldClass}
                       />
@@ -234,7 +236,7 @@ export function Audit() {
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                   </Button>
 
-                  <p className="text-center text-[11.5px] leading-relaxed text-white/40">
+                  <p className="text-center text-[11.5px] leading-relaxed text-white/55">
                     No cost, no obligation. We reply within three working days.
                   </p>
                 </motion.form>

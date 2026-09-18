@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "motion/react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
@@ -12,15 +12,25 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
+  const menuButton = useRef<HTMLButtonElement>(null);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 24));
 
-  // Lock body scroll while the mobile sheet is open.
+  const closeMenu = () => {
+    setOpen(false);
+    menuButton.current?.focus();
+  };
+
+  // While the mobile sheet is open: lock body scroll, close on Escape.
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (!open) return;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && closeMenu();
+    window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
     };
   }, [open]);
 
@@ -55,7 +65,7 @@ export function Navbar() {
           className={cn(
             "mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-5 transition-all duration-300 sm:px-8 lg:h-18 lg:px-10",
             scrolled &&
-              "mt-2 h-14 max-w-6xl rounded-full border border-ink-200/70 glass shadow-soft lg:h-16",
+              "mt-2 h-14 max-w-[min(72rem,calc(100%-1.5rem))] rounded-full border border-ink-200/70 glass shadow-soft lg:h-16",
           )}
         >
           <a href="#top" aria-label="Reach Media — home" className="shrink-0">
@@ -96,10 +106,13 @@ export function Navbar() {
               <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
             </ButtonLink>
             <button
+              ref={menuButton}
               type="button"
               onClick={() => setOpen(true)}
               aria-label="Open menu"
-              className="grid size-10 place-items-center rounded-full border border-ink-200 bg-white text-ink-700 transition-colors hover:bg-ink-50 lg:hidden"
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              className="grid size-11 place-items-center rounded-full border border-ink-200 bg-white text-ink-700 transition-colors hover:bg-ink-50 lg:hidden"
             >
               <Menu className="size-5" />
             </button>
@@ -118,9 +131,13 @@ export function Navbar() {
           >
             <div
               className="absolute inset-0 bg-ink-900/45 backdrop-blur-sm"
-              onClick={() => setOpen(false)}
+              onClick={closeMenu}
             />
             <motion.div
+              id="mobile-menu"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menu"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -131,9 +148,10 @@ export function Navbar() {
                 <Logo className="h-8" />
                 <button
                   type="button"
-                  onClick={() => setOpen(false)}
+                  onClick={closeMenu}
                   aria-label="Close menu"
-                  className="grid size-10 place-items-center rounded-full text-ink-500 transition-colors hover:bg-ink-100 hover:text-ink-900"
+                  autoFocus
+                  className="grid size-11 place-items-center rounded-full text-ink-500 transition-colors hover:bg-ink-100 hover:text-ink-900"
                 >
                   <X className="size-5" />
                 </button>

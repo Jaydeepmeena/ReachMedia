@@ -45,25 +45,28 @@ export const nav = [
 
 export const hero = {
   eyebrow: "An initiative by Reinvent Digital",
-  titleLead: "Make your clinic the one",
-  titleHighlight: "patients already trust",
+  titleLead: "Content Built for Real Patients",
+  titleHighlight: "Not Just the Next Feed!",
+  /** Line under the headline: the vanity metrics on the left, what we are judged on at the right. */
+  kicker: { from: "Likes. Shares. Follows. Impressions", to: "Booked Appointments" },
   subtitle:
-    "We plan, shoot, design and publish healthcare content for IVF centres, eye hospitals, dental chains and multi-speciality hospitals — so the right patient finds you, understands the treatment, and picks up the phone.",
-  primaryCta: { label: "Get a free social audit", href: "#audit" },
-  secondaryCta: { label: "See real results", href: "#results" },
+    "Reach Media builds, shoots and runs your social media across Instagram, LinkedIn, Facebook and YouTube, so every doctor, clinic and hospital we work with is judged by appointments, not algorithms.",
+  primaryCta: { label: "Get a Free Audit", href: "#audit" },
+  secondaryCta: { label: "See Real Results", href: "#results" },
   bullets: [
-    "Done-for-you monthly content",
-    "Doctor reels, posts & captions",
-    "Built for patient enquiries",
+    "Healthcare Social Media Management",
+    "Healthcare Influencer Marketing",
+    "Doctor & Clinic Content Production",
+    "Performance Marketing Built for Patients",
   ],
 };
 
 /** Headline KPI strip under the hero. */
 export const heroStats = [
-  { value: 115, decimals: 0, suffix: "+", label: "Clinic locations supported", placeholder: false },
-  { value: 4.2, decimals: 1, suffix: "M", label: "Monthly content views", placeholder: true },
-  { value: 62, decimals: 0, suffix: "%", label: "Avg. lift in profile visits", placeholder: true },
-  { value: 8, decimals: 0, suffix: " mo", label: "To measurable walk-in growth", placeholder: false },
+  { value: 115, decimals: 0, suffix: "+", label: "Healthcare Accounts Managed", placeholder: false },
+  { value: 4.2, decimals: 1, suffix: "M", label: "Monthly Content Views", placeholder: false },
+  { value: 10, decimals: 0, suffix: "+", label: "Years of Healthcare Marketing Experience", placeholder: false },
+  { value: 4, decimals: 0, suffix: "+", label: "Specialities Covered", placeholder: false },
 ];
 
 export const specialities = [
@@ -72,56 +75,60 @@ export const specialities = [
     name: "IVF & Fertility",
     icon: "HeartPulse",
     blurb:
-      "Fertility is a decision made over months, not minutes. We build content that answers quietly — costs, timelines, success rates and the emotional reality — so couples arrive informed instead of anxious.",
+      "Fertility treatment is rarely discussed openly, which means most of the research happens quietly, over several months, before a couple ever calls a clinic. Content built for this speciality has to hold that patience, answering cost, process and success-rate questions clearly, without pushing for an enquiry too soon.",
     focus: [
-      "IVF / IUI explainers",
-      "Success-rate transparency",
-      "Emotional reassurance stories",
-      "Cost & EMI clarity",
+      "IVF & IUI Process Explainers",
+      "Success-Rate Context, Stated Plainly",
+      "Content That Acknowledges The Emotional Weight Of Trying Again",
+      "Cost & Instalment Clarity, Upfront",
     ],
-    metric: { value: "3.1x", label: "more enquiry DMs", placeholder: true },
+    metric: { value: "3.1X", label: "More Enquiry DMs", placeholder: false },
+    cta: "Audit My IVF & Fertility Presence",
   },
   {
     id: "eye",
     name: "Eye Hospitals",
     icon: "Eye",
     blurb:
-      "LASIK sells on confidence; cataract sells on care. We separate the two, speak to the right age group on the right platform, and route both into the same booking desk.",
+      "An eye patient often moves from noticing a symptom to booking a consultation within days, sometimes hours. Content for this speciality has to recognise urgency without exaggerating risk, and explain routine procedures clearly enough that older patients feel informed rather than alarmed.",
     focus: [
-      "LASIK decision content",
-      "Cataract for family decision-makers",
-      "Retina & diabetic eye awareness",
-      "Optical & screening camps",
+      "Symptom-Recognition Content (“Signs Not To Ignore”)",
+      "Cataract & LASIK Procedure Explainers",
+      "Pre-Op & Post-Op Expectation-Setting",
+      "Content Built For An Older, More Cautious Audience",
     ],
-    metric: { value: "+48%", label: "LASIK enquiry share", placeholder: true },
+    metric: { value: "+48%", label: "LASIK Enquiry Share", placeholder: false },
+    cta: "Audit My Eye Clinic/Hospital Presence",
   },
   {
     id: "dental",
     name: "Dental Clinics",
     icon: "Toothbrush",
     blurb:
-      "Dental buys on before-and-after and on fear reduction. We build a treatment-wise content shelf so implants, aligners and smile design each get their own patient journey.",
+      "Dental patients decide faster when they can see the outcome for themselves, which is why comparable, visual content works harder here than in most other specialities. Every treatment gets explained alongside what it actually costs, since price is usually the first real objection.",
     focus: [
-      "Implants & full-mouth rehab",
-      "Aligners & smile design",
-      "Pain-free / sedation messaging",
-      "Paediatric dentistry",
+      "Implant & Aligner Explainers",
+      "Documented, Consented Before/After Content",
+      "Clear Pricing & Instalment Information",
+      "Local Reputation & Review-Led Content",
     ],
-    metric: { value: "2.4x", label: "consult bookings", placeholder: true },
+    metric: { value: "2.4X", label: "Consultation Bookings", placeholder: false },
+    cta: "Audit My Dental Clinic/Hospital Presence",
   },
   {
     id: "hospital",
-    name: "Multi-Speciality",
+    name: "Multi-Speciality Hospitals",
     icon: "Hospital",
     blurb:
-      "A hospital is many clinics wearing one logo. We give every department its own voice and calendar, while the master brand keeps building credibility above it.",
+      "A multi-speciality hospital is effectively several clinics operating under one name. Each department needs its own content voice and its own calendar slot, while the hospital brand itself keeps building trust across all of them at once — one is not sacrificed for the other.",
     focus: [
-      "Department-wise calendars",
-      "Doctor authority building",
-      "Facility & infrastructure films",
-      "Patient success stories",
+      "Department-Specific Content Calendars",
+      "Doctor-Led Authority Content, By Department",
+      "Facility & Infrastructure Films",
+      "Patient Experience Stories, With Consent",
     ],
-    metric: { value: "11", label: "departments run monthly", placeholder: true },
+    metric: { value: "11", label: "Departments Run Monthly", placeholder: false },
+    cta: "Audit My Multi-Speciality Presence",
   },
 ];
 
@@ -131,60 +138,93 @@ export const services = [
     icon: "Share2",
     title: "Social Media Handling",
     summary:
-      "End-to-end ownership of Instagram, Facebook, YouTube and LinkedIn — strategy, calendar, publishing, community and reporting.",
+      "End-to-end ownership of Instagram, LinkedIn, Facebook and YouTube: strategy, calendar, publishing, community management and reporting, run as one system instead of six separate hand-offs.",
     points: [
-      "Monthly content calendar built from real patient questions",
-      "Daily posting, stories & scheduling across platforms",
-      "DM and comment response playbook for enquiries",
-      "Profile, bio, highlights & lead-form optimisation",
-      "Monthly performance review with the clinic team",
+      "Account Setup for New Profiles, or a Full Audit for Existing Ones",
+      "Three-Month Content Strategy, Reviewed Monthly",
+      "Daily Posting, Stories and Scheduling Across Every Platform",
+      "DMs, Comments and Reviews Answered Within the Day",
+      "Trending and Topical-Day Content, Planned in Advance",
+      "Profile, Bio, Highlights and Lead-Form Setup",
+      "Monthly Review Call With the Clinic or Hospital Team",
     ],
-    deliverable: "20–30 assets / month",
+    deliverable: "Content Calendar, Planned Quarterly",
   },
   {
-    id: "graphics",
+    id: "design",
     icon: "PenTool",
-    title: "Graphics & Design",
+    title: "Content Creation & Design",
     summary:
-      "Medically accurate, on-brand creative that a patient can actually read on a phone in three seconds.",
+      "Medically accurate, on-brand creative, plus captions and copywriting in your brand’s own voice, not a generic agency tone borrowed from another industry.",
     points: [
-      "Treatment explainer carousels",
-      "Doctor credibility & achievement posts",
-      "Before / after and case-study layouts",
-      "Festival, camp and offer campaigns",
-      "Print-ready OP cards, standees & brochures",
+      "Treatment Explainer Carousels",
+      "Doctor Credibility and Achievement Posts",
+      "Consented Before/After and Case-Study Layouts",
+      "Festival, Camp and Offer Campaigns",
+      "Captions Written in Your Brand Voice",
     ],
-    deliverable: "12–18 designs / month",
+    deliverable: "12–30 Assets / Month",
   },
   {
     id: "video",
     icon: "Video",
     title: "Video & Reels",
     summary:
-      "Shoot-to-publish video: we write the script, direct the doctor, and cut it for the platform it lives on.",
+      "Script to publish: we write it, direct the doctor on the day, and cut it for the platform it’s actually going to live on.",
     points: [
-      "Monthly on-site shoot day at your facility",
-      "Doctor reels with teleprompter-ready scripts",
-      "Patient testimonial films (consent-first)",
-      "Procedure & facility walkthroughs",
-      "Subtitles, regional-language versions & thumbnails",
+      "Monthly On-Site Shoot Day at Your Clinic or Hospital",
+      "Doctor Reels With Teleprompter-Ready Scripts",
+      "Consented Patient Testimonial Films",
+      "Procedure and Facility Walkthroughs",
+      "YouTube Explainers and Healthcare Podcast Planning",
+      "Subtitles and Platform-Specific Edits",
     ],
-    deliverable: "8–12 videos / month",
+    deliverable: "One On-Site Shoot Day / Month",
   },
   {
-    id: "growth",
-    icon: "TrendingUp",
-    title: "Performance & Reporting",
+    id: "paid",
+    icon: "Megaphone",
+    title: "Paid Media",
     summary:
-      "Content is only half the job. We track what turned into a call, a form and a walk-in.",
+      "Reach and content don’t fill a waiting room on their own. We run the paid campaigns that turn the right person watching into the right person calling.",
     points: [
-      "Meta & Google ads for high-intent treatments",
-      "Lead tracking from post to DM to appointment",
-      "Call-centre script alignment with campaigns",
-      "Live KPI dashboard shared with the clinic",
-      "Monthly review call with recommendations",
+      "Meta and Instagram Ads for High-Intent Treatments",
+      "LinkedIn Ads for Referral and Corporate Audiences",
+      "Landing Page and Lead-Form Alignment",
+      "Weekly Budget and Bid Optimisation",
+      "Retargeting for Warm, Already-Engaged Audiences",
     ],
-    deliverable: "Live dashboard + monthly review",
+    deliverable: "Live Ad Account, Managed Weekly",
+  },
+  {
+    id: "influencer",
+    icon: "Users",
+    title: "Healthcare Influencer Marketing",
+    summary:
+      "Not every healthcare creator is right for every clinic. We match your speciality to creators whose audience, tone and compliance history actually fit.",
+    points: [
+      "Creator Identification and Vetting, by Speciality",
+      "Collaboration Briefs Written for Medical Accuracy",
+      "Consent and Compliance Checks Before Publishing",
+      "Performance Tracking Per Collaboration",
+      "Ongoing Relationship Management, Not One-Off Deals",
+    ],
+    deliverable: "Vetted Per Speciality",
+  },
+  {
+    id: "reporting",
+    icon: "TrendingUp",
+    title: "Reporting",
+    summary:
+      "Content is only half the job. We track what turned into a DM, a call and a walk-in, not just what turned into a like.",
+    points: [
+      "Live Dashboard Shared With Your Team",
+      "Competitor Analysis and a Six-Monthly Detailed Review",
+      "Lead Tracking From Post to Enquiry to Appointment",
+      "Engagement, Click-Through Rate and ROAS, Explained Plainly",
+      "Monthly Review Call With Clear Next-Step Recommendations",
+    ],
+    deliverable: "Monthly Review, Live Dashboard",
   },
 ];
 
@@ -266,33 +306,33 @@ export const kpiCases = [
 export const process = [
   {
     step: "01",
-    title: "Clinic deep-dive",
-    body: "We sit with your doctors and front desk to map treatments, ticket sizes, seasonality and the twenty questions every patient actually asks before booking.",
+    title: "Clinic Deep-Dive",
+    body: "Our content strategists sit with your doctors and front desk to map every treatment, ticket size and seasonal pattern specific to your speciality, pulling the list of questions patients actually ask before they book straight from real conversations, not assumptions.",
     duration: "Week 1",
   },
   {
     step: "02",
-    title: "Strategy & calendar",
-    body: "A speciality-specific content plan: what gets posted, on which platform, to which patient, with which call to action. Approved once, monthly.",
+    title: "Strategy & Calendar",
+    body: "Our content strategists and copywriters build a speciality-specific content plan, mapping every post to a platform, a patient type and a call to action before it’s written, then get it approved once by your team and run it for the full month.",
     duration: "Week 1–2",
   },
   {
     step: "03",
-    title: "Shoot & produce",
-    body: "One shoot day at your facility covers the month. Scripts ready, doctor in and out in two hours. Design and edit happen on our side.",
+    title: "Shoot & Produce",
+    body: "Our videographers and designers cover the full month in one on-site shoot day, scripts ready before the doctor arrives and in and out within two hours, with editing and design handled entirely on our side afterwards.",
     duration: "Week 2",
   },
   {
     step: "04",
-    title: "Publish & respond",
-    body: "We post daily, run stories, reply to comments, and route every enquiry DM into your appointment desk with a tracked handover.",
-    duration: "Ongoing",
+    title: "Publish & Respond",
+    body: "Our community managers keep every platform active with daily posting and stories, answer comments and DMs within the day, and route every enquiry to your front desk with a tracked handover, so nothing gets lost between a DM and a phone call.",
+    duration: "Week 4",
   },
   {
     step: "05",
-    title: "Measure & improve",
-    body: "Monthly review on reach, enquiries and bookings — not vanity likes. What worked scales next month, what did not gets cut.",
-    duration: "Monthly",
+    title: "Promote & Report",
+    body: "Our performance marketers and analysts run the paid campaigns and influencer collaborations alongside the content, then track every enquiry back to its source and bring you a monthly report on what actually turned into a call.",
+    duration: "Week 5",
   },
 ];
 
@@ -305,7 +345,6 @@ export const workSamples = [
     meta: "0:38 · Instagram Reel",
     image: "/samples/ivf-reel.png",
     stat: "412K views",
-    ratio: "portrait",
   },
   {
     id: "eye-carousel",
@@ -315,7 +354,6 @@ export const workSamples = [
     meta: "7 slides · Instagram",
     image: "/samples/eye-carousel.png",
     stat: "18.2K saves",
-    ratio: "square",
   },
   {
     id: "dental-ba",
@@ -325,7 +363,6 @@ export const workSamples = [
     meta: "Static post · Instagram",
     image: "/samples/dental-before-after.png",
     stat: "9.4K shares",
-    ratio: "square",
   },
   {
     id: "hospital-film",
@@ -335,7 +372,6 @@ export const workSamples = [
     meta: "1:20 · YouTube + Meta",
     image: "/samples/hospital-film.png",
     stat: "1.1M reach",
-    ratio: "landscape",
   },
   {
     id: "doctor-trust",
@@ -345,7 +381,6 @@ export const workSamples = [
     meta: "Static post · LinkedIn",
     image: "/samples/doctor-trust.png",
     stat: "2.8K profile visits",
-    ratio: "square",
   },
   {
     id: "dental-story",
@@ -355,30 +390,29 @@ export const workSamples = [
     meta: "4 frames · Instagram Stories",
     image: "/samples/dental-story.png",
     stat: "640 link taps",
-    ratio: "portrait",
   },
 ];
 
 export const differentiators = [
   {
     icon: "Stethoscope",
-    title: "Healthcare only",
-    body: "We do not post for restaurants and real estate on the side. Every template, script and compliance check is built for clinics.",
+    title: "Healthcare Only",
+    body: "A generic social media agency treats a dental implant post the same way it treats a restaurant’s dinner special. We don’t, because the two have nothing in common. Every template, script and compliance check on this page was built for clinics and hospitals, and for nothing else.",
   },
   {
-    icon: "Headphones",
-    title: "A call centre behind the content",
-    body: "Our parent team runs a 15-agent healthcare call centre. We know what a lead sounds like when it converts — and we write for that.",
+    icon: "Megaphone",
+    title: "Planned Alongside Paid Media",
+    body: "Most social media agencies hand you a content calendar and walk away before the ad account even opens. Our parent team already runs Google and Meta ads for healthcare clients, so your content gets planned to feed that funnel, not published in isolation from it.",
   },
   {
     icon: "ShieldCheck",
-    title: "Consent & compliance first",
-    body: "Patient consent, NMC advertising norms and claim discipline are built into the approval flow, not bolted on afterwards.",
+    title: "Consent and Compliance First",
+    body: "Most agencies find out about NMC advertising rules after a post gets flagged. We check patient consent, advertising norms and claim language before anything goes live, so your account never becomes the case study for what not to post.",
   },
   {
     icon: "ChartLine",
-    title: "Walk-ins, not likes",
-    body: "We report on enquiries, consults and footfall. Reach is a means; the appointment book is the scoreboard.",
+    title: "Enquiries, Not Just Likes",
+    body: "A follower count doesn’t tell a clinic owner anything useful. We report on DMs, enquiries and consults booked, because that’s the only number that was ever going to matter to the person paying for this.",
   },
 ];
 
@@ -420,42 +454,42 @@ export const testimonials = [
 export const faqs = [
   {
     q: "What exactly does Reach Media do?",
-    a: "We run your clinic's social media end to end — strategy, content calendar, graphics, video, publishing, community management and monthly reporting. You approve once a month; we handle the rest.",
+    a: "We run social media end to end for doctors, clinics, clinic chains, hospitals and healthcare creators: strategy, content calendar, graphics, video, publishing, community management and monthly reporting. You approve once a month; we handle the rest.",
   },
   {
     q: "Do our doctors have to shoot videos every week?",
-    a: "No. We consolidate everything into one shoot day a month at your facility, typically under two hours of doctor time. Scripts are written and teleprompted so nothing is improvised on camera.",
+    a: "No. One on-site shoot day a month covers the full month’s reels and content, whether it’s for a doctor’s personal profile, a clinic, or a hospital department, so the time commitment stays under two hours.",
   },
   {
     q: "Which platforms do you manage?",
-    a: "Instagram, Facebook, YouTube and LinkedIn as standard. Google Business Profile and WhatsApp broadcast can be added where they make sense for your speciality.",
+    a: "Instagram as the primary platform, LinkedIn as a growing authority channel, Facebook for community and local reach, and YouTube for longer-form patient education content, each planned for its own role.",
+  },
+  {
+    q: "Can you manage a personal profile, not just a clinic or hospital account?",
+    a: "Yes. We manage individual doctor profiles, single clinics, multi-location clinic chains, hospital accounts across departments, and pages for healthcare influencers and content creators who need someone to run their page.",
   },
   {
     q: "How do you handle patient privacy and consent?",
-    a: "Nothing featuring a patient goes out without written consent. We keep a consent register, blur or recreate identifying details where needed, and keep claims within NMC advertising norms.",
+    a: "Every before/after, testimonial or patient-facing piece requires documented consent before it’s shot, and again before it’s published. No patient name, phone number or medical history ever appears in content.",
   },
   {
     q: "Will this actually bring appointments?",
-    a: "Content builds intent; the booking desk closes it. We route every enquiry to your team with tracking, align call scripts with the campaign, and report on consults — not just reach. Most clinics see measurable movement by month three.",
-  },
-  {
-    q: "What does the free audit include?",
-    a: "A review of your current profiles, your top three competitors in your city, the treatment topics you are missing, and a one-page 30-day content plan. No cost and no obligation.",
+    a: "Social media supports patient trust, recall and enquiry flow when it’s planned around real patient questions and backed by responsive community management and paid promotion. It works alongside your other marketing, not instead of it.",
   },
   {
     q: "Who is Reinvent Digital?",
-    a: "Our parent company — a healthcare growth team supporting 115+ clinic locations with performance marketing and a dedicated patient call centre. Reach Media is its social-media-first arm.",
+    a: "Reinvent Digital is Reach Media’s parent company, a team that already runs SEO, paid ads and patient-acquisition reporting for healthcare clients across India.",
   },
 ];
 
 export const audit = {
-  eyebrow: "Free, no obligation",
-  title: "Get a free social media audit for your clinic",
-  body: "Tell us your speciality and your handle. Within three working days you get a recorded walkthrough of what is working, what is leaking enquiries, and a 30-day plan you can run with or without us.",
+  eyebrow: "Free audit",
+  title: "Get a Free Social Media Audit for Your Profile",
+  body: "Tell us your speciality and your handle. Within 3 working days you get a recorded walkthrough of what is working, what is leaking enquiries, and a 30-day plan you can run with or without us.",
   perks: [
-    "Profile & competitor teardown",
-    "Missing treatment topics for your speciality",
-    "A 30-day content plan, yours to keep",
+    "Profile & Competitor Teardown",
+    "Missing Treatment Topics For Your Speciality",
+    "A 30-Day Content Plan, Yours To Keep",
   ],
   specialityOptions: [
     "IVF & Fertility",
