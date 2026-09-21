@@ -93,13 +93,14 @@ export function Results() {
                 </div>
 
                 {/* headline number */}
-                <div className="mt-5 flex flex-wrap items-end gap-x-3 gap-y-2">
+                {/* Pill always sits under the figure: when it wrapped only for long figures (37.25M), that one card grew taller and left the rest with dead space at the bottom. */}
+                <div className="mt-5 flex flex-col items-start gap-2">
                   <p className="font-display text-[clamp(2rem,5vw,2.75rem)] font-extrabold leading-none tracking-tight text-white tabular-nums">
                     {item.value}
                   </p>
                   <span
                     className={cn(
-                      "mb-1 inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-bold tabular-nums",
+                      "inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-bold tabular-nums",
                       /^[−-]/.test(item.delta.trim())
                         ? "bg-white/10 text-white/70"
                         : "bg-brand-500/20 text-brand-300",

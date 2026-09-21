@@ -5,7 +5,6 @@ import {
   Container,
   Section,
   SectionHeading,
-  SampleBadge,
 } from "@/components/ui/primitives";
 import { Carousel } from "@/components/ui/carousel";
 import { testimonials } from "@/lib/content";
@@ -45,7 +44,6 @@ export function Testimonials() {
                 <span className="min-w-0">
                   <span className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 font-display text-[14px] font-bold leading-snug text-ink-900">
                     {t.name}
-                    {t.placeholder ? <SampleBadge /> : null}
                   </span>
                   <span className="mt-0.5 block text-xs text-ink-400">
                     {t.role}

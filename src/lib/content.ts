@@ -270,7 +270,7 @@ export const kpiCases = [
     value: "37.25M",
     delta: "+4,451 followers",
     window: "90 days",
-    note: "10.78M separate people over a quarter, 98% of them reached before they followed the account — the clearest picture of content working as patient acquisition rather than audience upkeep.",
+    note: "10.78M people reached in a quarter, 98% of them before they followed the account.",
     image: "/proof/ig-views-37m.png",
     placeholder: false,
     metrics: [
@@ -287,7 +287,7 @@ export const kpiCases = [
     value: "13.16M",
     delta: "+921 followers",
     window: "30 days",
-    note: "97.7% of those views came from people who did not follow the account yet — this is reach into new patients, not the existing audience.",
+    note: "5.26M people reached in a month, 97.7% of them before they followed the account.",
     image: "/proof/ig-views-13m.png",
     placeholder: false,
     metrics: [
@@ -304,7 +304,7 @@ export const kpiCases = [
     value: "4.51M",
     delta: "+983 followers",
     window: "90 days",
-    note: "A quarter of sustained posting: 1.88M unique viewers, and almost all of them outside the existing follower base.",
+    note: "1.88M people reached in a quarter, almost all of them outside the existing followers.",
     image: "/proof/ig-views-4-5m.png",
     placeholder: false,
     metrics: [
@@ -321,7 +321,7 @@ export const kpiCases = [
     value: "1.42M",
     delta: "+266 followers",
     window: "30 days",
-    note: "513,838 separate people saw this clinic in a month, 94% of them before ever following it.",
+    note: "513,838 people saw this clinic in a month, 94% of them before ever following it.",
     image: "/proof/ig-views-1-4m.png",
     placeholder: false,
     metrics: [
@@ -499,6 +499,12 @@ export const differentiators = [
   },
 ];
 
+/**
+ * NOT REAL QUOTES. These four were written as placeholders and are shown
+ * without a "Sample" label at the site owner's request. Replace them with
+ * genuine client testimonials (with the client's consent) before relying on
+ * this section — `placeholder: true` marks the ones still to be swapped.
+ */
 export const testimonials = [
   {
     quote:
