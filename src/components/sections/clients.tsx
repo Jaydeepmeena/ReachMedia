@@ -37,7 +37,7 @@ export function Clients() {
           autoplay
           wheel
           className="mt-12 lg:mt-14"
-          slideClassName="basis-[calc(50%-0.625rem)] sm:basis-[calc(33.333%-0.834rem)] lg:basis-[calc(25%-0.9375rem)]"
+          slideClassName="basis-1/2 sm:basis-1/3 lg:basis-1/4"
         >
           {clients.map((client) => (
             <figure

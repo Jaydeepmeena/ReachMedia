@@ -22,8 +22,14 @@ const WHEEL_IDLE_MS = 220;
 /**
  * The site's one horizontal scroller: swipe / drag the track (mouse drag
  * included), with prev · dots · next underneath. Slide widths come from
- * `slideClassName` (the track has a 1.25rem gap — subtract it in `calc()`
- * basis values).
+ * `slideClassName` — plain fractions (`basis-1/3`), no gap arithmetic needed.
+ *
+ * Spacing lives on the slides as `pl-5`, offset by `-ml-5` on the track,
+ * rather than as `gap` on the track. With `loop`, Embla repositions slides by
+ * translating them instead of reordering the DOM, and a flex `gap` only
+ * applies between DOM-adjacent items — so the wrap point rendered with the
+ * last and first cards touching. Padding travels with the slide, so the
+ * spacing survives the loop.
  *
  * `wheel` additionally lets a mouse wheel or trackpad drive the track.
  */
@@ -150,14 +156,14 @@ export function Carousel({
     <div role="region" aria-roledescription="carousel" aria-label={label} className={className}>
       {/* -my/py pair: room for card shadows without changing layout */}
       <div ref={emblaRef} className="-my-6 overflow-hidden py-6">
-        <div className="flex touch-pan-y gap-5">
+        <div className="flex touch-pan-y -ml-5">
           {slides.map((slide, i) => (
             <div
               key={i}
               role="group"
               aria-roledescription="slide"
               aria-label={`${i + 1} of ${slides.length}`}
-              className={cn("min-w-0 shrink-0 grow-0", slideClassName)}
+              className={cn("min-w-0 shrink-0 grow-0 pl-5", slideClassName)}
             >
               {slide}
             </div>

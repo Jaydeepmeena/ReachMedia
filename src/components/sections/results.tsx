@@ -40,7 +40,7 @@ export function Results() {
             label="Client results"
             wheel
             tone="dark"
-            slideClassName="basis-[88%] sm:basis-[80%] lg:basis-[calc(60%-0.625rem)] xl:basis-[calc(50%-0.625rem)]"
+            slideClassName="basis-[88%] sm:basis-[80%] lg:basis-[60%] xl:basis-1/2"
           >
             {kpiCases.map((item) => (
               <article key={item.id} className="group h-full overflow-hidden rounded-4xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm transition-colors duration-300 hover:border-brand-400/40 hover:bg-white/[0.07] sm:p-6">

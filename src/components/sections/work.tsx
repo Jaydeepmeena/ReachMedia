@@ -89,7 +89,7 @@ export function Work() {
           <Carousel
             label="Work samples"
             wheel
-            slideClassName="basis-[78%] sm:basis-[calc(50%-0.625rem)] lg:basis-[calc(33.333%-0.834rem)] xl:basis-[calc(25%-0.9375rem)]"
+            slideClassName="basis-[78%] sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
           >
             {visible.map((sample) => (
               <figure

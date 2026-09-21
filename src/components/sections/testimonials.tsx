@@ -27,7 +27,7 @@ export function Testimonials() {
           loop
           autoplay
           className="mt-12"
-          slideClassName="basis-full sm:basis-[calc(50%-0.625rem)] lg:basis-[calc(33.333%-0.834rem)]"
+          slideClassName="basis-full sm:basis-1/2 lg:basis-1/3"
         >
           {testimonials.map((t) => (
             <figure
