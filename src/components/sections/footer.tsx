@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/platform-icons";
 import { Container } from "@/components/ui/primitives";
 import { LogoLockupDark } from "@/components/ui/logo";
 import { site, nav, services, specialities } from "@/lib/content";
@@ -31,15 +32,29 @@ export function Footer() {
                   {site.email}
                 </a>
               </li>
-              <li>
-                <a
-                  href={`tel:${site.phone.replace(/\s/g, "")}`}
-                  className="flex items-center gap-2.5 py-1.5 text-[14px] text-white/60 transition-colors hover:text-brand-300"
-                >
-                  <Phone className="size-4 shrink-0" />
-                  {site.phone}
-                </a>
-              </li>
+              {site.contacts.map((c) => (
+                <li key={c.label}>
+                  <a
+                    href={c.href}
+                    {...(c.icon === "whatsapp"
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    className="flex items-center gap-2.5 py-1.5 text-[14px] text-white/60 transition-colors hover:text-brand-300"
+                  >
+                    {c.icon === "whatsapp" ? (
+                      <WhatsAppIcon className="size-4 shrink-0" />
+                    ) : (
+                      <Phone className="size-4 shrink-0" />
+                    )}
+                    <span className="min-w-0">
+                      <span className="block truncate">{c.value}</span>
+                      <span className="block text-[11px] text-white/40">
+                        {c.label}
+                      </span>
+                    </span>
+                  </a>
+                </li>
+              ))}
               <li className="flex items-center gap-2.5 py-1.5 text-[14px] text-white/60">
                 <MapPin className="size-4 shrink-0" />
                 {site.city}

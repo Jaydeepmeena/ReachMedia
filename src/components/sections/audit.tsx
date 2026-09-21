@@ -11,6 +11,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { Container, Button, Eyebrow } from "@/components/ui/primitives";
+import { WhatsAppIcon } from "@/components/ui/platform-icons";
 import { audit, site } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
@@ -94,13 +95,24 @@ export function Audit() {
                 <Mail className="size-4" />
                 {site.email}
               </a>
-              <a
-                href={`tel:${site.phone.replace(/\s/g, "")}`}
-                className="flex items-center gap-2 py-2 text-sm font-medium text-white/60 transition-colors hover:text-brand-300"
-              >
-                <Phone className="size-4" />
-                {site.phone}
-              </a>
+              {site.contacts.map((c) => (
+                <a
+                  key={c.label}
+                  href={c.href}
+                  title={c.label}
+                  {...(c.icon === "whatsapp"
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className="flex items-center gap-2 py-2 text-sm font-medium text-white/60 transition-colors hover:text-brand-300"
+                >
+                  {c.icon === "whatsapp" ? (
+                    <WhatsAppIcon className="size-4 shrink-0" />
+                  ) : (
+                    <Phone className="size-4 shrink-0" />
+                  )}
+                  {c.value}
+                </a>
+              ))}
             </div>
           </div>
 

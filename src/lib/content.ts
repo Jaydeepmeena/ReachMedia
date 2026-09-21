@@ -27,9 +27,29 @@ export const site = {
   description:
     "Healthcare social media management for IVF, eye, dental and multi-speciality hospitals. Content that helps patients understand, trust and book.",
   url: "https://reachmedia.in",
+  // TODO: still a placeholder — no real address was supplied.
   email: "hello@reachmedia.in",
-  phone: "+91 00000 00000",
+  /** Primary line. Also what schema.org `telephone` reports. */
+  phone: "+91 91828 31207",
   city: "India",
+  /**
+   * Shown wherever the site lists a way to get in touch. `href` carries the
+   * protocol: tel: dials, wa.me opens WhatsApp.
+   */
+  contacts: [
+    {
+      label: "Sales",
+      value: "+91 91828 31207",
+      href: "tel:+919182831207",
+      icon: "phone" as const,
+    },
+    {
+      label: "WhatsApp & Messaging",
+      value: "+91 91459 65775",
+      href: "https://wa.me/919145965775",
+      icon: "whatsapp" as const,
+    },
+  ],
   socials: [
     { label: "Instagram", href: "https://instagram.com/" },
     { label: "LinkedIn", href: "https://linkedin.com/" },
