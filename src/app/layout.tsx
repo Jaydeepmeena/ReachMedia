@@ -65,6 +65,10 @@ const jsonLd = {
   url: site.url,
   email: site.email,
   telephone: site.phone,
+  // Only real profiles — placeholder URLs would point search engines nowhere.
+  sameAs: site.socials
+    .map((s) => s.href)
+    .filter((href) => new URL(href).pathname.length > 1),
   parentOrganization: { "@type": "Organization", name: site.parent },
   areaServed: "IN",
   serviceType: [

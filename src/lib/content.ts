@@ -51,9 +51,7 @@ export const site = {
     },
   ],
   socials: [
-    { label: "Instagram", href: "https://instagram.com/" },
-    { label: "LinkedIn", href: "https://linkedin.com/" },
-    { label: "YouTube", href: "https://youtube.com/" },
+    { label: "Instagram", href: "https://www.instagram.com/reachmedia.co.in/" },
   ],
 };
 
