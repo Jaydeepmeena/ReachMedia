@@ -10,3 +10,10 @@ npm-debug.log*
 .vercel
 *.tsbuildinfo
 next-env.d.ts
+
+# Video masters. The compressed, web-ready versions live in public/videos/ and
+# ARE committed. These originals are 30-150MB each — GitHub rejects anything
+# over 100MB, so keep them in shared storage (Drive/Dropbox) instead.
+# Regenerate the published files with:
+#   node scripts/process-client-videos.mjs
+src/client video/

@@ -1,57 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { motion } from "motion/react";
-import { Play, Images, Sparkles, TrendingUp } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import {
   Container,
   Section,
   SectionHeading,
 } from "@/components/ui/primitives";
-import { SmartImage } from "@/components/ui/smart-image";
 import { Carousel } from "@/components/ui/carousel";
+import { SampleVideo } from "@/components/ui/sample-video";
 import { workSamples } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 const filters = ["All", "IVF", "Eye", "Dental", "Hospital"] as const;
 
-function SampleFallback({
-  type,
-  title,
-  speciality,
-}: {
-  type: string;
-  title: string;
-  speciality: string;
-}) {
-  return (
-    <div className="relative grid h-full w-full place-items-center overflow-hidden brand-gradient p-6 text-center">
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-20 [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:28px_28px]"
-      />
-      <div className="relative">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
-          {type === "Doctor Reel" || type === "Facility Film" ? (
-            <Play className="size-3 fill-current" />
-          ) : (
-            <Images className="size-3" />
-          )}
-          {speciality}
-        </span>
-        <p className="mt-4 font-display text-[15px] font-bold leading-snug text-white text-balance sm:text-base">
-          {title}
-        </p>
-        <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.18em] text-white/60">
-          Drop artwork in /public/samples
-        </p>
-      </div>
-    </div>
-  );
-}
-
 export function Work() {
   const [filter, setFilter] = useState<(typeof filters)[number]>("All");
+
+  /**
+   * Which reel currently owns the sound — at most one, ever. Holding it here
+   * rather than in each card means unmuting one mutes the rest by
+   * construction, with no cross-card messaging to get wrong.
+   */
+  const [audioId, setAudioId] = useState<string | null>(null);
+  const releaseAudio = useCallback(() => setAudioId(null), []);
+
   const visible =
     filter === "All"
       ? workSamples
@@ -65,11 +39,10 @@ export function Work() {
             eyebrow="Work samples"
             title="Reels, Carousels & Campaigns We’ve Actually Posted!"
             highlight="We’ve Actually Posted!"
-            lead="Real work for real clinics, hospitals & doctors, across dental, fertility, eye care and multi-speciality, shaped by the deep-driven process we follow for each account."
+            lead="Every clip starts from a question a patient actually asked at the front desk."
             className="max-w-2xl"
           />
 
-          {/* filters — one row above the grid */}
           <div
             role="tablist"
             aria-label="Filter work by speciality"
@@ -81,9 +54,13 @@ export function Work() {
                 type="button"
                 role="tab"
                 aria-selected={filter === f}
-                onClick={() => setFilter(f)}
+                onClick={() => {
+                  setFilter(f);
+                  // Cards unmount on filter change; drop the sound with them.
+                  releaseAudio();
+                }}
                 className={cn(
-                  "relative min-h-11 shrink-0 rounded-full px-4 py-2 text-[13px] font-semibold transition-colors",
+                  "relative shrink-0 rounded-full px-4 py-2 text-[13px] font-semibold transition-colors",
                   filter === f
                     ? "text-white"
                     : "border border-ink-200 text-ink-500 hover:border-brand-300 hover:text-brand-700",
@@ -102,54 +79,42 @@ export function Work() {
           </div>
         </div>
 
-        {/* keyed on the filter: a new filter starts the row from the first card */}
         <motion.div
           key={filter}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
           className="mt-12"
         >
           <Carousel
             label="Work samples"
-            slideClassName="basis-[80%] sm:basis-[calc(50%-0.625rem)] lg:basis-[calc(33.333%-0.834rem)]"
+            wheel
+            slideClassName="basis-[78%] sm:basis-[calc(50%-0.625rem)] lg:basis-[calc(33.333%-0.834rem)] xl:basis-[calc(25%-0.9375rem)]"
           >
             {visible.map((sample) => (
               <figure
                 key={sample.id}
-                className="group relative h-full overflow-hidden rounded-3xl border border-ink-200/70 bg-white shadow-soft transition-shadow duration-300 hover:shadow-lift"
+                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-ink-200/70 bg-white shadow-soft transition-shadow duration-300 hover:shadow-lift"
               >
-                <div className="relative aspect-square w-full overflow-hidden bg-ink-100">
-                  <SmartImage
-                    src={sample.image}
-                    alt={sample.title}
-                    sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 30vw"
-                    imgClassName="transition-transform duration-700 group-hover:scale-[1.06]"
-                    fallback={
-                      <SampleFallback
-                        type={sample.type}
-                        title={sample.title}
-                        speciality={sample.speciality}
-                      />
-                    }
+                {/* Reels are shot 9:16 — show them at their own shape rather
+                    than cropping the captions off the top. */}
+                <div className="relative aspect-[9/16] w-full overflow-hidden bg-ink-100">
+                  <SampleVideo
+                    src={sample.video}
+                    poster={sample.poster}
+                    title={sample.title}
+                    audioOn={audioId === sample.id}
+                    onRequestAudio={() => setAudioId(sample.id)}
+                    onReleaseAudio={releaseAudio}
                   />
 
-                  {/* type chip */}
-                  <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-ink-900/70 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
+                  <span className="pointer-events-none absolute left-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-ink-900/70 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
                     <Sparkles className="size-3" />
                     {sample.type}
                   </span>
-
-                  {/* stat: revealed on hover where hover exists, always shown on touch */}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-900/95 to-transparent p-4 pt-10 transition-transform duration-500 [@media(hover:hover)]:translate-y-full group-hover:translate-y-0">
-                    <p className="flex items-center gap-1.5 text-xs font-bold text-brand-300 tabular-nums">
-                      <TrendingUp className="size-3.5" />
-                      {sample.stat}
-                    </p>
-                  </div>
                 </div>
 
-                <figcaption className="p-4">
+                <figcaption className="flex flex-1 flex-col p-4">
                   <p className="font-display text-[14.5px] font-bold leading-snug text-ink-900 text-balance">
                     {sample.title}
                   </p>

@@ -1,0 +1,6 @@
+{
+  "_comment": "Instagram long-lived access token. Rotated automatically by .github/workflows/refresh-instagram-token.yml. Read-only scope (instagram_business_basic). KEEP THIS REPOSITORY PRIVATE.",
+  "accessToken": "",
+  "expiresAt": null,
+  "refreshedAt": null
+}

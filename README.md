@@ -64,6 +64,98 @@ To collect submissions server-side instead, swap `handleSubmit` in
 POST to Formspree / Resend / your CRM. The one-line change is documented in a
 comment at the top of that file.
 
+## Instagram live feed
+
+The section under Work Samples pulls recent posts straight from Instagram. It
+is **optional** — with no token configured the section simply does not render,
+and nothing else on the page is affected.
+
+### Requirements
+
+- An Instagram **Business** or **Creator** account (a Personal account will not
+  work — switch it in the Instagram app under Settings → Account type).
+- A Meta app. A linked Facebook Page is *not* required with this flow.
+
+> The old Instagram Basic Display API was shut down in December 2024. This uses
+> the current *Instagram API with Instagram Login* (`graph.instagram.com`, v25.0,
+> scope `instagram_business_basic`).
+
+### Setup
+
+1. Go to [developers.facebook.com/apps](https://developers.facebook.com/apps) →
+   **Create app** → use case **Other** → type **Business**.
+2. Add the **Instagram** product, then open **API setup with Instagram login**.
+3. **Generate access token**, authorise your account, and copy the token. Tokens
+   generated here are already long-lived (60 days).
+4. Put it in `.env.local` (copy `.env.example` to start):
+
+   ```bash
+   INSTAGRAM_ACCESS_TOKEN=IGAA...
+   CRON_SECRET=$(openssl rand -hex 32)
+   ```
+
+5. Restart the dev server. On Vercel, add both as Environment Variables and
+   redeploy.
+
+### Where the token lives
+
+Two options; the environment variable wins if both are set.
+
+| | `data/instagram-token.json` | `INSTAGRAM_ACCESS_TOKEN` env var |
+|---|---|---|
+| Committed to the repo | Yes | No |
+| Auto-renewal | GitHub Action, fully hands-off | Vercel cron + Vercel API |
+| Requires | **A private repository** | `VERCEL_API_TOKEN`, `VERCEL_PROJECT_ID`, `VERCEL_DEPLOY_HOOK_URL` |
+
+The repo-file route is the simpler of the two and is what this project is set
+up for. **It depends on this repository staying private.** Put the token in
+`data/instagram-token.json` and leave `expiresAt` / `refreshedAt` as `null` —
+the first run fills them in.
+
+> Make the repository private **before** committing a token. A token pushed to
+> a public repo should be considered burned even if it was only exposed for a
+> few minutes: credential scanners are fast, and git history keeps it. Generate
+> a fresh one in that case.
+
+### Automatic renewal
+
+`.github/workflows/refresh-instagram-token.yml` runs on the **1st and 15th** of
+each month (twice, so one failed run cannot let the token lapse). It:
+
+1. Renews the token if fewer than 25 days remain — tokens last 60
+2. Writes it to `data/instagram-token.json`
+3. Commits and pushes, which triggers a Vercel deployment
+
+Nothing to do by hand. The Action needs only `contents: write` and the built-in
+`GITHUB_TOKEN`; no extra secrets.
+
+Run it manually from the Actions tab (**Run workflow**, optionally ticking
+*force*), or locally:
+
+```bash
+node scripts/refresh-instagram-token.mjs --dry-run   # call the API, change nothing
+node scripts/refresh-instagram-token.mjs             # renew and write
+```
+
+The script never prints the token — logs show `IGAA_R…z789 (183 chars)`. It
+skips when the token was refreshed under 24h ago (Meta rejects those) and
+leaves the file untouched if Meta returns an error.
+
+**If renewal fails repeatedly**, the Action fails loudly in the Actions tab.
+Left unfixed past the 60-day mark the feed goes blank — the section hides
+itself, so the rest of the page is unaffected. Recovery is to generate a fresh
+token in the Meta App Dashboard and paste it into `data/instagram-token.json`.
+
+### How it works
+
+| Concern | Handling |
+|---|---|
+| Token safety | `src/lib/instagram.ts` imports `server-only`, so the build **fails** if it is ever reached from client code. The token never enters a browser bundle. |
+| Rate limits | Posts are fetched with `revalidate: 3600`, so once an hour per deployment, well inside Meta's 200 calls/hour. |
+| Expiring image URLs | Instagram CDN links are signed and expire; the hourly revalidate keeps them fresh. `next.config.ts` allows `**.cdninstagram.com` and `**.fbcdn.net`. |
+| Failure | `getInstagramPosts` returns `null` on any error and never throws. The section renders nothing. |
+| Videos / carousels | Videos use `thumbnail_url`; both are badged in the corner. Every tile links to the real post. |
+
 ## Brand assets
 
 `logo.jpg` is the source lockup. These were derived from it and are what the site

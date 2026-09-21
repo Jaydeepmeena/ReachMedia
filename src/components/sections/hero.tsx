@@ -145,7 +145,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.94, y: 28 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.25, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="relative mx-auto w-full max-w-lg lg:max-w-none xl:px-12"
+            className="relative mx-auto w-full max-w-lg lg:max-w-none"
           >
             <div className="relative rounded-4xl border border-ink-200/80 bg-white/85 p-5 shadow-lift backdrop-blur-sm sm:p-7">
               <div className="flex items-center justify-between gap-3">
@@ -205,6 +205,26 @@ export function Hero() {
                 <PhoneCall className="size-7 shrink-0 opacity-90" strokeWidth={1.7} />
               </div>
 
+              {/* proof numbers — in flow, so they cannot overlap the panel */}
+              <div className="mt-4 grid grid-cols-2 gap-2.5">
+                <div className="rounded-2xl border border-ink-100 bg-ink-50/70 p-3">
+                  <p className="text-[10px] font-semibold uppercase tracking-wider text-ink-400">
+                    Reach this month
+                  </p>
+                  <p className="mt-0.5 font-display text-xl font-extrabold tabular-nums text-ink-900">
+                    <Counter value={412} suffix="K" />
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-ink-100 bg-ink-50/70 p-3">
+                  <p className="text-[10px] font-semibold uppercase tracking-wider text-ink-400">
+                    Enquiry DMs
+                  </p>
+                  <p className="mt-0.5 font-display text-xl font-extrabold tabular-nums text-brand-700">
+                    +<Counter value={214} suffix="%" />
+                  </p>
+                </div>
+              </div>
+
               {/* platform rail */}
               <div className="mt-5 flex items-center justify-between border-t border-ink-100 pt-4">
                 <span className="text-[11px] font-semibold text-ink-400">Published across</span>
@@ -221,35 +241,6 @@ export function Hero() {
                 </div>
               </div>
             </div>
-
-            {/* floating accents */}
-            <motion.div
-              aria-hidden
-              animate={reduced ? {} : { y: [0, -12, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute left-0 top-24 hidden rounded-2xl border border-ink-200/70 bg-white p-3 shadow-lift xl:block"
-            >
-              <p className="text-[10px] font-semibold uppercase tracking-wider text-ink-400">
-                Reach this month
-              </p>
-              <p className="mt-0.5 font-display text-xl font-extrabold tabular-nums text-ink-900">
-                <Counter value={412} suffix="K" />
-              </p>
-            </motion.div>
-
-            <motion.div
-              aria-hidden
-              animate={reduced ? {} : { y: [0, 12, 0] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute right-0 bottom-24 hidden rounded-2xl border border-ink-200/70 bg-white p-3 shadow-lift xl:block"
-            >
-              <p className="text-[10px] font-semibold uppercase tracking-wider text-ink-400">
-                Enquiry DMs
-              </p>
-              <p className="mt-0.5 font-display text-xl font-extrabold tabular-nums text-brand-700">
-                +<Counter value={214} suffix="%" />
-              </p>
-            </motion.div>
           </motion.div>
         </div>
 

@@ -11,9 +11,12 @@
  *  never accidentally publish an unverified claim.
  *
  *  SCREENSHOTS: drop real Meta / Instagram / YouTube analytics exports into
- *      public/proof/    (referenced by `image` below)
- *      public/samples/  (creative work samples)
+ *      public/proof/   (referenced by `image` below)
  *  If a file is missing, the UI falls back to a styled placeholder automatically.
+ *
+ *  VIDEOS: masters live in `src/client video/`. Run
+ *      node scripts/process-client-videos.mjs
+ *  to compress them into public/videos/ with a poster frame each.
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
@@ -229,76 +232,84 @@ export const services = [
 ];
 
 /**
- * KPI / proof cards. Each can carry a real analytics screenshot.
- * Put the file in public/proof/ and set `image` to its path.
+ * KPI / proof cards, each backed by a real Instagram Insights screenshot in
+ * public/proof/ (cropped from the phone captures in src/insights/).
+ *
+ * Every figure below is read off its screenshot — do not edit one without
+ * editing the other, or the card will contradict the evidence beside it.
+ * Strongest account first.
+ *
+ * TODO: `speciality` is the client label shown on the card. None of the four
+ * accounts can be identified from the screenshots themselves, so they all read
+ * "Healthcare client" — set the real client names here.
  */
 export const kpiCases = [
   {
-    id: "ivf-reach",
-    speciality: "IVF & Fertility",
+    id: "ig-views-37m",
+    speciality: "Healthcare client",
     platform: "Instagram Insights",
-    headline: "Accounts reached",
-    value: "1.98M",
-    delta: "+412%",
+    headline: "Views, all content",
+    value: "37.25M",
+    delta: "+4,451 followers",
     window: "90 days",
-    note: "Reel-led education series on IVF cost and success rates.",
-    image: "/proof/ivf-reach.png",
-    placeholder: true,
+    note: "10.78M separate people over a quarter, 98% of them reached before they followed the account — the clearest picture of content working as patient acquisition rather than audience upkeep.",
+    image: "/proof/ig-views-37m.png",
+    placeholder: false,
     metrics: [
-      { label: "Reach", value: "1,984,201", delta: "+412%" },
-      { label: "Profile visits", value: "38,410", delta: "+186%" },
-      { label: "Enquiry DMs", value: "1,247", delta: "+214%" },
+      { label: "Views", value: "37,252,924", delta: "90 days" },
+      { label: "Viewers", value: "10,782,891", delta: "unique" },
+      { label: "Non-followers", value: "98.0%", delta: "new reach" },
     ],
   },
   {
-    id: "eye-lasik",
-    speciality: "Eye Hospital",
-    platform: "Meta Business Suite",
-    headline: "Leads from content",
-    value: "820",
-    delta: "+63%",
-    window: "6 months",
-    note: "LASIK awareness funnel across Reels and lead forms.",
-    image: "/proof/eye-leads.png",
-    placeholder: true,
-    metrics: [
-      { label: "Qualified leads", value: "820", delta: "+63%" },
-      { label: "Cost per lead", value: "₹214", delta: "−41%" },
-      { label: "Consults booked", value: "297", delta: "+58%" },
-    ],
-  },
-  {
-    id: "dental-video",
-    speciality: "Dental Chain",
-    platform: "YouTube Studio",
-    headline: "Video views",
-    value: "742K",
-    delta: "+290%",
-    window: "4 months",
-    note: "Implant explainer series across 9 clinic locations.",
-    image: "/proof/dental-views.png",
-    placeholder: true,
-    metrics: [
-      { label: "Views", value: "742,905", delta: "+290%" },
-      { label: "Watch time", value: "18.4K hrs", delta: "+240%" },
-      { label: "Subscribers", value: "9,120", delta: "+310%" },
-    ],
-  },
-  {
-    id: "hospital-brand",
-    speciality: "Multi-Speciality",
+    id: "ig-views-13m",
+    speciality: "Healthcare client",
     platform: "Instagram Insights",
-    headline: "Follower growth",
-    value: "24.6K",
-    delta: "+178%",
-    window: "8 months",
-    note: "Eleven departments running on one master calendar.",
-    image: "/proof/hospital-followers.png",
-    placeholder: true,
+    headline: "Views, all content",
+    value: "13.16M",
+    delta: "+921 followers",
+    window: "30 days",
+    note: "97.7% of those views came from people who did not follow the account yet — this is reach into new patients, not the existing audience.",
+    image: "/proof/ig-views-13m.png",
+    placeholder: false,
     metrics: [
-      { label: "Followers", value: "24,612", delta: "+178%" },
-      { label: "Interactions", value: "96,430", delta: "+205%" },
-      { label: "Website taps", value: "12,088", delta: "+143%" },
+      { label: "Views", value: "13,160,904", delta: "30 days" },
+      { label: "Viewers", value: "5,263,524", delta: "unique" },
+      { label: "Non-followers", value: "97.7%", delta: "new reach" },
+    ],
+  },
+  {
+    id: "ig-views-4-5m",
+    speciality: "Healthcare client",
+    platform: "Instagram Insights",
+    headline: "Views, all content",
+    value: "4.51M",
+    delta: "+983 followers",
+    window: "90 days",
+    note: "A quarter of sustained posting: 1.88M unique viewers, and almost all of them outside the existing follower base.",
+    image: "/proof/ig-views-4-5m.png",
+    placeholder: false,
+    metrics: [
+      { label: "Views", value: "4,507,743", delta: "90 days" },
+      { label: "Viewers", value: "1,877,705", delta: "unique" },
+      { label: "Non-followers", value: "94.7%", delta: "new reach" },
+    ],
+  },
+  {
+    id: "ig-views-1-4m",
+    speciality: "Healthcare client",
+    platform: "Instagram Insights",
+    headline: "Views, all content",
+    value: "1.42M",
+    delta: "+266 followers",
+    window: "30 days",
+    note: "513,838 separate people saw this clinic in a month, 94% of them before ever following it.",
+    image: "/proof/ig-views-1-4m.png",
+    placeholder: false,
+    metrics: [
+      { label: "Views", value: "1,418,863", delta: "30 days" },
+      { label: "Viewers", value: "513,838", delta: "unique" },
+      { label: "Non-followers", value: "94.0%", delta: "new reach" },
     ],
   },
 ];
@@ -336,61 +347,115 @@ export const process = [
   },
 ];
 
+/**
+ * Work samples — real client reels.
+ *
+ * Videos live in public/videos/ (compressed from `src/client video/` by
+ * `node scripts/process-client-videos.mjs`, which also writes each poster).
+ *
+ * Titles were written from each video's opening frame. Adjust them here if a
+ * clip is about something other than what its first seconds suggest.
+ */
 export const workSamples = [
   {
-    id: "ivf-reel",
+    id: "ivf-next-step",
     type: "Doctor Reel",
     speciality: "IVF",
-    title: "Is IVF painful? A fertility specialist answers",
-    meta: "0:38 · Instagram Reel",
-    image: "/samples/ivf-reel.png",
-    stat: "412K views",
+    client: "Kamineni Fertility",
+    title: "When is IVF actually the next step?",
+    meta: "0:44 · Instagram Reel",
+    video: "/videos/ivf-next-step.mp4",
+    poster: "/videos/ivf-next-step.jpg",
   },
   {
-    id: "eye-carousel",
-    type: "Carousel",
+    id: "eye-examination",
+    type: "Facility Film",
     speciality: "Eye",
-    title: "5 signs you should not ignore blurry vision",
-    meta: "7 slides · Instagram",
-    image: "/samples/eye-carousel.png",
-    stat: "18.2K saves",
+    client: "Kenia Eye & Dental",
+    title: "What happens during an eye examination",
+    meta: "1:18 · Instagram Reel",
+    video: "/videos/eye-examination.mp4",
+    poster: "/videos/eye-examination.jpg",
   },
   {
-    id: "dental-ba",
+    id: "dental-oral-cancer",
+    type: "Doctor Reel",
+    speciality: "Dental",
+    client: "Dental",
+    title: "The real cost of tobacco: oral cancer",
+    meta: "0:36 · Instagram Reel",
+    video: "/videos/dental-oral-cancer.mp4",
+    poster: "/videos/dental-oral-cancer.jpg",
+  },
+  {
+    id: "dental-smile-confidence",
+    type: "Doctor Reel",
+    speciality: "Dental",
+    client: "Oracare Prime",
+    title: "The one thing every smile needs",
+    meta: "0:38 · Instagram Reel",
+    video: "/videos/dental-smile-confidence.mp4",
+    poster: "/videos/dental-smile-confidence.jpg",
+  },
+  {
+    id: "dental-one-click",
     type: "Before / After",
     speciality: "Dental",
-    title: "Full-mouth implants — a six month transformation",
-    meta: "Static post · Instagram",
-    image: "/samples/dental-before-after.png",
-    stat: "9.4K shares",
+    client: "Oracare Prime",
+    title: "Can a smile really be fixed in one click?",
+    meta: "0:12 · Instagram Reel",
+    video: "/videos/dental-one-click.mp4",
+    poster: "/videos/dental-one-click.jpg",
   },
   {
-    id: "hospital-film",
-    type: "Facility Film",
+    id: "hospital-fatty-liver",
+    type: "Doctor Reel",
     speciality: "Hospital",
-    title: "Inside our 24×7 emergency department",
-    meta: "1:20 · YouTube + Meta",
-    image: "/samples/hospital-film.png",
-    stat: "1.1M reach",
+    client: "Kamineni Hospitals",
+    title: "What is fatty liver?",
+    meta: "1:11 · Instagram Reel",
+    video: "/videos/hospital-fatty-liver.mp4",
+    poster: "/videos/hospital-fatty-liver.jpg",
   },
-  {
-    id: "doctor-trust",
-    type: "Trust Post",
-    speciality: "Hospital",
-    title: "Meet the surgeon before the surgery",
-    meta: "Static post · LinkedIn",
-    image: "/samples/doctor-trust.png",
-    stat: "2.8K profile visits",
-  },
-  {
-    id: "dental-story",
-    type: "Story Sequence",
-    speciality: "Dental",
-    title: "Book your aligner consultation this week",
-    meta: "4 frames · Instagram Stories",
-    image: "/samples/dental-story.png",
-    stat: "640 link taps",
-  },
+];
+
+/**
+ * Client logos. Files live in public/clients/ (trimmed and optimised from the
+ * originals in src/client logo/).
+ *
+ * `scale` optically balances the wall: these logos range from nearly square
+ * to 6.5:1, so contain-fitting them all in one box makes the wide ones look
+ * tiny and the square ones look huge. Nudge this per logo, do not change the
+ * grid. 1 = default.
+ */
+/**
+ * Client logos. Source files live in `src/client logo/`; run
+ * `node scripts/process-client-logos.mjs` to regenerate `public/clients/`
+ * after adding one, then add its row here.
+ *
+ * `scale` optically balances the wall — these range from 1.4:1 to 4.2:1, so
+ * contain-fitting them all in one box leaves the widest looking short. Nudge
+ * this per logo rather than changing the box. 1 = default.
+ */
+export const clients = [
+  { name: "Kamineni Hospitals", file: "/clients/kamineni-hospitals.png", sector: "Multi-Speciality", scale: 1 },
+  { name: "PSRI Hospital", file: "/clients/psri-hospital.png", sector: "Multi-Speciality", scale: 1 },
+  { name: "Kamineni Fertility", file: "/clients/kamineni-fertility.png", sector: "IVF & Fertility", scale: 1 },
+  { name: "M'Brace by Kamineni", file: "/clients/mbrace-kamineni.png", sector: "Women & Child", scale: 1 },
+  // 1.43 — the narrowest mark here, so it fills the box height while staying
+  // narrow and reads smaller than its neighbours. Nudged up to compensate.
+  { name: "Kenia Eye & Dental", file: "/clients/kenia-eye-dental.png", sector: "Eye & Dental", scale: 1.18 },
+  // 1:1 — the only square mark, so it fills the box height and reads narrow
+  // next to the wordmarks. Nudged up, but not far: the solid brown block
+  // already carries more visual weight than an outline logo of the same size.
+  { name: "National Dental Care", file: "/clients/national-dental-care.png", sector: "Dental", scale: 1.12 },
+  { name: "Partha Dental", file: "/clients/partha-dental.png", sector: "Dental", scale: 1 },
+  { name: "Eledent International", file: "/clients/eledent-international.png", sector: "Dental", scale: 1 },
+  { name: "Oracare Prime", file: "/clients/oracare-prime.png", sector: "Dental", scale: 1 },
+  { name: "The Dental Roots", file: "/clients/dental-roots.png", sector: "Dental", scale: 1 },
+  { name: "Radiant Dental Care", file: "/clients/radiant-dental-care.png", sector: "Dental", scale: 1 },
+  { name: "Credence Dental", file: "/clients/credence-dental.png", sector: "Dental", scale: 1 },
+  { name: "IVIA Dental", file: "/clients/ivia-dental.png", sector: "Dental", scale: 1 },
 ];
 
 export const differentiators = [

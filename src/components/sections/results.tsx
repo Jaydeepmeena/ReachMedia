@@ -1,6 +1,7 @@
 "use client";
 
 import { ChartColumnIncreasing, Info } from "lucide-react";
+import { InstagramIcon } from "@/components/ui/platform-icons";
 import {
   Container,
   Section,
@@ -11,6 +12,7 @@ import { Carousel } from "@/components/ui/carousel";
 import { SmartImage } from "@/components/ui/smart-image";
 import { ScreenshotFallback, DeltaChip } from "@/components/ui/analytics-mock";
 import { kpiCases } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 export function Results() {
   const hasPlaceholder = kpiCases.some((c) => c.placeholder);
@@ -36,11 +38,42 @@ export function Results() {
         <Reveal className="mt-12 lg:mt-14">
           <Carousel
             label="Client results"
+            wheel
             tone="dark"
-            slideClassName="basis-[88%] sm:basis-[80%] lg:basis-[calc(50%-0.625rem)]"
+            slideClassName="basis-[88%] sm:basis-[80%] lg:basis-[calc(60%-0.625rem)] xl:basis-[calc(50%-0.625rem)]"
           >
             {kpiCases.map((item) => (
               <article key={item.id} className="group h-full overflow-hidden rounded-4xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm transition-colors duration-300 hover:border-brand-400/40 hover:bg-white/[0.07] sm:p-6">
+                {/* The captures are portrait phone screenshots. Stacked above
+                    the numbers they made the card ~1040px tall — taller than a
+                    laptop viewport. Side by side, the card fits on screen and
+                    the shape of the image stops fighting the layout. */}
+                <div className="grid gap-5 sm:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] sm:items-start">
+                {/* screenshot */}
+                <figure className="order-1 overflow-hidden rounded-2xl border border-white/10 bg-ink-900 shadow-lift">
+                  <div className="flex items-center gap-2 border-b border-white/10 bg-white/[0.06] px-3 py-2">
+                    <InstagramIcon className="size-3.5 shrink-0 text-white/70" />
+                    <span className="truncate text-[10px] font-medium text-white/60">
+                      {item.platform}
+                    </span>
+                  </div>
+                  {/* matches the 702x840 crop of the source captures */}
+                  <div className="relative aspect-[5/6] w-full">
+                    <SmartImage
+                      src={item.image}
+                      alt={`${item.platform} analytics for a ${item.speciality} account: ${item.headline} ${item.value}`}
+                      sizes="(max-width: 640px) 88vw, 15rem"
+                      fallback={
+                        <ScreenshotFallback
+                          label={item.platform}
+                          caption={`${item.headline} over ${item.window} — add the account export to public/proof/`}
+                        />
+                      }
+                    />
+                  </div>
+                </figure>
+
+                <div className="order-2 flex h-full flex-col">
                 {/* header */}
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-2.5">
@@ -60,11 +93,18 @@ export function Results() {
                 </div>
 
                 {/* headline number */}
-                <div className="mt-5 flex items-end gap-3">
+                <div className="mt-5 flex flex-wrap items-end gap-x-3 gap-y-2">
                   <p className="font-display text-[clamp(2rem,5vw,2.75rem)] font-extrabold leading-none tracking-tight text-white tabular-nums">
                     {item.value}
                   </p>
-                  <span className="mb-1 inline-flex items-center gap-1 rounded-full bg-brand-500/20 px-2.5 py-1 text-xs font-bold text-brand-300 tabular-nums">
+                  <span
+                    className={cn(
+                      "mb-1 inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-bold tabular-nums",
+                      /^[−-]/.test(item.delta.trim())
+                        ? "bg-white/10 text-white/70"
+                        : "bg-brand-500/20 text-brand-300",
+                    )}
+                  >
                     {item.delta}
                   </span>
                 </div>
@@ -72,50 +112,24 @@ export function Results() {
                   {item.headline}
                 </p>
 
-                {/* the screenshot */}
-                <figure className="mt-5 overflow-hidden rounded-2xl border border-white/10 bg-white shadow-lift">
-                  {/* browser chrome */}
-                  <div className="flex items-center gap-1.5 border-b border-ink-100 bg-ink-50 px-3 py-2">
-                    <span className="size-2 rounded-full bg-[#ff5f57]" />
-                    <span className="size-2 rounded-full bg-[#febc2e]" />
-                    <span className="size-2 rounded-full bg-[#28c840]" />
-                    <span className="ml-2 truncate text-[10px] font-medium text-ink-400">
-                      {item.platform}
-                    </span>
-                  </div>
-                  <div className="relative aspect-[16/10] w-full">
-                    <SmartImage
-                      src={item.image}
-                      alt={`${item.platform} analytics for a ${item.speciality} account: ${item.headline} ${item.value}`}
-                      sizes="(max-width: 1024px) 92vw, 44vw"
-                      fallback={
-                        <ScreenshotFallback
-                          label={item.platform}
-                          caption={`${item.headline} over ${item.window} — add the account export to public/proof/`}
-                        />
-                      }
-                    />
-                  </div>
-                </figure>
-
                 {/* KPI tiles */}
                 {/* phones: one row per metric; sm+: three tiles */}
-                <dl className="mt-4 grid gap-2 sm:grid-cols-3">
+                <dl className="mt-5 grid gap-2">
                   {item.metrics.map((m) => (
                     <div
                       key={m.label}
-                      className="flex min-w-0 items-center justify-between gap-3 rounded-2xl border border-white/8 bg-white/[0.04] px-3 py-2.5 sm:block sm:py-3"
+                      className="flex min-w-0 items-center justify-between gap-3 rounded-2xl border border-white/8 bg-white/[0.04] px-3 py-2.5"
                     >
                       <dt className="text-[10px] font-medium uppercase leading-tight tracking-wide text-white/55">
                         {m.label}
                       </dt>
-                      <dd className="flex items-center gap-2 sm:mt-1 sm:block">
+                      <dd className="flex shrink-0 items-center gap-2">
                         <span className="block font-display text-[15px] font-bold tabular-nums text-white">
                           {m.value}
                         </span>
                         <DeltaChip
                           value={m.delta}
-                          className="bg-brand-500/15 text-brand-300 sm:mt-1.5"
+                          className="bg-brand-500/15 text-brand-300"
                         />
                       </dd>
                     </div>
@@ -125,6 +139,8 @@ export function Results() {
                 <p className="mt-4 text-[12.5px] leading-relaxed text-white/55">
                   {item.note}
                 </p>
+                </div>
+                </div>
               </article>
             ))}
           </Carousel>

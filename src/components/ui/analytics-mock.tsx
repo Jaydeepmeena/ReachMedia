@@ -103,9 +103,14 @@ export function DeltaChip({
   value: string;
   className?: string;
 }) {
-  const negative = value.trim().startsWith("−") || value.trim().startsWith("-");
-  // A falling cost-per-lead is a good outcome, so tone follows intent, not sign.
+  const trimmed = value.trim();
+  const negative = /^[−-]/.test(trimmed);
+  // Only a signed value is a trend. Plain labels like "30 days" or "unique"
+  // get no arrow — an up-arrow beside them states a direction that is not
+  // in the data.
+  const isDelta = negative || /^\+/.test(trimmed);
   const Icon = negative ? ArrowDownRight : ArrowUpRight;
+
   return (
     <span
       className={cn(
@@ -113,7 +118,7 @@ export function DeltaChip({
         className,
       )}
     >
-      <Icon className="size-3" aria-hidden />
+      {isDelta ? <Icon className="size-3" aria-hidden /> : null}
       {value}
     </span>
   );

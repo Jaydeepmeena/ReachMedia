@@ -23,6 +23,7 @@ export function Testimonials() {
 
         <Carousel
           label="Client testimonials"
+          wheel
           loop
           autoplay
           className="mt-12"

@@ -1,0 +1,59 @@
+name: Refresh Instagram token
+
+# The Instagram long-lived token lasts 60 days. This renews it well before
+# then and commits the new value to data/instagram-token.json. That push is
+# what triggers a fresh Vercel deployment, so the new token goes live with no
+# manual step.
+#
+# Runs on the 1st and 15th so a single failed run cannot let the token lapse.
+
+on:
+  schedule:
+    - cron: "0 3 1,15 * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Renew even if the token still has plenty of life left"
+        type: boolean
+        default: false
+
+# Only what is needed to push the updated token file back.
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-instagram-token
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Renew token
+        env:
+          FORCE_REFRESH: ${{ inputs.force && '1' || '' }}
+        run: node scripts/refresh-instagram-token.mjs
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- data/instagram-token.json; then
+            echo "Token unchanged — nothing to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/instagram-token.json
+          git commit -m "chore: rotate Instagram access token [skip ci]"
+          git push
+          echo "Pushed renewed token — Vercel will redeploy."
+
+      - name: Warn if the token is close to expiring
+        if: failure()
+        run: |
+          echo "::error::Instagram token renewal FAILED. If it is not fixed before the token expires, the feed will go blank. Renew manually in the Meta App Dashboard and update data/instagram-token.json."
