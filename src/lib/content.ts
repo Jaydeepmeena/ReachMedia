@@ -27,8 +27,7 @@ export const site = {
   description:
     "Healthcare social media management for IVF, eye, dental and multi-speciality hospitals. Content that helps patients understand, trust and book.",
   url: "https://reachmedia.in",
-  // TODO: still a placeholder — no real address was supplied.
-  email: "hello@reachmedia.in",
+  email: "contact@reachmedia.co.in",
   /** Primary line. Also what schema.org `telephone` reports. */
   phone: "+91 91828 31207",
   city: "India",
