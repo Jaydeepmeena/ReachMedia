@@ -257,14 +257,12 @@ export const services = [
  * editing the other, or the card will contradict the evidence beside it.
  * Strongest account first.
  *
- * TODO: `speciality` is the client label shown on the card. None of the four
- * accounts can be identified from the screenshots themselves, so they all read
- * "Healthcare client" — set the real client names here.
+ * `speciality` is the label shown on each card.
  */
 export const kpiCases = [
   {
     id: "ig-views-37m",
-    speciality: "Healthcare client",
+    speciality: "Dental Hospital",
     platform: "Instagram Insights",
     headline: "Views, all content",
     value: "37.25M",
@@ -281,7 +279,7 @@ export const kpiCases = [
   },
   {
     id: "ig-views-13m",
-    speciality: "Healthcare client",
+    speciality: "Eye Care",
     platform: "Instagram Insights",
     headline: "Views, all content",
     value: "13.16M",
@@ -298,7 +296,7 @@ export const kpiCases = [
   },
   {
     id: "ig-views-4-5m",
-    speciality: "Healthcare client",
+    speciality: "Multi-Speciality Hospital",
     platform: "Instagram Insights",
     headline: "Views, all content",
     value: "4.51M",
@@ -315,7 +313,7 @@ export const kpiCases = [
   },
   {
     id: "ig-views-1-4m",
-    speciality: "Healthcare client",
+    speciality: "IVF & Fertility",
     platform: "Instagram Insights",
     headline: "Views, all content",
     value: "1.42M",
