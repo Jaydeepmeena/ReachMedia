@@ -59,7 +59,7 @@ export async function InstagramFeed() {
           </ButtonLink>
         </div>
 
-        <ul className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-4">
+        <ul className="mt-9 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-4">
           {posts.map((post) => (
             <li key={post.id}>
               <PostCard post={post} />

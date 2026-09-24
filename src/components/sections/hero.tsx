@@ -31,7 +31,7 @@ export function Hero() {
   const reduced = useReducedMotion();
 
   return (
-    <section id="top" className="relative overflow-hidden pt-28 pb-16 sm:pt-32 lg:pt-40 lg:pb-24">
+    <section id="top" className="relative overflow-hidden pt-24 pb-10 sm:pt-28 lg:pt-32 lg:pb-14">
       {/* ambient background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 grid-bg [mask-image:radial-gradient(ellipse_75%_55%_at_50%_0%,#000_20%,transparent_75%)]" />

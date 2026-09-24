@@ -59,7 +59,7 @@ export function Why() {
             </Reveal>
 
             <Reveal delay={0.25}>
-              <ButtonLink href="#audit" size="lg" className="mt-8">
+              <ButtonLink href="/#audit" size="lg" className="mt-8">
                 Start with a free audit
                 <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </ButtonLink>

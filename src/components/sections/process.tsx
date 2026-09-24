@@ -33,7 +33,7 @@ export function Process() {
           className="max-w-3xl"
         />
 
-        <ol ref={trackRef} className="relative mt-12 lg:mt-16">
+        <ol ref={trackRef} className="relative mt-9 lg:mt-12">
           {/* rail */}
           <div
             aria-hidden

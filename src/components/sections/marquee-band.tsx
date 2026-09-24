@@ -1,20 +1,19 @@
 import {
-  HeartPulse,
   Eye,
-  Toothbrush,
   Hospital,
-  Syringe,
+  ScanFace,
   Baby,
   Bone,
   Brain,
 } from "lucide-react";
+import { FertilityIcon, ToothIcon } from "@/components/ui/medical-icons";
 
 const items = [
-  { icon: HeartPulse, label: "IVF & Fertility" },
+  { icon: FertilityIcon, label: "IVF & Fertility" },
   { icon: Eye, label: "Eye Hospitals" },
-  { icon: Toothbrush, label: "Dental Clinics" },
+  { icon: ToothIcon, label: "Dental Clinics" },
   { icon: Hospital, label: "Multi-Speciality" },
-  { icon: Syringe, label: "Cosmetology" },
+  { icon: ScanFace, label: "Cosmetology" },
   { icon: Baby, label: "Paediatrics" },
   { icon: Bone, label: "Orthopaedics" },
   { icon: Brain, label: "Neurology" },

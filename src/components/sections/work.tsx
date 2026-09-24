@@ -11,12 +11,17 @@ import {
 import { Carousel } from "@/components/ui/carousel";
 import { SampleVideo } from "@/components/ui/sample-video";
 import { workSamples } from "@/lib/content";
+import { PortfolioCta } from "@/components/ui/portfolio-cta";
 import { cn } from "@/lib/utils";
 
-const filters = ["All", "IVF", "Eye", "Dental", "Hospital"] as const;
+/**
+ * Derived from the samples rather than hardcoded: a speciality added in
+ * content.ts used to have no tab, so its reels were unreachable.
+ */
+const filters = ["All", ...new Set(workSamples.map((s) => s.speciality))];
 
 export function Work() {
-  const [filter, setFilter] = useState<(typeof filters)[number]>("All");
+  const [filter, setFilter] = useState<string>("All");
 
   /**
    * Which reel currently owns the sound — at most one, ever. Holding it here
@@ -84,7 +89,7 @@ export function Work() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="mt-12"
+          className="mt-9"
         >
           <Carousel
             label="Work samples"
@@ -126,6 +131,8 @@ export function Work() {
             ))}
           </Carousel>
         </motion.div>
+
+        <PortfolioCta />
       </Container>
     </Section>
   );

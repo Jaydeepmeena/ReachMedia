@@ -29,7 +29,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={cn("relative py-20 sm:py-24 lg:py-32", className)}
+      className={cn("relative py-10 sm:py-12 lg:py-14", className)}
     >
       {children}
     </section>
@@ -50,20 +50,13 @@ export function Eyebrow({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em]",
+        "inline-flex items-center rounded-full border px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em]",
         tone === "light"
           ? "border-brand-200 bg-brand-50 text-brand-700"
           : "border-white/15 bg-white/10 text-brand-200",
         className,
       )}
     >
-      <span
-        className={cn(
-          "size-1.5 rounded-full",
-          tone === "light" ? "bg-brand-500" : "bg-brand-300",
-        )}
-        aria-hidden
-      />
       {children}
     </span>
   );

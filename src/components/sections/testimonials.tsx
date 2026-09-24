@@ -25,7 +25,7 @@ export function Testimonials() {
           wheel
           loop
           autoplay
-          className="mt-12"
+          className="mt-9"
           slideClassName="basis-full sm:basis-1/2 lg:basis-1/3"
         >
           {testimonials.map((t) => (

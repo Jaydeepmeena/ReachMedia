@@ -35,7 +35,7 @@ export function Results() {
           className="max-w-3xl"
         />
 
-        <Reveal className="mt-12 lg:mt-14">
+        <Reveal className="mt-9 lg:mt-10">
           <Carousel
             label="Client results"
             wheel

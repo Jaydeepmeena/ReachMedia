@@ -1,16 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ComponentType } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import {
-  HeartPulse,
   Eye,
-  Toothbrush,
   Hospital,
   Check,
   ArrowRight,
-  type LucideIcon,
 } from "lucide-react";
+import { FertilityIcon, ToothIcon } from "@/components/ui/medical-icons";
 import {
   Container,
   Section,
@@ -21,10 +19,15 @@ import {
 import { specialities } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
-const icons: Record<string, LucideIcon> = {
-  HeartPulse,
+// Keys match `icon` in content.ts. ToothIcon is hand-drawn (lucide has no
+// tooth), so the map takes any component with className + strokeWidth.
+const icons: Record<
+  string,
+  ComponentType<{ className?: string; strokeWidth?: number }>
+> = {
+  Fertility: FertilityIcon,
   Eye,
-  Toothbrush,
+  Tooth: ToothIcon,
   Hospital,
 };
 
@@ -44,7 +47,7 @@ export function Specialities() {
           className="max-w-3xl"
         />
 
-        <div className="mt-12 grid gap-6 lg:mt-14 lg:grid-cols-[minmax(0,20rem)_1fr] lg:gap-8">
+        <div className="mt-9 grid gap-6 lg:mt-14 lg:grid-cols-[minmax(0,20rem)_1fr] lg:gap-8">
           {/* Selector */}
           <div
             role="tablist"
@@ -158,7 +161,7 @@ export function Specialities() {
                       {active.metric.label} · Typical 6 Month Engagement
                     </p>
                   </div>
-                  <ButtonLink href="#audit" variant="secondary" size="md">
+                  <ButtonLink href="/#audit" variant="secondary" size="md">
                     {active.cta}
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
                   </ButtonLink>

@@ -55,24 +55,25 @@ export const site = {
 };
 
 export const nav = [
-  { label: "Specialities", href: "#specialities" },
-  { label: "Services", href: "#services" },
-  { label: "Results", href: "#results" },
-  { label: "Process", href: "#process" },
-  { label: "Work", href: "#work" },
-  { label: "FAQs", href: "#faqs" },
+  { label: "Specialities", href: "/#specialities" },
+  { label: "Services", href: "/#services" },
+  { label: "Results", href: "/#results" },
+  { label: "Process", href: "/#process" },
+  { label: "Work", href: "/#work" },
+  { label: "FAQs", href: "/#faqs" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export const hero = {
   eyebrow: "An initiative by Reinvent Digital",
   titleLead: "Content Built for Real Patients",
-  titleHighlight: "Not Just the Next Feed!",
+  titleHighlight: "Not Just Random Viewers!",
   /** Line under the headline: the vanity metrics on the left, what we are judged on at the right. */
   kicker: { from: "Likes. Shares. Follows. Impressions", to: "Booked Appointments" },
   subtitle:
-    "Reach Media builds, shoots and runs your social media across Instagram, LinkedIn, Facebook and YouTube, so every doctor, clinic and hospital we work with is judged by appointments, not algorithms.",
+    "Our healthcare social media marketing agency’s aim is not just to get you the highest number of views, likes or shares! We build the content around real patient queries, answer it the same way your target audience wants to listen or watch, increasing the chances of real walk-ins, instead of just filler comments, or manipulated followers!",
   primaryCta: { label: "Get a Free Audit", href: "#audit" },
-  secondaryCta: { label: "See Real Results", href: "#results" },
+  secondaryCta: { label: "See Real Results", href: "/#results" },
   bullets: [
     "Healthcare Social Media Management",
     "Healthcare Influencer Marketing",
@@ -93,7 +94,7 @@ export const specialities = [
   {
     id: "ivf",
     name: "IVF & Fertility",
-    icon: "HeartPulse",
+    icon: "Fertility",
     blurb:
       "Fertility treatment is rarely discussed openly, which means most of the research happens quietly, over several months, before a couple ever calls a clinic. Content built for this speciality has to hold that patience, answering cost, process and success-rate questions clearly, without pushing for an enquiry too soon.",
     focus: [
@@ -123,7 +124,7 @@ export const specialities = [
   {
     id: "dental",
     name: "Dental Clinics",
-    icon: "Toothbrush",
+    icon: "Tooth",
     blurb:
       "Dental patients decide faster when they can see the outcome for themselves, which is why comparable, visual content works harder here than in most other specialities. Every treatment gets explained alongside what it actually costs, since price is usually the first real objection.",
     focus: [
@@ -371,6 +372,26 @@ export const process = [
  * Titles were written from each video's opening frame. Adjust them here if a
  * clip is about something other than what its first seconds suggest.
  */
+/**
+ * The portfolio deck, shown under the work samples. The PDF lives in public/;
+ * the cover is page 1 rendered to an image so the card shows the real deck
+ * rather than a generic file icon. Figures below are quoted from the deck.
+ */
+export const portfolio = {
+  title: "Healthcare Social Media Portfolio",
+  description:
+    "The full deck: the accounts we run, the numbers behind them, and the campaigns built to move behaviour rather than impressions.",
+  file: "/reach-media-portfolio.pdf",
+  cover: "/portfolio-cover.jpg",
+  pages: 20,
+  highlights: [
+    { value: "10+", label: "Years, healthcare only" },
+    { value: "65+", label: "Healthcare brands" },
+    { value: "50cr+", label: "Ad spend managed" },
+    { value: "4", label: "Specialities" },
+  ],
+};
+
 export const workSamples = [
   {
     id: "ivf-next-step",
@@ -431,6 +452,56 @@ export const workSamples = [
     meta: "1:11 · Instagram Reel",
     video: "/videos/hospital-fatty-liver.mp4",
     poster: "/videos/hospital-fatty-liver.jpg",
+  },
+  {
+    id: "ivf-birth-defects",
+    type: "Doctor Reel",
+    speciality: "IVF",
+    client: "Kamineni Fertility · M'Brace",
+    title: "Are IVF babies at higher risk of birth defects?",
+    meta: "1:21 · Instagram Reel",
+    video: "/videos/ivf-birth-defects.mp4",
+    poster: "/videos/ivf-birth-defects.jpg",
+  },
+  {
+    id: "complete-womens-care",
+    type: "Doctor Reel",
+    speciality: "Women & Child",
+    client: "M'Brace by Kamineni",
+    title: "Complete women's care, under one roof",
+    meta: "0:40 · Instagram Reel",
+    video: "/videos/complete-womens-care.mp4",
+    poster: "/videos/complete-womens-care.jpg",
+  },
+  {
+    id: "breastfeeding-truth",
+    type: "Doctor Reel",
+    speciality: "Women & Child",
+    client: "M'Brace by Kamineni",
+    title: "The truth about breastfeeding",
+    meta: "1:05 · Instagram Reel",
+    video: "/videos/breastfeeding-truth.mp4",
+    poster: "/videos/breastfeeding-truth.jpg",
+  },
+  {
+    id: "breast-pain-after-delivery",
+    type: "Doctor Reel",
+    speciality: "Women & Child",
+    client: "M'Brace by Kamineni",
+    title: "Breast pain after delivery: when to worry",
+    meta: "1:16 · Instagram Reel",
+    video: "/videos/breast-pain-after-delivery.mp4",
+    poster: "/videos/breast-pain-after-delivery.jpg",
+  },
+  {
+    id: "latch-score",
+    type: "Doctor Reel",
+    speciality: "Women & Child",
+    client: "M'Brace by Kamineni",
+    title: "Are you using the latch score?",
+    meta: "1:56 · Instagram Reel",
+    video: "/videos/latch-score.mp4",
+    poster: "/videos/latch-score.jpg",
   },
 ];
 

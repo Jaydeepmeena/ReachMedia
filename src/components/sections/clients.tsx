@@ -36,7 +36,7 @@ export function Clients() {
           loop
           autoplay
           wheel
-          className="mt-12 lg:mt-14"
+          className="mt-9 lg:mt-10"
           slideClassName="basis-1/2 sm:basis-1/3 lg:basis-1/4"
         >
           {clients.map((client) => (

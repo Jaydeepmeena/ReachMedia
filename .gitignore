@@ -17,3 +17,7 @@ next-env.d.ts
 # Regenerate the published files with:
 #   node scripts/process-client-videos.mjs
 src/client video/
+
+# Portfolio master. The served copy is public/reach-media-portfolio.pdf —
+# committing both would double 10MB for no benefit.
+src/*.pdf

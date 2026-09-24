@@ -36,7 +36,11 @@ export function Navbar() {
 
   // Scroll-spy for the active nav item.
   useEffect(() => {
-    const ids = nav.map((n) => n.href.slice(1));
+    // Nav hrefs are "/#section" so they work from /blog too; the scroll-spy
+    // wants the bare id, and entries like "/blog" have none.
+    const ids = nav
+      .filter((n) => n.href.includes("#"))
+      .map((n) => n.href.split("#")[1]);
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -68,7 +72,7 @@ export function Navbar() {
               "mt-2 h-14 max-w-[min(72rem,calc(100%-1.5rem))] rounded-full border border-ink-200/70 glass shadow-soft lg:h-16",
           )}
         >
-          <a href="#top" aria-label="Reach Media — home" className="shrink-0">
+          <a href="/#top" aria-label="Reach Media — home" className="shrink-0">
             <Logo className={cn("transition-all", scrolled && "h-8 sm:h-9")} />
           </a>
 
@@ -98,7 +102,7 @@ export function Navbar() {
 
           <div className="flex items-center gap-2">
             <ButtonLink
-              href="#audit"
+              href="/#audit"
               size="sm"
               className="hidden sm:inline-flex"
             >
@@ -176,7 +180,7 @@ export function Navbar() {
 
               <div className="border-t border-ink-100 p-4">
                 <ButtonLink
-                  href="#audit"
+                  href="/#audit"
                   size="lg"
                   onClick={() => setOpen(false)}
                   className="w-full"

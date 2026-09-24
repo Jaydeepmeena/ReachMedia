@@ -66,18 +66,18 @@ export function Footer() {
             title="Specialities"
             links={specialities.map((s) => ({
               label: s.name,
-              href: "#specialities",
+              href: "/#specialities",
             }))}
           />
           <FooterCol
             title="Services"
-            links={services.map((s) => ({ label: s.title, href: "#services" }))}
+            links={services.map((s) => ({ label: s.title, href: "/#services" }))}
           />
           <FooterCol
             title="Company"
             links={[
-              ...nav.filter((n) => ["#results", "#process", "#work", "#faqs"].includes(n.href)),
-              { label: "Get a free audit", href: "#audit" },
+              ...nav.filter((n) => ["/#results", "/#process", "/#work", "/#faqs"].includes(n.href)),
+              { label: "Get a free audit", href: "/#audit" },
             ]}
           />
         </div>

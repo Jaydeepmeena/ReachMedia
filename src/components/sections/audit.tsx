@@ -9,56 +9,89 @@ import {
   Phone,
   Sparkles,
   ChevronDown,
+  AlertCircle,
 } from "lucide-react";
-import { Container, Button, Eyebrow } from "@/components/ui/primitives";
+import { Container, Button, ButtonLink, Eyebrow } from "@/components/ui/primitives";
 import { WhatsAppIcon } from "@/components/ui/platform-icons";
 import { audit, site } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 /**
- * The form hands off to the clinic's own mail client, so it works the moment
- * this site is deployed — no backend, no silent drop-off.
+ * Free-audit form. Submits to /api/audit, which creates the contact in Go
+ * High Level. The CRM token lives on the server, so it never reaches the
+ * browser.
  *
- * To collect submissions server-side instead, replace `handleSubmit` with a
- * POST to your endpoint (Formspree, Resend, an /api route, your CRM):
- *
- *   await fetch("https://formspree.io/f/XXXXXXX", {
- *     method: "POST",
- *     headers: { "Content-Type": "application/json" },
- *     body: JSON.stringify(payload),
- *   });
+ * If the submission fails the visitor is not left stranded — the error state
+ * offers the same details as a pre-filled email, so the enquiry is never lost
+ * because the CRM was down.
  */
 
 const fieldClass =
   "h-12 w-full rounded-2xl border border-white/15 bg-white/8 px-4 text-base text-white placeholder:text-white/50 transition-colors focus:border-brand-400 focus:bg-white/12 focus:outline-none";
 
 export function Audit() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [error, setError] = useState("");
+  const [mailto, setMailto] = useState("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (status === "sending") return;
+
     const form = new FormData(e.currentTarget);
     const get = (k: string) => String(form.get(k) ?? "").trim();
+    const payload = {
+      clinic: get("clinic"),
+      speciality: get("speciality"),
+      name: get("name"),
+      phone: get("phone"),
+      email: get("email"),
+      handle: get("handle"),
+      message: get("message"),
+      company: get("company"), // honeypot — bots fill this, people cannot see it
+    };
 
+    // Prepared up front so the error state can offer it without re-reading the
+    // form, which is already unmounted by then.
     const body = [
-      `Clinic: ${get("clinic")}`,
-      `Speciality: ${get("speciality")}`,
-      `Name: ${get("name")}`,
-      `Phone: ${get("phone")}`,
-      `Instagram / website: ${get("handle")}`,
+      `Clinic: ${payload.clinic}`,
+      `Speciality: ${payload.speciality}`,
+      `Name: ${payload.name}`,
+      `Phone: ${payload.phone}`,
+      payload.email ? `Email: ${payload.email}` : "",
+      `Instagram / website: ${payload.handle}`,
       "",
-      get("message") || "(no additional notes)",
-    ].join("\n");
+      payload.message || "(no additional notes)",
+    ]
+      .filter(Boolean)
+      .join("\n");
+    setMailto(
+      `mailto:${site.email}?subject=${encodeURIComponent(
+        `Free audit request — ${payload.clinic || "clinic"}`,
+      )}&body=${encodeURIComponent(body)}`,
+    );
 
-    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
-      `Free audit request — ${get("clinic") || "clinic"}`,
-    )}&body=${encodeURIComponent(body)}`;
-
-    setSent(true);
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/audit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const json = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        error?: string;
+      };
+      if (!res.ok || !json.ok) throw new Error(json.error || "Submission failed");
+      setStatus("sent");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Submission failed");
+      setStatus("error");
+    }
   }
 
   return (
-    <section id="audit" className="relative overflow-hidden bg-ink-900 py-20 sm:py-24 lg:py-28">
+    <section id="audit" className="relative overflow-hidden bg-ink-900 py-10 sm:py-12 lg:py-14">
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:64px_64px]" />
         <div className="absolute -left-24 top-0 size-[32rem] rounded-full bg-[radial-gradient(circle,rgba(31,148,64,0.45),transparent_62%)] blur-3xl" />
@@ -119,7 +152,7 @@ export function Audit() {
           {/* Form */}
           <div className="relative rounded-4xl border border-white/12 bg-white/[0.05] p-6 backdrop-blur-md sm:p-8">
             <AnimatePresence mode="wait">
-              {sent ? (
+              {status === "sent" ? (
                 <motion.div
                   key="sent"
                   initial={{ opacity: 0, scale: 0.96 }}
@@ -130,18 +163,40 @@ export function Audit() {
                     <Check className="size-8 text-white" strokeWidth={3} />
                   </span>
                   <h3 className="mt-6 font-display text-2xl font-extrabold text-white">
-                    Almost there
+                    Request received
                   </h3>
                   <p className="mt-3 max-w-sm text-[14.5px] leading-relaxed text-white/60">
-                    Your email app should have opened with the details filled in.
-                    Hit send and we will come back within three working days.
+                    Thank you — your details are with our team. We will come back
+                    to you within three working days with your audit.
                   </p>
+                </motion.div>
+              ) : status === "error" ? (
+                <motion.div
+                  key="error"
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex min-h-[26rem] flex-col items-center justify-center text-center"
+                >
+                  <span className="grid size-16 place-items-center rounded-full bg-white/10">
+                    <AlertCircle className="size-8 text-white" strokeWidth={2} />
+                  </span>
+                  <h3 className="mt-6 font-display text-2xl font-extrabold text-white">
+                    That did not go through
+                  </h3>
+                  <p className="mt-3 max-w-sm text-[14.5px] leading-relaxed text-white/60">
+                    {error || "Something went wrong at our end."} Send it to us
+                    directly instead — your details are already filled in.
+                  </p>
+                  <ButtonLink href={mailto} variant="light" size="md" className="mt-6">
+                    <Mail className="size-4" />
+                    Email it instead
+                  </ButtonLink>
                   <button
                     type="button"
-                    onClick={() => setSent(false)}
-                    className="mt-6 text-sm font-semibold text-brand-300 underline-offset-4 hover:underline"
+                    onClick={() => setStatus("idle")}
+                    className="mt-4 text-sm font-semibold text-brand-300 underline-offset-4 hover:underline"
                   >
-                    Edit my details
+                    Try again
                   </button>
                 </motion.div>
               ) : (
@@ -156,6 +211,17 @@ export function Audit() {
                     <Sparkles className="size-3.5" />
                     Request your audit
                   </div>
+
+                  {/* Not visible and skipped by keyboard and screen readers;
+                      only automated submissions fill it in. */}
+                  <input
+                    type="text"
+                    name="company"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden
+                    className="hidden"
+                  />
 
                   <div className="grid gap-4 sm:grid-cols-2">
                     <label className="grid gap-1.5">
@@ -226,6 +292,19 @@ export function Audit() {
 
                   <label className="grid gap-1.5">
                     <span className="text-[12.5px] font-semibold text-white/70">
+                      Email <span className="font-normal text-white/40">(optional)</span>
+                    </span>
+                    <input
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      placeholder="you@clinic.com"
+                      className={fieldClass}
+                    />
+                  </label>
+
+                  <label className="grid gap-1.5">
+                    <span className="text-[12.5px] font-semibold text-white/70">
                       Instagram handle or website
                     </span>
                     <input name="handle" placeholder="@yourclinic" className={fieldClass} />
@@ -243,8 +322,13 @@ export function Audit() {
                     />
                   </label>
 
-                  <Button type="submit" size="lg" className="mt-1 w-full">
-                    Send audit request
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="mt-1 w-full"
+                    disabled={status === "sending"}
+                  >
+                    {status === "sending" ? "Sending…" : "Send audit request"}
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                   </Button>
 

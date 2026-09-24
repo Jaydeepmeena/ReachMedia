@@ -41,6 +41,11 @@ const SLUGS = {
   // Dentistry Digitally" card — it is a dental reel, not a hospital one.
   "multi speciality 1.mp4": "dental-smile-confidence",
   "Multi speciality.mp4": "hospital-fatty-liver",
+  "Breast pain after delivery.mp4": "breast-pain-after-delivery",
+  "Complete Women’s Care.mp4": "complete-womens-care",
+  "Does IVF Cause Birth Defects.mp4": "ivf-birth-defects",
+  "Latch score.mp4": "latch-score",
+  "Truth about brestfeeding.mp4": "breastfeeding-truth",
 };
 
 /** The card is a few hundred px wide; 720p vertical is already generous. */
