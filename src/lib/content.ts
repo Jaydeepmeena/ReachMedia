@@ -377,6 +377,38 @@ export const process = [
  * the cover is page 1 rendered to an image so the card shows the real deck
  * rather than a generic file icon. Figures below are quoted from the deck.
  */
+/**
+ * Static creatives — the design half of Work Samples, shown on the
+ * "Creatives" tab beside the reels. Files live in public/creatives/
+ * (resized and compressed from src/client creatives/).
+ */
+export const creatives = [
+  // Titles are the headline as it appears on each creative — not a paraphrase.
+  // ── Dental ────────────────────────────────────────────────────────────────
+  { id: "partha-plaque", client: "Partha Dental", speciality: "Dental", title: "How fast does plaque turn into something brushing can't fix?", image: "/creatives/partha-plaque.jpg" },
+  { id: "partha-heart-under-40", client: "Partha Dental", speciality: "Multi-Speciality", title: "1 in 5 heart attack patients in India is under 40", image: "/creatives/partha-heart-under-40.jpg" },
+  { id: "eledent-dry-mouth", client: "Eledent International", speciality: "Dental", title: "That constant thirst? Your mouth is sending an SOS", image: "/creatives/eledent-dry-mouth.jpg" },
+  { id: "credence-sinus-effects", client: "Credence Dental", speciality: "Dental", title: "The effects: when sinus trouble starts in a tooth", image: "/creatives/credence-sinus-effects.jpg" },
+  { id: "credence-medical-emergency", client: "Credence Dental", speciality: "Dental", title: "This is a medical emergency", image: "/creatives/credence-medical-emergency.jpg" },
+
+  // ── Women & Child ─────────────────────────────────────────────────────────
+  { id: "mbrace-fact-behind-advice", client: "M'Brace by Kamineni", speciality: "IVF", title: "The fact behind the advice", image: "/creatives/mbrace-fact-behind-advice.jpg" },
+  { id: "mbrace-her-journey", client: "M'Brace by Kamineni", speciality: "IVF", title: "Her journey has many forms", image: "/creatives/mbrace-her-journey.jpg" },
+  { id: "mbrace-pregnancy-normal", client: "M'Brace by Kamineni", speciality: "IVF", title: "Is this normal? Pregnancy sends signals", image: "/creatives/mbrace-pregnancy-normal.jpg" },
+  { id: "mbrace-found-a-lump", client: "M'Brace by Kamineni", speciality: "Multi-Speciality", title: "\"I found a lump.\" Does that mean cancer?", image: "/creatives/mbrace-found-a-lump.jpg" },
+  { id: "mbrace-doesnt-hurt", client: "M'Brace by Kamineni", speciality: "IVF", title: "\"But it doesn't hurt.\" That doesn't mean ignore it", image: "/creatives/mbrace-doesnt-hurt.jpg" },
+
+  // ── Multi-speciality ──────────────────────────────────────────────────────
+  { id: "psri-acidity", client: "PSRI Hospital", speciality: "Multi-Speciality", title: "Roz acidity hona normal hai kya?", image: "/creatives/psri-acidity.jpg" },
+  { id: "psri-period-pain", client: "PSRI Hospital", speciality: "Multi-Speciality", title: "Periods mein extreme pain — normal hai kya?", image: "/creatives/psri-period-pain.jpg" },
+  { id: "psri-heart-attack-signs", client: "PSRI Hospital", speciality: "Multi-Speciality", title: "One of the most ignored symptoms of a heart attack", image: "/creatives/psri-heart-attack-signs.jpg" },
+  { id: "psri-pacemaker", client: "PSRI Hospital", speciality: "Multi-Speciality", title: "It's a device. Smaller than a matchbox.", image: "/creatives/psri-pacemaker.jpg" },
+  { id: "psri-kabhi-socha", client: "PSRI Hospital", speciality: "Multi-Speciality", title: "Kabhi socha bhi nahi tha", image: "/creatives/psri-kabhi-socha.jpg" },
+  { id: "psri-papa-ne-kaha", client: "PSRI Hospital", speciality: "Multi-Speciality", title: "Papa ne kaha — \"kuch nahi, thoda sa dard hai\"", image: "/creatives/psri-papa-ne-kaha.jpg" },
+];
+
+
+
 export const portfolio = {
   title: "Healthcare Social Media Portfolio",
   description:
@@ -404,6 +436,16 @@ export const workSamples = [
     poster: "/videos/ivf-next-step.jpg",
   },
   {
+    id: "ivf-birth-defects",
+    type: "Doctor Reel",
+    speciality: "IVF",
+    client: "Kamineni Fertility · M'Brace",
+    title: "Are IVF babies at higher risk of birth defects?",
+    meta: "1:21 · Instagram Reel",
+    video: "/videos/ivf-birth-defects.mp4",
+    poster: "/videos/ivf-birth-defects.jpg",
+  },
+  {
     id: "eye-examination",
     type: "Facility Film",
     speciality: "Eye",
@@ -412,6 +454,36 @@ export const workSamples = [
     meta: "1:18 · Instagram Reel",
     video: "/videos/eye-examination.mp4",
     poster: "/videos/eye-examination.jpg",
+  },
+  {
+    id: "partha-implant-crown",
+    type: "Treatment Ad",
+    speciality: "Dental",
+    client: "Partha Dental",
+    title: "Implant plus crown: a complete tooth again",
+    meta: "0:24 · Instagram Reel",
+    video: "/videos/partha-implant-crown.mp4",
+    poster: "/videos/partha-implant-crown.jpg",
+  },
+  {
+    id: "partha-braces",
+    type: "Treatment Ad",
+    speciality: "Dental",
+    client: "Partha Dental",
+    title: "Crooked teeth can be straightened",
+    meta: "0:22 · Instagram Reel",
+    video: "/videos/partha-braces.mp4",
+    poster: "/videos/partha-braces.jpg",
+  },
+  {
+    id: "partha-full-mouth-implant",
+    type: "Treatment Ad",
+    speciality: "Dental",
+    client: "Partha Dental",
+    title: "Rome wasn't built in a day, neither is a full mouth",
+    meta: "0:21 · Instagram Reel",
+    video: "/videos/partha-full-mouth-implant.mp4",
+    poster: "/videos/partha-full-mouth-implant.jpg",
   },
   {
     id: "dental-oral-cancer",
@@ -444,66 +516,37 @@ export const workSamples = [
     poster: "/videos/dental-one-click.jpg",
   },
   {
+    id: "kamineni-01",
+    type: "Doctor Reel",
+    speciality: "Multi-Speciality",
+    client: "Kamineni Hospitals",
+    title: "When \"just tired\" is not just tired",
+    meta: "0:46 · Instagram Reel",
+    video: "/videos/kamineni-01.mp4",
+    poster: "/videos/kamineni-01.jpg",
+  },
+  {
+    id: "kamineni-02",
+    type: "Doctor Reel",
+    speciality: "Multi-Speciality",
+    client: "Kamineni Hospitals",
+    title: "Emergency or OPD: which one do you need?",
+    meta: "0:43 · Instagram Reel",
+    video: "/videos/kamineni-02.mp4",
+    poster: "/videos/kamineni-02.jpg",
+  },
+  {
     id: "hospital-fatty-liver",
     type: "Doctor Reel",
-    speciality: "Hospital",
+    speciality: "Multi-Speciality",
     client: "Kamineni Hospitals",
     title: "What is fatty liver?",
     meta: "1:11 · Instagram Reel",
     video: "/videos/hospital-fatty-liver.mp4",
     poster: "/videos/hospital-fatty-liver.jpg",
   },
-  {
-    id: "ivf-birth-defects",
-    type: "Doctor Reel",
-    speciality: "IVF",
-    client: "Kamineni Fertility · M'Brace",
-    title: "Are IVF babies at higher risk of birth defects?",
-    meta: "1:21 · Instagram Reel",
-    video: "/videos/ivf-birth-defects.mp4",
-    poster: "/videos/ivf-birth-defects.jpg",
-  },
-  {
-    id: "complete-womens-care",
-    type: "Doctor Reel",
-    speciality: "Women & Child",
-    client: "M'Brace by Kamineni",
-    title: "Complete women's care, under one roof",
-    meta: "0:40 · Instagram Reel",
-    video: "/videos/complete-womens-care.mp4",
-    poster: "/videos/complete-womens-care.jpg",
-  },
-  {
-    id: "breastfeeding-truth",
-    type: "Doctor Reel",
-    speciality: "Women & Child",
-    client: "M'Brace by Kamineni",
-    title: "The truth about breastfeeding",
-    meta: "1:05 · Instagram Reel",
-    video: "/videos/breastfeeding-truth.mp4",
-    poster: "/videos/breastfeeding-truth.jpg",
-  },
-  {
-    id: "breast-pain-after-delivery",
-    type: "Doctor Reel",
-    speciality: "Women & Child",
-    client: "M'Brace by Kamineni",
-    title: "Breast pain after delivery: when to worry",
-    meta: "1:16 · Instagram Reel",
-    video: "/videos/breast-pain-after-delivery.mp4",
-    poster: "/videos/breast-pain-after-delivery.jpg",
-  },
-  {
-    id: "latch-score",
-    type: "Doctor Reel",
-    speciality: "Women & Child",
-    client: "M'Brace by Kamineni",
-    title: "Are you using the latch score?",
-    meta: "1:56 · Instagram Reel",
-    video: "/videos/latch-score.mp4",
-    poster: "/videos/latch-score.jpg",
-  },
 ];
+
 
 /**
  * Client logos. Files live in public/clients/ (trimmed and optimised from the

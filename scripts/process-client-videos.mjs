@@ -20,7 +20,7 @@
 
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
-import { readdir, stat, mkdir } from "node:fs/promises";
+import { readdir, stat, mkdir, unlink } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
@@ -41,11 +41,12 @@ const SLUGS = {
   // Dentistry Digitally" card — it is a dental reel, not a hospital one.
   "multi speciality 1.mp4": "dental-smile-confidence",
   "Multi speciality.mp4": "hospital-fatty-liver",
-  "Breast pain after delivery.mp4": "breast-pain-after-delivery",
-  "Complete Women’s Care.mp4": "complete-womens-care",
   "Does IVF Cause Birth Defects.mp4": "ivf-birth-defects",
-  "Latch score.mp4": "latch-score",
-  "Truth about brestfeeding.mp4": "breastfeeding-truth",
+  "03_Partha Implant plus Crown Ad.mp4": "partha-implant-crown",
+  "04_Patha Braces-2.mp4": "partha-braces",
+  "05_Partha Full Mouth Implant.mp4": "partha-full-mouth-implant",
+  "Kamineni_01.mp4": "kamineni-01",
+  "Kamineni_02.mp4": "kamineni-02",
 };
 
 /** The card is a few hundred px wide; 720p vertical is already generous. */
@@ -84,11 +85,13 @@ async function findBinary(name) {
 }
 
 const force = process.argv.includes("--force");
+const prune = process.argv.includes("--prune");
 const ffmpeg = await findBinary("ffmpeg");
 const ffprobe = await findBinary("ffprobe");
 await mkdir(OUT, { recursive: true });
 
 const files = (await readdir(SRC)).filter((f) => /\.(mp4|mov|m4v|webm)$/i.test(f));
+const produced = new Set();
 let totalBefore = 0;
 let totalAfter = 0;
 let missing = 0;
@@ -110,6 +113,8 @@ for (const file of files.sort()) {
   if (!force && existsSync(mp4) && (await stat(mp4)).mtimeMs > srcStat.mtimeMs) {
     const kept = (await stat(mp4)).size;
     totalAfter += kept;
+    produced.add(`${slug}.mp4`);
+    produced.add(`${slug}.jpg`);
     console.log(`${slug.padEnd(30)} up to date  ${(kept / 1e6).toFixed(1)}MB`);
     continue;
   }
@@ -161,6 +166,8 @@ for (const file of files.sort()) {
     console.log(`${slug.padEnd(30)} re-encode was larger — kept original, remuxed`);
   }
 
+  produced.add(`${slug}.mp4`);
+  produced.add(`${slug}.jpg`);
   const posterSize = (await stat(poster)).size;
   totalAfter += outSize;
 
@@ -170,6 +177,15 @@ for (const file of files.sort()) {
       `(−${(100 - (outSize / srcStat.size) * 100).toFixed(0)}%)  ` +
       `${duration.toFixed(0)}s  poster ${(posterSize / 1024).toFixed(0)}KB`,
   );
+}
+
+if (prune) {
+  for (const f of await readdir(OUT)) {
+    if (/[.](mp4|jpg)$/i.test(f) && !produced.has(f)) {
+      await unlink(join(OUT, f));
+      console.log(`PRUNED ${f} — no matching source`);
+    }
+  }
 }
 
 console.log(
