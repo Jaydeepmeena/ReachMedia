@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { site } from "@/lib/content";
+import { CallButton } from "@/components/ui/call-button";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -92,6 +93,7 @@ export default function RootLayout({
     <html lang="en" className={jakarta.variable}>
       <body className="antialiased">
         {children}
+        <CallButton />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

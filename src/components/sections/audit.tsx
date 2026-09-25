@@ -41,33 +41,24 @@ export function Audit() {
     const form = new FormData(e.currentTarget);
     const get = (k: string) => String(form.get(k) ?? "").trim();
     const payload = {
-      clinic: get("clinic"),
-      speciality: get("speciality"),
       name: get("name"),
       phone: get("phone"),
       email: get("email"),
-      handle: get("handle"),
-      message: get("message"),
+      speciality: get("speciality"),
       company: get("company"), // honeypot — bots fill this, people cannot see it
     };
 
     // Prepared up front so the error state can offer it without re-reading the
     // form, which is already unmounted by then.
     const body = [
-      `Clinic: ${payload.clinic}`,
-      `Speciality: ${payload.speciality}`,
       `Name: ${payload.name}`,
       `Phone: ${payload.phone}`,
-      payload.email ? `Email: ${payload.email}` : "",
-      `Instagram / website: ${payload.handle}`,
-      "",
-      payload.message || "(no additional notes)",
-    ]
-      .filter(Boolean)
-      .join("\n");
+      `Email: ${payload.email}`,
+      `Speciality: ${payload.speciality}`,
+    ].join("\n");
     setMailto(
       `mailto:${site.email}?subject=${encodeURIComponent(
-        `Free audit request — ${payload.clinic || "clinic"}`,
+        `Free audit request — ${payload.name || "website"}`,
       )}&body=${encodeURIComponent(body)}`,
     );
 
@@ -223,57 +214,20 @@ export function Audit() {
                     className="hidden"
                   />
 
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <label className="grid gap-1.5">
-                      <span className="text-[12.5px] font-semibold text-white/70">
-                        Clinic / hospital name
-                      </span>
-                      <input
-                        name="clinic"
-                        autoComplete="organization"
-                        required
-                        placeholder="e.g. Sunrise Fertility Centre"
-                        className={fieldClass}
-                      />
-                    </label>
-                    <label className="grid gap-1.5">
-                      <span className="text-[12.5px] font-semibold text-white/70">
-                        Speciality
-                      </span>
-                      <div className="relative">
-                        <select
-                          name="speciality"
-                          required
-                          defaultValue=""
-                          className={cn(
-                            fieldClass,
-                            "appearance-none pr-11 [&>option]:bg-ink-800 [&>option]:text-white",
-                          )}
-                        >
-                          <option value="" disabled>
-                            Select one
-                          </option>
-                          {audit.specialityOptions.map((o) => (
-                            <option key={o} value={o}>
-                              {o}
-                            </option>
-                          ))}
-                        </select>
-                        <ChevronDown
-                          aria-hidden
-                          className="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-white/45"
-                        />
-                      </div>
-                    </label>
-                  </div>
+                  <label className="grid gap-1.5">
+                    <span className="text-[12.5px] font-semibold text-white/70">
+                      Full name
+                    </span>
+                    <input
+                      name="name"
+                      required
+                      autoComplete="name"
+                      placeholder="Dr. / Mr. / Ms."
+                      className={fieldClass}
+                    />
+                  </label>
 
                   <div className="grid gap-4 sm:grid-cols-2">
-                    <label className="grid gap-1.5">
-                      <span className="text-[12.5px] font-semibold text-white/70">
-                        Your name
-                      </span>
-                      <input name="name" required autoComplete="name" placeholder="Dr. / Mr. / Ms." className={fieldClass} />
-                    </label>
                     <label className="grid gap-1.5">
                       <span className="text-[12.5px] font-semibold text-white/70">
                         Phone / WhatsApp
@@ -288,38 +242,49 @@ export function Audit() {
                         className={fieldClass}
                       />
                     </label>
+                    <label className="grid gap-1.5">
+                      <span className="text-[12.5px] font-semibold text-white/70">
+                        Email
+                      </span>
+                      <input
+                        name="email"
+                        type="email"
+                        required
+                        autoComplete="email"
+                        placeholder="you@clinic.com"
+                        className={fieldClass}
+                      />
+                    </label>
                   </div>
 
                   <label className="grid gap-1.5">
                     <span className="text-[12.5px] font-semibold text-white/70">
-                      Email <span className="font-normal text-white/40">(optional)</span>
+                      Speciality
                     </span>
-                    <input
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      placeholder="you@clinic.com"
-                      className={fieldClass}
-                    />
-                  </label>
-
-                  <label className="grid gap-1.5">
-                    <span className="text-[12.5px] font-semibold text-white/70">
-                      Instagram handle or website
-                    </span>
-                    <input name="handle" placeholder="@yourclinic" className={fieldClass} />
-                  </label>
-
-                  <label className="grid gap-1.5">
-                    <span className="text-[12.5px] font-semibold text-white/70">
-                      Anything specific you want reviewed?
-                    </span>
-                    <textarea
-                      name="message"
-                      rows={3}
-                      placeholder="Optional"
-                      className={cn(fieldClass, "h-auto resize-none py-3 leading-relaxed")}
-                    />
+                    <div className="relative">
+                      <select
+                        name="speciality"
+                        required
+                        defaultValue=""
+                        className={cn(
+                          fieldClass,
+                          "appearance-none pr-11 [&>option]:bg-ink-800 [&>option]:text-white",
+                        )}
+                      >
+                        <option value="" disabled>
+                          Select one
+                        </option>
+                        {audit.specialityOptions.map((o) => (
+                          <option key={o} value={o}>
+                            {o}
+                          </option>
+                        ))}
+                      </select>
+                      <ChevronDown
+                        aria-hidden
+                        className="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-white/45"
+                      />
+                    </div>
                   </label>
 
                   <Button

@@ -50,7 +50,8 @@ export const site = {
     },
   ],
   socials: [
-    { label: "Instagram", href: "https://www.instagram.com/reachmedia.co.in/" },
+    { label: "Instagram", href: "https://www.instagram.com/reachmedia.co.in/", icon: "instagram" as const },
+    { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61594659239826", icon: "facebook" as const },
   ],
 };
 
@@ -683,6 +684,9 @@ export const faqs = [
 ];
 
 export const audit = {
+  /** Go High Level form embed — change it in GHL, not here. */
+  ghlFormId: "O1QSt7AsUJaaNnacGQH1",
+  ghlFormName: "Reach Media Form",
   eyebrow: "Free audit",
   title: "Get a Free Social Media Audit for Your Profile",
   body: "Tell us your speciality and your handle. Within 3 working days you get a recorded walkthrough of what is working, what is leaking enquiries, and a 30-day plan you can run with or without us.",
@@ -691,11 +695,15 @@ export const audit = {
     "Missing Treatment Topics For Your Speciality",
     "A 30-Day Content Plan, Yours To Keep",
   ],
+  /**
+   * These must match the options on the GHL custom field
+   * (contact.speciality, id BtOlZ14iFAyoXzG7lzFk) exactly — GHL stores a
+   * SINGLE_OPTIONS value only when it is one of its own choices.
+   */
   specialityOptions: [
     "IVF & Fertility",
     "Eye Hospital",
-    "Dental Clinic",
+    "Dental Clinic/Hospital",
     "Multi-Speciality Hospital",
-    "Other",
   ],
 };

@@ -16,14 +16,18 @@ import "server-only";
 const API = "https://services.leadconnectorhq.com";
 const VERSION = "2021-07-28";
 
+/**
+ * The "Speciality" custom field on the GHL form (contact.speciality). Writing
+ * it here means a lead from this site lands with exactly the same fields as
+ * one from GHL's own embedded form.
+ */
+const SPECIALITY_FIELD_ID = "BtOlZ14iFAyoXzG7lzFk";
+
 export type AuditLead = {
-  clinic: string;
-  speciality: string;
   name: string;
   phone: string;
-  email?: string;
-  handle?: string;
-  message?: string;
+  email: string;
+  speciality: string;
 };
 
 export type GhlResult =
@@ -67,9 +71,8 @@ export function isGhlConfigured(): boolean {
 }
 
 /**
- * Creates the contact. The speciality, Instagram handle and free-text message
- * have no matching contact field, so they go on a note attached to the contact
- * — that keeps them with the lead instead of being dropped.
+ * Creates the contact. Every field the form collects maps onto the contact
+ * itself — the speciality rides along as a tag — so nothing needs a note.
  */
 export async function createAuditContact(lead: AuditLead): Promise<GhlResult> {
   const token = process.env.GHL_API_TOKEN;
@@ -87,12 +90,13 @@ export async function createAuditContact(lead: AuditLead): Promise<GhlResult> {
     name: lead.name.trim(),
     locationId,
     phone,
-    companyName: lead.clinic.trim(),
+    email: lead.email.trim(),
     source: "Website — free audit form",
     tags: ["Website Audit Request", lead.speciality].filter(Boolean),
+    customFields: [
+      { id: SPECIALITY_FIELD_ID, field_value: lead.speciality },
+    ],
   };
-  if (lead.email?.trim()) body.email = lead.email.trim();
-  if (lead.handle?.trim()) body.website = lead.handle.trim();
 
   let res: Response;
   try {
@@ -128,33 +132,7 @@ export async function createAuditContact(lead: AuditLead): Promise<GhlResult> {
   }
 
   const contactId = payload.contact?.id ?? payload.meta?.contactId ?? null;
-
-  if (contactId) {
-    await addNote(token, contactId, lead).catch((err) =>
-      console.error("[ghl] note failed (contact was still created):", err),
-    );
-  }
-
   return { ok: true, contactId, duplicate };
-}
-
-async function addNote(token: string, contactId: string, lead: AuditLead) {
-  const lines = [
-    `Clinic: ${lead.clinic}`,
-    `Speciality: ${lead.speciality}`,
-    `Phone: ${lead.phone}`,
-    lead.email ? `Email: ${lead.email}` : null,
-    lead.handle ? `Instagram / website: ${lead.handle}` : null,
-    "",
-    lead.message?.trim() || "(no additional notes)",
-  ].filter(Boolean);
-
-  await fetch(`${API}/contacts/${contactId}/notes`, {
-    method: "POST",
-    headers: headers(token),
-    body: JSON.stringify({ body: lines.join("\n") }),
-    cache: "no-store",
-  });
 }
 
 /** Used only to clean up a test contact. */

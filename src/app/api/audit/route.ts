@@ -57,14 +57,14 @@ export async function POST(request: Request) {
   // a bot cannot tell it was rejected.
   if (data.company) return NextResponse.json({ ok: true });
 
-  const clinic = data.clinic?.trim() ?? "";
   const name = data.name?.trim() ?? "";
   const phone = data.phone?.trim() ?? "";
+  const email = data.email?.trim() ?? "";
   const speciality = data.speciality?.trim() ?? "";
 
-  if (!clinic || !name || !phone || !speciality) {
+  if (!name || !phone || !email || !speciality) {
     return NextResponse.json(
-      { ok: false, error: "Please fill in every required field." },
+      { ok: false, error: "Please fill in every field." },
       { status: 422 },
     );
   }
@@ -74,16 +74,15 @@ export async function POST(request: Request) {
       { status: 422 },
     );
   }
+  // Deliberately loose: the point is to catch a typo, not to police addresses.
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return NextResponse.json(
+      { ok: false, error: "That email address looks incomplete." },
+      { status: 422 },
+    );
+  }
 
-  const result = await createAuditContact({
-    clinic,
-    speciality,
-    name,
-    phone,
-    email: data.email?.trim(),
-    handle: data.handle?.trim(),
-    message: data.message?.trim(),
-  });
+  const result = await createAuditContact({ name, phone, email, speciality });
 
   if (!result.ok) {
     return NextResponse.json(

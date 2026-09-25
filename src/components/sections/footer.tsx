@@ -1,5 +1,9 @@
-import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
-import { WhatsAppIcon } from "@/components/ui/platform-icons";
+import { Mail, Phone, MapPin } from "lucide-react";
+import {
+  WhatsAppIcon,
+  InstagramIcon,
+  FacebookIcon,
+} from "@/components/ui/platform-icons";
 import { Container } from "@/components/ui/primitives";
 import { LogoLockupDark } from "@/components/ui/logo";
 import { site, nav, services, specialities } from "@/lib/content";
@@ -60,6 +64,28 @@ export function Footer() {
                 {site.city}
               </li>
             </ul>
+
+            {/* Social profiles sit with the rest of the contact details rather
+                than alone in the bottom bar. */}
+            <div className="mt-5 flex items-center gap-2.5">
+              {site.socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${site.name} on ${s.label}`}
+                  title={s.label}
+                  className="grid size-10 place-items-center rounded-full border border-white/12 bg-white/5 text-white/70 transition-colors hover:border-brand-400/50 hover:bg-white/10 hover:text-brand-300"
+                >
+                  {s.icon === "facebook" ? (
+                    <FacebookIcon className="size-4" />
+                  ) : (
+                    <InstagramIcon className="size-4" />
+                  )}
+                </a>
+              ))}
+            </div>
           </div>
 
           <FooterCol
@@ -87,21 +113,6 @@ export function Footer() {
             © {year} {site.name}. An initiative by{" "}
             <span className="font-semibold text-white/65">{site.parent}</span>.
           </p>
-
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            {site.socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-1 py-1.5 text-[13px] font-medium text-white/60 transition-colors hover:text-brand-300"
-              >
-                {s.label}
-                <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
-            ))}
-          </div>
         </div>
       </Container>
     </footer>
