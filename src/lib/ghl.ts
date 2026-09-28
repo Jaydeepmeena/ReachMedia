@@ -2,11 +2,14 @@ import "server-only";
 
 /**
  * ─────────────────────────────────────────────────────────────────────────────
- *  GO HIGH LEVEL — audit form → CRM contact
+ *  GO HIGH LEVEL — audit form → CRM contact + pipeline opportunity
  * ─────────────────────────────────────────────────────────────────────────────
  *  Needs two environment variables, never committed:
  *      GHL_API_TOKEN    private integration token (pit-…)
  *      GHL_LOCATION_ID  the sub-account the contact belongs to
+ *
+ *  Optional, to retarget the board without a deploy:
+ *      GHL_PIPELINE_ID        GHL_PIPELINE_STAGE_ID
  *
  *  Server-only: the token is read here and never reaches the browser. The
  *  build fails if this module is ever imported from client code.
@@ -23,6 +26,21 @@ const VERSION = "2021-07-28";
  */
 const SPECIALITY_FIELD_ID = "BtOlZ14iFAyoXzG7lzFk";
 
+/**
+ * Where a website lead lands on the board: "Client Acquisition - Reach Media"
+ * → "Lead Received", the same pipeline and stage the Meta Ads leads arrive in,
+ * so the whole top of funnel is in one place.
+ *
+ * Renaming a stage in GHL keeps its id; deleting one does not. A wrong id here
+ * only costs the opportunity, never the contact — see createAuditContact's
+ * caller.
+ */
+const PIPELINE_ID = process.env.GHL_PIPELINE_ID || "9qUwTfvTPDJj8Uqs5PCt";
+const PIPELINE_STAGE_ID =
+  process.env.GHL_PIPELINE_STAGE_ID || "8d4f5af0-7d1b-4eb0-a28a-2229c737d46a";
+
+const SOURCE = "Website — free audit form";
+
 export type AuditLead = {
   name: string;
   phone: string;
@@ -32,6 +50,10 @@ export type AuditLead = {
 
 export type GhlResult =
   | { ok: true; contactId: string | null; duplicate: boolean }
+  | { ok: false; error: string; status?: number };
+
+export type OpportunityResult =
+  | { ok: true; opportunityId: string | null }
   | { ok: false; error: string; status?: number };
 
 function headers(token: string) {
@@ -91,7 +113,7 @@ export async function createAuditContact(lead: AuditLead): Promise<GhlResult> {
     locationId,
     phone,
     email: lead.email.trim(),
-    source: "Website — free audit form",
+    source: SOURCE,
     tags: ["Website Audit Request", lead.speciality].filter(Boolean),
     customFields: [
       { id: SPECIALITY_FIELD_ID, field_value: lead.speciality },
@@ -135,11 +157,88 @@ export async function createAuditContact(lead: AuditLead): Promise<GhlResult> {
   return { ok: true, contactId, duplicate };
 }
 
+/**
+ * Puts the lead on the sales board as an open opportunity.
+ *
+ * Deliberately separate from the contact: a contact is a record, an
+ * opportunity is work to be done. The caller creates the contact first and
+ * treats a failure here as non-fatal, because the lead's details are already
+ * safe in the CRM and the visitor should not be told to resubmit over a
+ * pipeline that has been renamed.
+ */
+export async function createAuditOpportunity(
+  contactId: string,
+  lead: AuditLead,
+): Promise<OpportunityResult> {
+  const token = process.env.GHL_API_TOKEN;
+  const locationId = process.env.GHL_LOCATION_ID;
+  if (!token || !locationId) {
+    return { ok: false, error: "GHL is not configured" };
+  }
+
+  // The kanban card shows the name alone, so carrying the speciality in it
+  // saves opening every card to see what the enquiry is about.
+  const name = lead.speciality
+    ? `${lead.name.trim()} — ${lead.speciality}`
+    : lead.name.trim();
+
+  const body = {
+    pipelineId: PIPELINE_ID,
+    pipelineStageId: PIPELINE_STAGE_ID,
+    locationId,
+    contactId,
+    name,
+    status: "open",
+    source: SOURCE,
+  };
+
+  let res: Response;
+  try {
+    res = await fetch(`${API}/opportunities/`, {
+      method: "POST",
+      headers: headers(token),
+      body: JSON.stringify(body),
+      cache: "no-store",
+    });
+  } catch (err) {
+    console.error("[ghl] opportunity request failed:", err);
+    return { ok: false, error: "Could not reach the CRM" };
+  }
+
+  const payload = (await res.json().catch(() => ({}))) as {
+    opportunity?: { id?: string };
+    id?: string;
+    message?: string | string[];
+  };
+
+  if (!res.ok) {
+    const message = Array.isArray(payload.message)
+      ? payload.message.join("; ")
+      : payload.message ?? `${res.status} ${res.statusText}`;
+    console.error(`[ghl] create opportunity failed: ${res.status}`, message);
+    return { ok: false, error: message, status: res.status };
+  }
+
+  return { ok: true, opportunityId: payload.opportunity?.id ?? payload.id ?? null };
+}
+
 /** Used only to clean up a test contact. */
 export async function deleteContact(contactId: string): Promise<boolean> {
   const token = process.env.GHL_API_TOKEN;
   if (!token) return false;
   const res = await fetch(`${API}/contacts/${contactId}`, {
+    method: "DELETE",
+    headers: headers(token),
+    cache: "no-store",
+  });
+  return res.ok;
+}
+
+/** Used only to clean up a test opportunity. */
+export async function deleteOpportunity(opportunityId: string): Promise<boolean> {
+  const token = process.env.GHL_API_TOKEN;
+  if (!token) return false;
+  const res = await fetch(`${API}/opportunities/${opportunityId}`, {
     method: "DELETE",
     headers: headers(token),
     cache: "no-store",

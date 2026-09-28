@@ -1,11 +1,17 @@
 import { NextResponse } from "next/server";
-import { createAuditContact, isGhlConfigured, type AuditLead } from "@/lib/ghl";
+import {
+  createAuditContact,
+  createAuditOpportunity,
+  isGhlConfigured,
+  type AuditLead,
+} from "@/lib/ghl";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 /**
- * Receives the free-audit form and creates the contact in Go High Level.
+ * Receives the free-audit form, creates the contact in Go High Level and puts
+ * it on the sales pipeline as an open opportunity.
  *
  * The form posts here rather than calling GHL from the browser, so the private
  * integration token stays on the server. A visitor never sees it, and it is
@@ -82,7 +88,8 @@ export async function POST(request: Request) {
     );
   }
 
-  const result = await createAuditContact({ name, phone, email, speciality });
+  const lead = { name, phone, email, speciality };
+  const result = await createAuditContact(lead);
 
   if (!result.ok) {
     return NextResponse.json(
@@ -91,5 +98,21 @@ export async function POST(request: Request) {
     );
   }
 
-  return NextResponse.json({ ok: true, duplicate: result.duplicate });
+  // The contact is saved, so the lead is not lost whatever happens next. A
+  // failure to raise the opportunity is logged for us and kept away from the
+  // visitor — asking them to fill the form again would not fix a misconfigured
+  // pipeline, and would risk them giving up instead.
+  let opportunityId: string | null = null;
+  if (result.contactId) {
+    const opp = await createAuditOpportunity(result.contactId, lead);
+    if (opp.ok) opportunityId = opp.opportunityId;
+  } else {
+    console.error("[audit] no contact id returned; skipped the opportunity");
+  }
+
+  return NextResponse.json({
+    ok: true,
+    duplicate: result.duplicate,
+    opportunity: Boolean(opportunityId),
+  });
 }
