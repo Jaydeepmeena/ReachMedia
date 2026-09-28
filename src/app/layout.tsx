@@ -1,14 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { site } from "@/lib/content";
 import { CallButton } from "@/components/ui/call-button";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
+/**
+ * Self-hosted rather than fetched through next/font/google.
+ *
+ * Vercel's builder rewrites a Google font into its own internal Turbopack
+ * module, and that rewrite fails the production build even though the same
+ * build passes locally. Shipping the file ourselves sidesteps the rewrite
+ * entirely — and drops the build-time round trip to Google.
+ *
+ * One variable file covers the whole 200–800 range, so the five weights the
+ * site uses cost a single 27 KB request instead of five.
+ */
+const jakarta = localFont({
+  src: "./fonts/PlusJakartaSans-Variable.woff2",
   display: "swap",
   variable: "--font-plus-jakarta",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: "200 800",
 });
 
 export const metadata: Metadata = {
