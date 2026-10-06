@@ -3,31 +3,38 @@ import { useEffect, useRef, useState } from 'react'
 const timelineSteps = [
   {
     number: '01',
-    title: 'Discovery & Goals',
-    duration: 'Day 1',
+    title: 'Clinic Deep-Dive',
+    duration: 'Week 1',
     description:
-      'We understand your services, locations, audience, and current enquiry flow.',
+      'Our content strategists sit with your doctors and front desk to map every treatment, ticket size, and seasonal pattern specific to your specialty, pulling the list of questions patients actually ask before they book.',
   },
   {
     number: '02',
-    title: 'Strategy & Setup',
-    duration: '2-4 days',
+    title: 'Strategy & Calendar',
+    duration: 'Week 1-2',
     description:
-      'We plan content, campaign structure, tracking, and clear growth priorities.',
+      'Our content strategists and copywriters build a specialty-specific content plan, mapping every post to a platform, a patient type, and a call to action before it is written, then get it approved once by your team and run it for the full month.',
   },
   {
     number: '03',
-    title: 'Creative Launch',
-    duration: '5-7 days',
+    title: 'Shoot & Produce',
+    duration: 'Week 2',
     description:
-      'Posts, reels, ads, and landing journeys go live with consistent messaging.',
+      'Our videographers and designers cover the full month in one on-site shoot day, with scripts ready before the doctor arrives and editing handled afterwards.',
   },
   {
     number: '04',
-    title: 'Measure & Improve',
-    duration: 'Ongoing',
+    title: 'Publish & Respond',
+    duration: 'Week 4',
     description:
-      'We review results, improve campaigns, and share simple next-step actions.',
+      'Our community managers keep every platform active with daily posting and stories, answer comments and DMs within the day, and route every enquiry to your front desk with a tracked handover.',
+  },
+  {
+    number: '05',
+    title: 'Promote & Report',
+    duration: 'Week 5',
+    description:
+      'Our performance marketers and analysts run paid campaigns and influencer collaborations alongside the content, then track every enquiry back to its source and bring you a monthly report on what actually turned into a call.',
   },
 ]
 
@@ -83,14 +90,14 @@ function HowWeWorkSection() {
       ></div>
 
       <div className="container relative z-[2]">
-        <div className="heading text-center">
+        <div className="heading text-center" data-reveal="up">
           <h4 className="justify-center">How We Work</h4>
           <h2 className="mt-[16px] !text-white">
-            4 simple steps from plan to performance
+            From start to finish, your month stays clear
           </h2>
           <p className="mx-auto mt-[20px] max-w-[620px] text-[17px] leading-[31px] text-white/62">
-            A clear workflow where each stage appears, moves forward, and turns
-            into measurable healthcare marketing action.
+            You spend focused time with us once. We spend the rest of the month
+            planning, producing, publishing, promoting, and reporting what moved.
           </p>
         </div>
 

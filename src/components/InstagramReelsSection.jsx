@@ -105,14 +105,14 @@ function InstagramReelsSection() {
     <section id="reels" className="bg-white py-[60px]">
       <div className="container">
         <div className="mb-[30px] grid gap-[24px] lg:grid-cols-[0.9fr_0.7fr] lg:items-end">
-          <div className="heading">
+          <div className="heading" data-reveal="left">
             <h4>Instagram Reels</h4>
             <h2 className="max-w-[690px] font-['Nunito'] text-[40px] font-[800] leading-[48px] text-[#070909] md:text-[58px] md:leading-[66px]">
               Recent campaign Reels
             </h2>
           </div>
 
-          <div className="flex items-end justify-between gap-[24px] lg:justify-self-end">
+          <div className="flex items-end justify-between gap-[24px] lg:justify-self-end" data-reveal="right">
             <div className="flex shrink-0 gap-[15px]">
               <a
                 href="#"
@@ -147,6 +147,7 @@ function InstagramReelsSection() {
           spaceBetween={20}
           breakpoints={sliderBreakpoints}
           onSlideChange={() => window.instgrm?.Embeds?.process()}
+          data-reveal="up"
         >
           {reelLinks.map((link, index) => (
             <SwiperSlide key={link}>
@@ -160,7 +161,7 @@ function InstagramReelsSection() {
         </Swiper>
 
         <div className="mt-[58px] flex items-end justify-between gap-[24px]">
-          <div className="heading">
+          <div className="heading" data-reveal="left">
             <h4>Instagram Posts</h4>
             <h2 className="max-w-[580px] font-['Nunito'] text-[34px] font-[800] leading-[42px] text-[#070909] md:text-[46px] md:leading-[54px]">
               Recent campaign posts
@@ -200,6 +201,7 @@ function InstagramReelsSection() {
           spaceBetween={20}
           breakpoints={sliderBreakpoints}
           onSlideChange={() => window.instgrm?.Embeds?.process()}
+          data-reveal="up"
         >
           {postLinks.map((link, index) => (
             <SwiperSlide key={link}>

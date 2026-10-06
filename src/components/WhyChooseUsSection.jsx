@@ -34,7 +34,7 @@ function WhyChooseUsSection() {
       <div className="overflow-hidden rounded-t-[24px] border mx-[10px] border-[#d4edf8] bg-[#eefaff] px-[20px] py-[30px] md:px-[44px] md:py-[60px] lg:px-[90px] xl:px-[90px]">
         <div>
           <div className="grid gap-[42px] lg:grid-cols-[minmax(0,0.92fr)_minmax(380px,0.72fr)] lg:items-end xl:gap-[78px]">
-            <div className="heading">
+            <div className="heading" data-reveal="left">
               <h4>Why Choose Reach Media</h4>
 
               <h2 className="max-w-[680px] font-['Nunito'] text-[40px] font-[800] leading-[48px] text-[#101820] md:text-[58px] md:leading-[66px]">
@@ -61,8 +61,13 @@ function WhyChooseUsSection() {
             </div>
 
             <div className="grid gap-[28px] pt-[4px]">
-              {reasons.map((item) => (
-                <article key={item.title} className="grid grid-cols-[42px_minmax(0,1fr)] gap-[18px]">
+              {reasons.map((item, index) => (
+                <article
+                  key={item.title}
+                  className="grid grid-cols-[42px_minmax(0,1fr)] gap-[18px]"
+                  data-reveal="right"
+                  style={{ '--reveal-delay': `${index * 100}ms` }}
+                >
                   <span className="mt-[2px] inline-flex h-[34px] w-[34px] items-center justify-center rounded-[9px] bg-[#b8ee00] text-[14px] text-[#101112]">
                     <i className="fa-solid fa-check"></i>
                   </span>
@@ -87,6 +92,7 @@ function WhyChooseUsSection() {
             spaceBetween={18}
             breakpoints={whyUsSliderBreakpoints}
             grabCursor
+            data-reveal="up"
           >
             <SwiperSlide>
               <article

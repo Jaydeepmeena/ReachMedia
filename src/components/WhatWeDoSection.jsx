@@ -59,13 +59,13 @@ function WhatWeDoSection() {
     <section id="process" className="bg-white py-[60px] md:py-[70px]">
       <div className="container">
         <div className="mb-[58px] grid gap-[28px] lg:grid-cols-[1fr_0.86fr] lg:items-start">
-          <div className="heading">
+          <div className="heading" data-reveal="left">
             <h4>What We Do</h4>
             <h2 className="max-w-[640px] font-['Nunito'] text-[40px] font-[800] leading-[46px] text-black md:text-[56px] md:leading-[62px]">
               Driving a better way of doing marketing
             </h2>
           </div>
-          <div className="lg:pt-[54px]">
+          <div className="lg:pt-[54px]" data-reveal="right">
             <p className="max-w-[560px] text-[17px] leading-[31px] text-slate-600">
               We deliver healthcare marketing impact through strategy,
               creative, paid media, influencer activity, and clear reporting.
@@ -80,7 +80,7 @@ function WhatWeDoSection() {
           </div>
         </div>
 
-        <div className="relative grid items-stretch lg:left-1/2 lg:min-h-[500px] lg:w-[min(1500px,calc(100vw-96px))] lg:-translate-x-1/2 lg:grid-cols-[390px_minmax(0,1fr)] min-[1400px]:grid-cols-[460px_minmax(0,1fr)]">
+        <div className="relative grid items-stretch lg:left-1/2 lg:min-h-[500px] lg:w-[min(1500px,calc(100vw-96px))] lg:-translate-x-1/2 lg:grid-cols-[390px_minmax(0,1fr)] min-[1400px]:grid-cols-[460px_minmax(0,1fr)]" data-reveal="up">
           <div className="relative min-h-[470px] rounded-[34px] bg-black px-[20px] py-[30px] text-white md:px-[34px] md:py-[44px] lg:min-h-[640px] lg:rounded-r-[0px] lg:pr-[0px] xl:px-[42px]">
             <div className="grid gap-[12px] md:gap-[16px] lg:gap-[18px]">
               {workItems.map((item, index) => (

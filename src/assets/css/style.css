@@ -132,6 +132,33 @@
     animation: hero-title-line 2400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(42px);
+    transition:
+      opacity 1150ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 1150ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  [data-reveal="left"] {
+    transform: translateX(-46px);
+  }
+
+  [data-reveal="right"] {
+    transform: translateX(46px);
+  }
+
+  [data-reveal="fade"] {
+    transform: none;
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
   .partner-marquee {
     mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
   }
@@ -253,6 +280,21 @@
     transform: scaleY(var(--timeline-progress, 0));
     transform-origin: top;
     transition: transform 220ms ease-out;
+  }
+
+  .how-it-card {
+    transition:
+      opacity 520ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 520ms cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 420ms ease;
+  }
+
+  .how-it-tabs {
+    scrollbar-width: none;
+  }
+
+  .how-it-tabs::-webkit-scrollbar {
+    display: none;
   }
 
   .reels-swiper {
@@ -644,7 +686,15 @@
 }
 
 .step-detail-animate {
-  animation: work-detail-in 650ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: work-detail-in 950ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.work-detail-animate {
+  animation: work-detail-in 950ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.cta-stats-slider .swiper-slide {
+  height: auto;
 }
 
 @keyframes work-stat-in {
@@ -1038,6 +1088,12 @@
     font-size: 11px;
   }
 
+  [data-reveal],
+  [data-reveal="left"],
+  [data-reveal="right"] {
+    transform: translateY(24px);
+  }
+
   .section-tag {
     font-size: 11px;
     padding: 8px 14px;
@@ -1085,6 +1141,27 @@
     font-size: 22px;
   }
 
+  .how-it-tabs {
+    margin-left: -4px;
+    margin-right: -4px;
+    padding-left: 4px;
+    padding-right: 18px;
+    scroll-snap-type: x proximity;
+  }
+
+  .how-it-tabs button {
+    scroll-snap-align: start;
+  }
+
+  .cta-stats-slider {
+    padding-left: 2px;
+    padding-right: 26px;
+  }
+
+  .cta-stats-slider .swiper-slide > div {
+    min-height: 132px;
+  }
+
   .rm-navbar-mobile {
     min-height: 76px;
   }
@@ -1125,6 +1202,15 @@
   .lead-popup,
   .lead-popup-panel {
     animation: none;
+  }
+
+  [data-reveal],
+  [data-reveal="left"],
+  [data-reveal="right"],
+  [data-reveal="fade"] {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 
   .hero-reveal,

@@ -28,12 +28,9 @@ function LeadPopup() {
       }
     }
 
-    const originalOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
     window.addEventListener('keydown', handleKeyDown)
 
     return () => {
-      document.body.style.overflow = originalOverflow
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [isOpen])
@@ -55,14 +52,17 @@ function LeadPopup() {
       }}
     >
       <div className="lead-popup-panel relative w-full max-w-[620px]">
-        <button
-          type="button"
+        <a
+          href="#close"
           className="absolute right-[18px] top-[18px] z-[2] inline-flex h-[42px] w-[42px] items-center justify-center rounded-full bg-white/10 text-white transition duration-300 hover:bg-[#d7ff2f] hover:text-[#101112]"
           aria-label="Close enquiry form"
-          onClick={() => setIsOpen(false)}
+          onClick={(event) => {
+            event.preventDefault()
+            setIsOpen(false)
+          }}
         >
           <i className="fa-solid fa-xmark"></i>
-        </button>
+        </a>
 
         <LeadForm
           className="max-h-[min(86vh,760px)] overflow-y-auto pr-[58px]"

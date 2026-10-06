@@ -5,53 +5,74 @@ import shareGrowthGoalImage from '../assets/images/share-growth-goal.jpg'
 
 const processSteps = [
   {
-    step: 'Step. 01',
+    number: '01',
+    tab: 'Healthcare Only',
     image: shareGrowthGoalImage,
-    title: '01. Share Your Growth Goals',
+    title: 'Healthcare Only',
     description:
-      'Tell us about your service lines, locations, audience, and enquiry goals so we can understand what needs to improve first.',
+      "A generic social media agency treats a dental implant post the same way it treats a restaurant's dinner special. We don't, because the two have nothing in common. Every template, script, and compliance check on this page was built for clinics and hospitals, and for nothing else.",
     points: [
       {
-        title: 'Quick discovery for your brand',
-        description: 'We review your current visibility, channels, and campaign gaps.',
+        title: 'Built for clinics and hospitals',
+        description: 'Healthcare context shapes every template, script, campaign idea, and review step.',
       },
       {
-        title: 'Clear priority mapping',
-        description: 'We define what should be fixed, launched, or scaled first.',
+        title: 'Nothing generic',
+        description: 'The strategy is made for clinic and hospital decisions, not ordinary lifestyle marketing.',
       },
     ],
   },
   {
-    step: 'Step. 02',
+    number: '02',
+    tab: 'Paid Media Planning',
     image: campaignSystemImage,
-    title: '02. Build The Campaign System',
+    title: 'Planned Alongside Paid Media',
     description:
-      'Our team prepares the content direction, audience plan, creative formats, and tracking structure for your healthcare brand.',
+      'Most social media agencies hand you a content calendar and walk away before the ad account even opens. Our parent team already runs Google and Meta ads for healthcare clients, so your content gets planned to feed that funnel, not published in isolation from it.',
     points: [
       {
-        title: 'Creative and media setup',
-        description: 'Posts, reels, ads, and landing journeys are planned together.',
+        title: 'Content feeds campaigns',
+        description: 'Posts, reels, landing pages, and campaigns support the same service priorities.',
       },
       {
-        title: 'Performance tracking',
-        description: 'Reporting is set around enquiry quality and measurable growth.',
+        title: 'Performance ready',
+        description: 'Every asset is easier to boost, test, track, and connect back to enquiries.',
       },
     ],
   },
   {
-    step: 'Step. 03',
+    number: '03',
+    tab: 'Compliance First',
     image: learnAndImproveImage,
-    title: '03. Launch, Learn, And Improve',
+    title: 'Consent and Compliance First',
     description:
-      'We monitor campaign movement, refine creative, improve budgets, and share simple next-step recommendations.',
+      'Most agencies find out about NMC advertising rules after a post gets flagged. We check patient consent, advertising norms, and claim language before anything goes live, so your account never becomes the case study for what not to post.',
     points: [
       {
-        title: 'Continuous optimization',
-        description: 'Campaigns are improved based on audience behavior and results.',
+        title: 'Safer publishing',
+        description: 'Doctor, patient, and procedure communication stays clean before publishing.',
       },
       {
-        title: 'Readable monthly insights',
-        description: 'You see what worked, what changed, and what comes next.',
+        title: 'Claim checks',
+        description: 'Consent, ad norms, and sensitive claim language are reviewed early.',
+      },
+    ],
+  },
+  {
+    number: '04',
+    tab: 'Enquiries First',
+    image: campaignSystemImage,
+    title: 'Enquiries, Not Just Likes',
+    description:
+      "A follower count doesn't tell a clinic owner anything useful. We report on DMs, enquiries, and consults booked, because that's the only number that was ever going to matter to the person paying for this.",
+    points: [
+      {
+        title: 'Real lead movement',
+        description: 'We track campaign work by the response it creates, not by vanity numbers.',
+      },
+      {
+        title: 'Simple reporting',
+        description: 'You see what turned into calls, messages, bookings, and useful next steps.',
       },
     ],
   },
@@ -77,20 +98,20 @@ function HowItWorksSection() {
             }}
           ></div>
 
-          <div className="relative z-[1] heading">
+          <div className="relative z-[1] heading" data-reveal="left">
             <h4 className="justify-center">How It Works</h4>
             <h2 className="mt-[16px] !text-white">
-              Simple steps to grow your healthcare brand
+              Built for healthcare growth from the start
             </h2>
             <p className="mx-auto mt-[20px] max-w-[680px] text-[17px] leading-[31px] text-white/66">
-              We keep the workflow clear from first discussion to campaign launch,
-              so every action has a purpose and every result is easy to read.
+              The process is simple on purpose: healthcare-first planning,
+              paid-media alignment, compliance checks, and enquiry-focused reporting.
             </p>
           </div>
         </div>
 
         <div className="container">
-          <div className="relative z-[2] mx-auto mt-[-76px] grid overflow-hidden rounded-[30px] border border-white/10 bg-[#101a1f] lg:mt-[-104px] lg:grid-cols-[0.98fr_1.02fr]">
+          <div className="relative z-[2] mx-auto mt-[-76px] grid overflow-hidden rounded-[30px] border border-white/10 bg-[#101a1f] lg:mt-[-104px] lg:grid-cols-[0.98fr_1.02fr]" data-reveal="up">
             <div className="relative overflow-hidden bg-[#131313d9] px-[28px] py-[36px] md:px-[54px] md:py-[56px]">
               <div
                 className="pointer-events-none absolute inset-0 opacity-50"
@@ -102,41 +123,41 @@ function HowItWorksSection() {
               ></div>
 
               <div className="relative z-[1]">
-                <div className="flex flex-wrap gap-[14px]">
+                <div className="how-it-tabs flex flex-nowrap gap-[14px] overflow-x-auto pb-[8px]">
                   {processSteps.map((item, index) => (
                     <button
-                      key={item.step}
+                      key={item.number}
                       type="button"
-                      className={`h-[54px] min-w-[130px] rounded-full border px-[24px] text-[14px] font-[800] transition duration-300 ${activeIndex === index
+                      className={`min-h-[54px] min-w-max shrink-0 rounded-full border px-[22px] py-[13px] text-[13px] font-[800] leading-[18px] transition duration-300 ${activeIndex === index
                           ? 'border-[#60bd6a] bg-[#60bd6a] text-white'
                           : 'border-white/14 bg-white text-[#070909] hover:border-[#60bd6a] hover:bg-[#f3fbf4] hover:text-[#101112]'
                         }`}
                       onClick={() => setActiveIndex(index)}
                     >
-                      {item.step}
+                      {item.tab}
                     </button>
                   ))}
                 </div>
 
-                <div key={activeStep.title} className="work-detail-animate mt-[52px]">
-                  <h3 className="font-['Nunito'] text-[27px] font-[800] leading-[35px] text-white md:text-[31px] md:leading-[39px]">
+                <div key={activeStep.title} className="how-it-card work-detail-animate mt-[52px]">
+                  <h3 className="font-['Nunito'] text-[24px] font-[800] leading-[30px] text-white md:text-[31px] md:leading-[39px]">
                     {activeStep.title}
                   </h3>
-                  <p className="mt-[14px] max-w-[650px] text-[17px] leading-[31px] text-white/72">
+                  <p className="mt-[14px] max-w-[650px] text-[15px] leading-[26px] text-white/72 md:text-[17px] md:leading-[31px]">
                     {activeStep.description}
                   </p>
 
-                  <div className="mt-[38px] grid gap-[28px]">
+                  <div className="mt-[32px] grid gap-[24px] md:mt-[38px] md:gap-[28px]">
                     {activeStep.points.map((point) => (
                       <div key={point.title} className="flex gap-[22px]">
                         <span className="inline-flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-full bg-[#60bd6a] text-[16px] text-white">
                           <i className="fa-solid fa-check"></i>
                         </span>
                         <div>
-                          <h4 className="font-['Nunito'] text-[22px] font-[800] leading-[30px] text-white">
+                          <h4 className="font-['Nunito'] text-[19px] font-[800] leading-[25px] text-white md:text-[22px] md:leading-[30px]">
                             {point.title}
                           </h4>
-                          <p className="mt-[8px] text-[16px] leading-[27px] text-white/64">
+                          <p className="mt-[8px] text-[14px] leading-[24px] text-white/64 md:text-[16px] md:leading-[27px]">
                             {point.description}
                           </p>
                         </div>
@@ -147,12 +168,12 @@ function HowItWorksSection() {
               </div>
             </div>
 
-            <div className="relative max-h-[560px]">
+            <div className="relative min-h-[320px] overflow-hidden lg:min-h-[560px]">
               <img
                 key={activeStep.image}
                 src={activeStep.image}
                 alt={activeStep.title}
-                className="h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover object-center"
               />
             </div>
           </div>

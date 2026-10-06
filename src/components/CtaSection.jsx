@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
 import ctaShape from '../assets/images/website-shap.webp'
 
 const checklist = [
@@ -8,10 +10,16 @@ const checklist = [
 ]
 
 const stats = [
-  { value: '115+', label: 'Haccounts Managed' },
+  { value: '115+', label: 'Healthcare Accounts Managed' },
   { value: '4.2M', label: 'Monthly Content Views' },
   { value: '10+', label: 'Years Of Experience' },
 ]
+
+const statsSliderBreakpoints = {
+  0: { slidesPerView: 1.18, spaceBetween: 14 },
+  640: { slidesPerView: 2, spaceBetween: 16 },
+  768: { slidesPerView: 3, spaceBetween: 16, allowTouchMove: false },
+}
 
 const dotPattern = {
   backgroundImage:
@@ -75,7 +83,10 @@ function CtaSection() {
       />
 
       <div className="container relative z-[2]">
-        <div className="relative mx-auto max-w-[760px] overflow-hidden rounded-[28px] border border-white/15 bg-[#0a0a0a]/80 px-[22px] py-[56px] text-center shadow-[0_30px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl md:px-[56px] md:py-[72px]" >
+        <div
+          className="relative mx-auto max-w-[760px] overflow-hidden rounded-[28px] border border-white/15 bg-[#0a0a0a]/80 px-[22px] py-[56px] text-center shadow-[0_30px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl md:px-[56px] md:py-[72px]"
+          data-reveal="up"
+        >
           <div className="relative z-[2] mx-auto max-w-[700px]">
             <span className="inline-flex items-center gap-[10px] rounded-full border border-white/15 bg-white/5 px-[20px] py-[10px] text-[13px] font-[600] uppercase tracking-[0.14em] text-[#b8ee00]">
               <i className="fa-solid fa-bolt"></i>
@@ -131,21 +142,26 @@ function CtaSection() {
             </div>
           </div>
 
-          <div className="relative z-[2] mx-auto mt-[52px] grid max-w-[720px] gap-[16px] sm:grid-cols-3">
+          <Swiper
+            className="cta-stats-slider relative z-[2] mx-auto mt-[52px] w-full max-w-[720px] !overflow-visible !pb-[4px]"
+            slidesPerView={1.18}
+            spaceBetween={14}
+            breakpoints={statsSliderBreakpoints}
+            grabCursor
+          >
             {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-[16px] border border-white/10 bg-white/[0.04] px-[20px] py-[22px] text-left"
-              >
-                <strong className="block font-['Nunito'] text-[30px] font-[800] leading-none text-white">
-                  {stat.value}
-                </strong>
-                <span className="mt-[10px] block text-[13px] leading-[19px] text-white/50">
-                  {stat.label}
-                </span>
-              </div>
+              <SwiperSlide key={stat.label}>
+                <div className="min-h-[118px] rounded-[16px] border border-white/10 bg-white/[0.04] px-[20px] py-[22px] text-left">
+                  <strong className="block font-['Nunito'] text-[30px] font-[800] leading-none text-white">
+                    {stat.value}
+                  </strong>
+                  <span className="mt-[10px] block text-[13px] leading-[19px] text-white/50">
+                    {stat.label}
+                  </span>
+                </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
       </div>
     </section>
