@@ -1,5 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
 import bannerVideo from '../assets/images/rich-media-bnr.mp4'
+
+const statsSliderBreakpoints = {
+  0: { slidesPerView: 1.15, spaceBetween: 14 },
+  768: { slidesPerView: 3, spaceBetween: 18, allowTouchMove: false },
+}
 
 const stats = [
   {
@@ -53,6 +60,27 @@ function CounterNumber({ value, suffix = '', decimals = 0, isActive }) {
       {count.toFixed(decimals)}
       {suffix}
     </span>
+  )
+}
+
+function StatCard({ stat, index, isActive }) {
+  return (
+    <div
+      className="hero-reveal rounded-[22px] border border-white/55 bg-white/95 px-[20px] py-[20px] text-center text-[#15191c] shadow-[0_18px_50px_rgba(0,0,0,0.14)] backdrop-blur transition duration-500 hover:border-[#60bd6a] md:rounded-[28px] md:px-[24px] md:py-[34px]"
+      style={{ animationDelay: `${760 + index * 130}ms` }}
+    >
+      <strong className="block font-['Nunito'] text-[34px] font-[800] leading-none md:text-[58px]">
+        <CounterNumber
+          value={stat.value}
+          suffix={stat.suffix}
+          decimals={stat.decimals}
+          isActive={isActive}
+        />
+      </strong>
+      <span className="mt-[8px] block text-[14px] font-[500] leading-[22px] text-slate-600 md:mt-[12px] md:text-[17px]">
+        {stat.label}
+      </span>
+    </div>
   )
 }
 
@@ -130,27 +158,19 @@ function HeroBanner() {
             </a>
           </div>
 
-          <div className="mt-[36px] grid w-full gap-[14px] md:mt-[64px] md:grid-cols-3 md:gap-[18px]">
+          <Swiper
+            className="hero-stats-swiper mt-[36px] w-full !pb-[6px] md:mt-[64px]"
+            slidesPerView={1.15}
+            spaceBetween={14}
+            breakpoints={statsSliderBreakpoints}
+            grabCursor
+          >
             {stats.map((stat, index) => (
-              <div
-                key={stat.label}
-                className="hero-reveal rounded-[22px] border border-white/55 bg-white/95 px-[20px] py-[20px] text-center text-[#15191c] shadow-[0_18px_50px_rgba(0,0,0,0.14)] backdrop-blur transition duration-500 hover:border-[#60bd6a] md:rounded-[28px] md:px-[24px] md:py-[34px]"
-                style={{ animationDelay: `${760 + index * 130}ms` }}
-              >
-                <strong className="block font-['Nunito'] text-[34px] font-[800] leading-none md:text-[58px]">
-                  <CounterNumber
-                    value={stat.value}
-                    suffix={stat.suffix}
-                    decimals={stat.decimals}
-                    isActive={isActive}
-                  />
-                </strong>
-                <span className="mt-[8px] block text-[14px] font-[500] leading-[22px] text-slate-600 md:mt-[12px] md:text-[17px]">
-                  {stat.label}
-                </span>
-              </div>
+              <SwiperSlide key={stat.label}>
+                <StatCard stat={stat} index={index} isActive={isActive} />
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
       </div>
     </section>

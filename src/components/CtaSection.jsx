@@ -106,7 +106,7 @@ function CtaSection() {
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder="Enter your email"
-                className="h-[52px] w-full flex-1 bg-transparent px-[20px] text-[15px] text-white placeholder:text-white/40 focus:outline-none"
+                className="h-[52px] w-full flex-1 bg-transparent px-[20px] py-[10px] md:py-[0] text-[15px] text-white placeholder:text-white/40 focus:outline-none"
               />
               <button
                 type="submit"
