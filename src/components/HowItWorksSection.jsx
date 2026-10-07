@@ -1,13 +1,14 @@
-import { useState } from 'react'
-import campaignSystemImage from '../assets/images/campaign-system.jpg'
-import learnAndImproveImage from '../assets/images/learn-and-improve.jpg'
-import shareGrowthGoalImage from '../assets/images/share-growth-goal.jpg'
+import { useEffect, useRef, useState } from 'react'
+import complianceFirstImage from '../assets/images/compliance-first.jpg'
+import enquiriesFirstImage from '../assets/images/enquiries-first.jpg'
+import healthcareOnlyImage from '../assets/images/healthcare-only.jpg'
+import paidMediaImage from '../assets/images/paid-media.jpg'
 
 const processSteps = [
   {
     number: '01',
     tab: 'Healthcare Only',
-    image: shareGrowthGoalImage,
+    image: healthcareOnlyImage,
     title: 'Healthcare Only',
     description:
       "A generic social media agency treats a dental implant post the same way it treats a restaurant's dinner special. We don't, because the two have nothing in common. Every template, script, and compliance check on this page was built for clinics and hospitals, and for nothing else.",
@@ -25,7 +26,7 @@ const processSteps = [
   {
     number: '02',
     tab: 'Paid Media Planning',
-    image: campaignSystemImage,
+    image: paidMediaImage,
     title: 'Planned Alongside Paid Media',
     description:
       'Most social media agencies hand you a content calendar and walk away before the ad account even opens. Our parent team already runs Google and Meta ads for healthcare clients, so your content gets planned to feed that funnel, not published in isolation from it.',
@@ -43,7 +44,7 @@ const processSteps = [
   {
     number: '03',
     tab: 'Compliance First',
-    image: learnAndImproveImage,
+    image: complianceFirstImage,
     title: 'Consent and Compliance First',
     description:
       'Most agencies find out about NMC advertising rules after a post gets flagged. We check patient consent, advertising norms, and claim language before anything goes live, so your account never becomes the case study for what not to post.',
@@ -61,7 +62,7 @@ const processSteps = [
   {
     number: '04',
     tab: 'Enquiries First',
-    image: campaignSystemImage,
+    image: enquiriesFirstImage,
     title: 'Enquiries, Not Just Likes',
     description:
       "A follower count doesn't tell a clinic owner anything useful. We report on DMs, enquiries, and consults booked, because that's the only number that was ever going to matter to the person paying for this.",
@@ -79,16 +80,86 @@ const processSteps = [
 ]
 
 function HowItWorksSection() {
+  const sectionRef = useRef(null)
+  const tabRefs = useRef([])
   const [activeIndex, setActiveIndex] = useState(0)
   const activeStep = processSteps[activeIndex]
 
+  useEffect(() => {
+    const activeTab = tabRefs.current[activeIndex]
+    const tabList = activeTab?.parentElement
+
+    if (!activeTab || !tabList) {
+      return
+    }
+
+    const nextScrollLeft =
+      activeTab.offsetLeft - tabList.clientWidth / 2 + activeTab.clientWidth / 2
+
+    tabList.scrollTo({
+      left: Math.max(nextScrollLeft, 0),
+      behavior: 'smooth',
+    })
+  }, [activeIndex])
+
+  useEffect(() => {
+    const section = sectionRef.current
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const stickyLayout = window.matchMedia(
+      '(max-width: 767px), (min-width: 992px) and (min-height: 760px)',
+    )
+    let frameId = 0
+
+    if (!section || reduceMotion.matches) {
+      return undefined
+    }
+
+    const updateActiveStep = () => {
+      frameId = 0
+
+      const rect = section.getBoundingClientRect()
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight
+      const progress = stickyLayout.matches
+        ? Math.min(Math.max(-rect.top / Math.max(rect.height - viewportHeight, 1), 0), 1)
+        : Math.min(
+            Math.max((viewportHeight * 0.5 - rect.top) / Math.max(rect.height, 1), 0),
+            1,
+          )
+      const stepThresholds = [0.18, 0.43, 0.68, 0.9]
+      const nextIndex = stepThresholds.findIndex((threshold) => progress < threshold)
+      const resolvedIndex = nextIndex === -1 ? processSteps.length - 1 : nextIndex
+
+      setActiveIndex((currentIndex) => (
+        currentIndex === resolvedIndex ? currentIndex : resolvedIndex
+      ))
+    }
+
+    const requestUpdate = () => {
+      if (frameId) return
+      frameId = window.requestAnimationFrame(updateActiveStep)
+    }
+
+    requestUpdate()
+    window.addEventListener('scroll', requestUpdate, { passive: true })
+    window.addEventListener('resize', requestUpdate)
+    stickyLayout.addEventListener('change', requestUpdate)
+
+    return () => {
+      if (frameId) window.cancelAnimationFrame(frameId)
+      window.removeEventListener('scroll', requestUpdate)
+      window.removeEventListener('resize', requestUpdate)
+      stickyLayout.removeEventListener('change', requestUpdate)
+    }
+  }, [])
+
   return (
     <section
+      ref={sectionRef}
       id="work"
-      className="relative overflow-hidden px-[10px] pb-[60px] text-white lg:pb-[60px]"
+      className="how-it-scroll-stage relative px-[10px] pb-[60px] text-white lg:pb-[60px]"
     >
-      <div className="relative z-[1]">
-        <div className="relative overflow-hidden rounded-b-[30px] bg-[#070909] px-[24px] pb-[138px] pt-[60px] text-center md:px-[48px] lg:pb-[168px] lg:pt-[96px]">
+      <div className="how-it-sticky-panel relative z-[2]">
+        <div className="how-it-heading-panel relative z-[1] overflow-hidden rounded-b-[30px] bg-[#070909] px-[24px] pb-[138px] pt-[60px] text-center md:px-[48px] lg:pb-[168px] lg:pt-[96px]">
           <div
             className="pointer-events-none absolute inset-0 opacity-60"
             style={{
@@ -127,6 +198,9 @@ function HowItWorksSection() {
                   {processSteps.map((item, index) => (
                     <button
                       key={item.number}
+                      ref={(node) => {
+                        tabRefs.current[index] = node
+                      }}
                       type="button"
                       className={`min-h-[54px] min-w-max shrink-0 rounded-full border px-[22px] py-[13px] text-[13px] font-[800] leading-[18px] transition duration-300 ${activeIndex === index
                           ? 'border-[#60bd6a] bg-[#60bd6a] text-white'
@@ -173,7 +247,7 @@ function HowItWorksSection() {
                 key={activeStep.image}
                 src={activeStep.image}
                 alt={activeStep.title}
-                className="absolute inset-0 h-full w-full object-cover object-center"
+                className="absolute inset-0 h-full w-full object-cover object-center work-detail-animate"
               />
             </div>
           </div>

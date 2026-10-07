@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Navigation } from 'swiper/modules'
+import { Autoplay, Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -136,13 +136,21 @@ function InstagramReelsSection() {
         </div>
 
         <Swiper
-          modules={[Navigation]}
+          modules={[Autoplay, Navigation]}
           className="reels-swiper"
           loop
+          autoplay={{
+            delay: 2800,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
           navigation={{
             prevEl: '.reels-prev',
             nextEl: '.reels-next',
           }}
+          grabCursor
+          preventClicks={false}
+          preventClicksPropagation={false}
           slidesPerGroup={1}
           spaceBetween={20}
           breakpoints={sliderBreakpoints}
@@ -163,7 +171,7 @@ function InstagramReelsSection() {
         <div className="mt-[58px] flex items-end justify-between gap-[24px]">
           <div className="heading" data-reveal="left">
             <h4>Instagram Posts</h4>
-            <h2 className="max-w-[580px] font-['Nunito'] text-[34px] font-[800] leading-[42px] text-[#070909] md:text-[46px] md:leading-[54px]">
+            <h2 className="max-w-[690px] font-['Nunito'] text-[40px] font-[800] leading-[48px] text-[#070909] md:text-[58px] md:leading-[66px]">
               Recent campaign posts
             </h2>
           </div>
@@ -190,13 +198,21 @@ function InstagramReelsSection() {
         </div>
 
         <Swiper
-          modules={[Navigation]}
+          modules={[Autoplay, Navigation]}
           className="reels-swiper mt-[28px]"
           loop
+          autoplay={{
+            delay: 3200,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
           navigation={{
             prevEl: '.posts-prev',
             nextEl: '.posts-next',
           }}
+          grabCursor
+          preventClicks={false}
+          preventClicksPropagation={false}
           slidesPerGroup={1}
           spaceBetween={20}
           breakpoints={sliderBreakpoints}

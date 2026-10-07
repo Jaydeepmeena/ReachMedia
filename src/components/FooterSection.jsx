@@ -87,6 +87,12 @@ function FooterSection() {
           backgroundSize: '24px 24px',
         }}
       ></div>
+      <img
+        src={logoIcon}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-[-70px] right-[4vw] h-[300px] w-[300px] object-contain opacity-[0.022] grayscale md:bottom-[-120px] md:h-[520px] md:w-[520px]"
+      />
 
       <div className="container relative z-[2]">
         <div
@@ -126,7 +132,8 @@ function FooterSection() {
             </p>
 
             <a
-              href="mailto:contact@reachmedia.co.in"
+              href="#contact"
+              data-lead-popup
               className="mt-[26px] inline-flex h-[54px] items-center gap-[14px] rounded-full bg-white px-[8px] pr-[24px] text-[14px] font-[700] text-[#101112] transition duration-300 hover:bg-[#d7ff2f]"
             >
               <span className="inline-flex h-[42px] w-[42px] items-center justify-center rounded-full bg-[#101112] text-white">

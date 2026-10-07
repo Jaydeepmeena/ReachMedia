@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
@@ -7,6 +8,7 @@ const whyUsImage =
 
 const whyUsSliderBreakpoints = {
   0: { slidesPerView: 1, spaceBetween: 18 },
+  640: { slidesPerView: 1.25, spaceBetween: 20 },
   1024: { slidesPerView: 3, spaceBetween: 26, allowTouchMove: false },
 }
 
@@ -28,9 +30,70 @@ const reasons = [
   },
 ]
 
-function WhyChooseUsSection() {
+function CounterNumber({ value, suffix = '', decimals = 0, isActive }) {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (!isActive) {
+      return undefined
+    }
+
+    let frame = 0
+    const duration = 3200
+    const start = performance.now()
+
+    const updateCount = (time) => {
+      const progress = Math.min((time - start) / duration, 1)
+      const easedProgress = 1 - Math.pow(1 - progress, 3)
+
+      setCount(value * easedProgress)
+
+      if (progress < 1) {
+        frame = requestAnimationFrame(updateCount)
+      }
+    }
+
+    frame = requestAnimationFrame(updateCount)
+
+    return () => cancelAnimationFrame(frame)
+  }, [isActive, value])
+
   return (
-    <section id="why-choose-us" className="bg-white">
+    <span>
+      {count.toFixed(decimals)}
+      {suffix}
+    </span>
+  )
+}
+
+function WhyChooseUsSection() {
+  const sectionRef = useRef(null)
+  const [countersActive, setCountersActive] = useState(false)
+
+  useEffect(() => {
+    const section = sectionRef.current
+
+    if (!section) {
+      return undefined
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCountersActive(true)
+          observer.unobserve(entry.target)
+        }
+      },
+      { threshold: 0.28 },
+    )
+
+    observer.observe(section)
+
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section ref={sectionRef} id="why-choose-us" className="bg-white">
       <div className="overflow-hidden rounded-t-[24px] border mx-[10px] border-[#d4edf8] bg-[#eefaff] px-[20px] py-[30px] md:px-[44px] md:py-[60px] lg:px-[90px] xl:px-[90px]">
         <div>
           <div className="grid gap-[42px] lg:grid-cols-[minmax(0,0.92fr)_minmax(380px,0.72fr)] lg:items-end xl:gap-[78px]">
@@ -130,7 +193,12 @@ function WhyChooseUsSection() {
               <article className="min-h-[350px] rounded-[22px] border-[6px] border-white bg-[#101112] p-[34px] text-white shadow-none lg:shadow-[0_18px_60px_rgba(37,56,80,0.08)]">
                 <div className="flex items-start justify-between gap-[20px]">
                   <strong className="font-['Nunito'] text-[60px] font-[800] leading-none text-[#b8ee00] md:text-[70px]">
-                    96.8%
+                    <CounterNumber
+                      value={96.8}
+                      suffix="%"
+                      decimals={1}
+                      isActive={countersActive}
+                    />
                   </strong>
                   <div className="flex -space-x-[10px] pt-[7px]">
                     <span className="inline-flex h-[42px] w-[42px] items-center justify-center rounded-full border-2 border-[#101112] bg-[#60bd6a] text-[15px]">
@@ -166,7 +234,11 @@ function WhyChooseUsSection() {
                 />
                 <div className="absolute bottom-[18px] left-[18px] z-[2] inline-flex min-h-[58px] items-center overflow-hidden rounded-[12px] bg-white text-[#101820] shadow-[0_16px_36px_rgba(16,24,32,0.12)]">
                   <span className="px-[20px] text-[16px] font-[800] text-[#5b7cff]">
-                    12+
+                    <CounterNumber
+                      value={12}
+                      suffix="+"
+                      isActive={countersActive}
+                    />
                   </span>
                   <span className="h-[32px] w-px bg-slate-200"></span>
                   <span className="px-[20px] text-[15px] font-[800]">
@@ -177,7 +249,7 @@ function WhyChooseUsSection() {
             </SwiperSlide>
           </Swiper>
 
-          <div className="mt-[10px] flex items-center justify-end gap-[15px] lg:hidden">
+          <div className="mt-[30px] flex items-center justify-end gap-[15px] lg:hidden">
             <a
               href="#"
               onClick={(e) => e.preventDefault()}

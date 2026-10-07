@@ -27,6 +27,10 @@ const stats = [
   },
 ]
 
+const statRevealBaseDelay = 760
+const statRevealStagger = 130
+const counterStartAfterReveal = 150
+
 function CounterNumber({ value, suffix = '', decimals = 0, isActive }) {
   const [count, setCount] = useState(0)
 
@@ -64,20 +68,44 @@ function CounterNumber({ value, suffix = '', decimals = 0, isActive }) {
 }
 
 function StatCard({ stat, index, isActive }) {
+  const isFeatured = index === 1
+  const [counterReady, setCounterReady] = useState(false)
+  const revealDelay = statRevealBaseDelay + index * statRevealStagger
+
+  useEffect(() => {
+    if (!isActive) {
+      return undefined
+    }
+
+    const timer = window.setTimeout(() => {
+      setCounterReady(true)
+    }, revealDelay + counterStartAfterReveal)
+
+    return () => window.clearTimeout(timer)
+  }, [isActive, revealDelay])
+
   return (
     <div
-      className="hero-reveal rounded-[22px] border border-white/55 bg-white/95 px-[20px] py-[20px] text-center text-[#15191c] shadow-[0_18px_50px_rgba(0,0,0,0.14)] backdrop-blur transition duration-500 hover:border-[#60bd6a] md:rounded-[28px] md:px-[24px] md:py-[34px]"
-      style={{ animationDelay: `${760 + index * 130}ms` }}
+      className={`hero-reveal rounded-[22px] border px-[20px] py-[20px] text-center shadow-[0_18px_50px_rgba(0,0,0,0.14)] backdrop-blur transition duration-500 md:rounded-[28px] md:px-[24px] md:py-[34px] ${
+        isFeatured
+          ? 'border-[#8be35a]/80 bg-[linear-gradient(135deg,#43A0A1_0%,#35b88a_48%,#72d944_100%)] text-white shadow-[0_24px_60px_rgba(67,160,161,0.32)] hover:border-[#b8ee00]'
+          : 'border-white/55 bg-white/95 text-[#15191c] hover:border-[#60bd6a]'
+      }`}
+      style={{ animationDelay: `${revealDelay}ms` }}
     >
       <strong className="block font-['Nunito'] text-[34px] font-[800] leading-none md:text-[58px]">
         <CounterNumber
           value={stat.value}
           suffix={stat.suffix}
           decimals={stat.decimals}
-          isActive={isActive}
+          isActive={counterReady}
         />
       </strong>
-      <span className="mt-[8px] block text-[14px] font-[500] leading-[22px] text-slate-600 md:mt-[12px] md:text-[17px]">
+      <span
+        className={`mt-[8px] block text-[14px] font-[500] leading-[22px] md:mt-[12px] md:text-[17px] ${
+          isFeatured ? 'text-white/88' : 'text-slate-600'
+        }`}
+      >
         {stat.label}
       </span>
     </div>
@@ -113,7 +141,7 @@ function HeroBanner() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-black text-white"
+      className="hero-banner-section relative overflow-hidden bg-black text-white"
     >
       <video
         className="absolute inset-0 h-full w-full object-cover object-[center_25%]"
@@ -127,7 +155,7 @@ function HeroBanner() {
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/65"></div>
       <div className="container relative z-[1]">
-        <div className="flex min-h-[460px] flex-col items-center justify-center py-[64px] text-center sm:min-h-[560px] md:py-[80px] lg:min-h-[720px] lg:py-[92px]">
+        <div className="hero-banner-inner flex min-h-[460px] flex-col items-center justify-center py-[64px] text-center sm:min-h-[560px] md:py-[80px] lg:min-h-[720px] lg:py-[92px]">
           <div className="hero-copy mx-auto max-w-[860px]">
             <p className="hero-eyebrow-slide mb-[18px] text-[14px] font-[700] uppercase tracking-[0.22em] text-[#b8ee00]">
               Welcome to Reach Media

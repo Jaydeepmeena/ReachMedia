@@ -226,7 +226,7 @@ function Navbar() {
     <>
       <span
         ref={cursorRef}
-        className="service-cursor-dot pointer-events-none fixed left-[-80px] top-[-80px] z-[1200] hidden lg:block"
+        className="service-cursor-dot pointer-events-none fixed left-[-80px] top-[-80px] z-[9999] hidden lg:block"
         aria-hidden="true"
       ></span>
 

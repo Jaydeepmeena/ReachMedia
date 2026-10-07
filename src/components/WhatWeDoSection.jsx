@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 const workItems = [
   {
@@ -52,11 +52,21 @@ const workItems = [
 ]
 
 function WhatWeDoSection() {
+  const tabRefs = useRef([])
   const [activeIndex, setActiveIndex] = useState(0)
   const activeItem = workItems[activeIndex]
 
+  const handleTabClick = (index) => {
+    setActiveIndex(index)
+    tabRefs.current[index]?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center',
+    })
+  }
+
   return (
-    <section id="process" className="bg-white py-[60px] md:py-[70px]">
+    <section id="process" className="what-we-do-section bg-white py-[60px] md:py-[70px]">
       <div className="container">
         <div className="mb-[58px] grid gap-[28px] lg:grid-cols-[1fr_0.86fr] lg:items-start">
           <div className="heading" data-reveal="left">
@@ -86,6 +96,9 @@ function WhatWeDoSection() {
               {workItems.map((item, index) => (
                 <button
                   key={item.title}
+                  ref={(node) => {
+                    tabRefs.current[index] = node
+                  }}
                   type="button"
                   aria-pressed={activeIndex === index}
                   className={`group relative flex min-h-[72px] w-full max-w-[390px] items-center overflow-visible rounded-full text-left text-[17px] font-extrabold leading-[23px] transition-[width,background-color,color,box-shadow,padding,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:text-[20px] md:leading-[25px] lg:max-w-none ${
@@ -93,7 +106,7 @@ function WhatWeDoSection() {
                       ? 'z-[40] bg-[#60bd6a] pl-[24px] pr-[76px] text-white shadow-[0_16px_34px_rgba(96,189,106,0.24)] lg:w-[calc(100%+70px)] min-[1400px]:w-[calc(100%+96px)]'
                       : 'z-[20] bg-transparent px-[24px] text-white hover:text-[#60bd6a] focus-visible:text-[#60bd6a]'
                   }`}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => handleTabClick(index)}
                 >
                   <span
                     className={`relative z-[1] block max-w-[245px] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:max-w-[275px] ${
