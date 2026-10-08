@@ -158,28 +158,30 @@ function HeroBanner() {
         <div className="hero-banner-inner flex min-h-[460px] flex-col items-center justify-center py-[64px] text-center sm:min-h-[560px] md:py-[80px] lg:min-h-[720px] lg:py-[92px]">
           <div className="hero-copy mx-auto max-w-[860px]">
             <p className="hero-eyebrow-slide mb-[18px] text-[14px] font-[700] uppercase tracking-[0.22em] text-[#b8ee00]">
-              Welcome to Reach Media
+              An Initiative by Reinvent Digital
             </p>
             <h1 className="font-['Nunito'] text-[44px] font-[800] leading-[50px] md:text-[70px] md:leading-[76px]">
               <span className="hero-title-line [animation-delay:120ms]">
-                We build digital
+                Content built for
               </span>
               <span className="hero-title-line [animation-delay:240ms]">
-                experiences that grow
+                real patients, not
               </span>
               <span className="hero-title-line [animation-delay:360ms]">
-                your brand.
+                random viewers.
               </span>
             </h1>
             <p className="hero-reveal [animation-delay:480ms] mx-auto mt-[24px] max-w-[650px] text-[18px] leading-[32px] text-white/90">
-              A clean React structure using components, layout, pages, data,
-              assets, api, and Tailwind common classes.
+              Reach Media builds, shoots and runs your social media across
+              Instagram, LinkedIn, Facebook and YouTube, so every doctor,
+              clinic and hospital we work with is judged by appointments, not
+              algorithms.
             </p>
             <a
               className="hero-reveal [animation-delay:600ms] btn btn-primary hero-btn mt-[34px]"
-              href="#services"
+              href="#contact"
             >
-              <span>Explore Services</span>
+              <span>Get a Free Audit</span>
               <span className="btn-icon" aria-hidden="true">
                 <i className="fa-solid fa-arrow-turn-up fa-rotate-90"></i>
               </span>

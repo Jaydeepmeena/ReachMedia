@@ -172,11 +172,13 @@ function HowItWorksSection() {
           <div className="relative z-[1] heading" data-reveal="left">
             <h4 className="justify-center">How It Works</h4>
             <h2 className="mt-[16px] !text-white">
-              Built for healthcare growth from the start
+              Healthcare-focused marketing
+              <span className="block text-[#b8ee00]">from lead to walk-ins</span>
             </h2>
             <p className="mx-auto mt-[20px] max-w-[680px] text-[17px] leading-[31px] text-white/66">
-              The process is simple on purpose: healthcare-first planning,
-              paid-media alignment, compliance checks, and enquiry-focused reporting.
+              Healthcare-only planning, paid-media alignment, consent checks
+              and enquiry reporting keep each account focused on real patient
+              action.
             </p>
           </div>
         </div>

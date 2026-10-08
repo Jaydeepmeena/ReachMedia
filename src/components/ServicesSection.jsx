@@ -9,45 +9,61 @@ const serviceItems = [
     title: 'IVF & Fertility',
     image: fertilityImage,
     description:
-      'Performance campaigns, local discovery, and patient education funnels built for fertility clinics.',
+      'Fertility treatment is rarely discussed openly, which means most of the research happens quietly, over several months, before a couple ever calls a clinic. Content built for this speciality has to hold that patience, answering cost, process and success-rate questions clearly, without pushing for an enquiry too soon.',
     points: [
-      'Patient-first awareness campaigns',
-      'Lead generation with clear reporting',
-      'Trust-led content and creative strategy',
+      'IVF & IUI Process Explainers',
+      'Success-Rate Context, Stated Plainly',
+      'Content That Acknowledges The Emotional Weight Of Trying Again',
+      'Cost & Instalment Clarity, Upfront',
     ],
+    stat: '3.1X',
+    statText: 'More Enquiry DMs. Typical 6 Month Engagement',
+    cta: 'Audit My IVF & Fertility Presence',
   },
   {
     title: 'Eye Hospitals',
     image: eyeImage,
     description:
-      'Digital systems that help eye care brands promote procedures, specialists, and appointment pathways.',
+      'An eye patient often moves from noticing a symptom to booking a consultation within days, sometimes hours. Content for this speciality has to recognise urgency without exaggerating risk, and explain routine procedures clearly enough that older patients feel informed rather than alarmed.',
     points: [
-      'Procedure-focused content planning',
-      'Search and social growth campaigns',
-      'Conversion-ready landing experiences',
+      'Symptom-Recognition Content ("Signs Not To Ignore")',
+      'Cataract & Lasik Procedure Explainers',
+      'Pre-Op & Post-Op Expectation-Setting',
+      'Content Built For An Older, More Cautious Audience',
     ],
+    stat: '+48%',
+    statText: 'LASIK Enquiry Share. Typical 6 Month Engagement',
+    cta: 'Audit My Eye Clinic/Hospital Presence',
   },
   {
     title: 'Dental Clinics',
     image: dentalImage,
     description:
-      'Creative and performance support for dental brands that need consistent enquiries and stronger visibility.',
+      'Dental patients decide faster when they can see the outcome for themselves, which is why comparable, visual content works harder here than in most other specialities. Every treatment gets explained alongside what it actually costs, since price is usually the first real objection.',
     points: [
-      'Clinic positioning and service campaigns',
-      'Before-after content strategy',
-      'Appointment-driven paid media',
+      'Implant & Aligner Explainers',
+      'Documented, Consented Before-After Content',
+      'Clear Pricing & Instalment Information',
+      'Local Reputation & Review-Led Content',
     ],
+    stat: '2.4X',
+    statText: 'Consultation Bookings. Typical 6 Month Engagement',
+    cta: 'Audit My Dental Clinic/Hospital Presence',
   },
   {
     title: 'Multi-Speciality Hospitals',
     image: hospitalImage,
     description:
-      'Full-funnel growth support for hospitals across departments, doctors, locations, and reputation.',
+      'A multi-speciality hospital is effectively several clinics operating under one name. Each department needs its own content voice and its own calendar slot, while the hospital brand itself keeps building trust across all of them at once, one is not sacrificed for the other.',
     points: [
-      'Department-wise campaign planning',
-      'Doctor and location growth strategy',
-      'Integrated reporting and optimization',
+      'Department-Specific Content Calendars',
+      'Doctor-Led Authority Content, By Department',
+      'Facility & Infrastructure Films',
+      'Patient Experience Stories, With Consent',
     ],
+    stat: '11',
+    statText: 'Departments Run Monthly. Typical 6 Month Engagement',
+    cta: 'Audit My Multi-Speciality Presence',
   },
 ]
 
@@ -101,8 +117,16 @@ function ServicesSection() {
               }`}
             >
               <h2 className="max-w-[650px] !text-white">
-                Healthcare digital services to transform your growth
+                Every speciality has its own{' '}
+                <span className="text-[#b8ee00]">marketing plan</span>
               </h2>
+              <p className="mt-[22px] max-w-[760px] text-[17px] leading-[30px] text-white/72">
+                A couple researching IVF, a 62-year-old worried about their
+                vision, and a parent weighing braces prices are all making real
+                decisions; just not on the same clock. That's what 10+ years in
+                healthcare marketing taught us: one calendar can't carry every
+                speciality.
+              </p>
             </div>
 
             <a
@@ -112,7 +136,7 @@ function ServicesSection() {
               <span className="inline-flex h-[52px] w-[52px] items-center justify-center rounded-full bg-white text-[#070909]">
                 <i className="fa-solid fa-arrow-right"></i>
               </span>
-              More Services
+              Know More
             </a>
           </div>
 
@@ -161,6 +185,14 @@ function ServicesSection() {
                             </li>
                           ))}
                         </ul>
+                        <div className="mb-[26px]">
+                          <strong className="font-['Nunito'] text-[42px] font-[800] leading-none text-[#b8ee00]">
+                            {service.stat}
+                          </strong>
+                          <span className="mt-[6px] block max-w-[360px] text-[15px] font-[700] leading-[22px] text-white/90">
+                            {service.statText}
+                          </span>
+                        </div>
                         <a
                           href="#contact"
                           className="inline-flex h-[50px] w-fit items-center gap-[14px] rounded-full border border-white/30 pr-[24px] text-[15px] font-semibold text-white transition duration-[400ms] hover:border-white hover:bg-white hover:text-[#070909]"
@@ -168,7 +200,7 @@ function ServicesSection() {
                           <span className="inline-flex h-[50px] w-[50px] items-center justify-center rounded-full bg-white text-[#070909]">
                             <i className="fa-solid fa-arrow-right"></i>
                           </span>
-                          Read More
+                          {service.cta}
                         </a>
                       </div>
                     </div>

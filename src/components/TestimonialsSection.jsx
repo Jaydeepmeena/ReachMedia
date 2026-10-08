@@ -181,23 +181,18 @@ function TestimonialsSection() {
           <div className="grid items-center gap-[48px] lg:grid-cols-[0.86fr_1.14fr] lg:gap-[76px]">
             <div>
               <div className="heading" data-reveal="left">
-                <h4>The Client Side</h4>
+                <h4>Word From Our Clients</h4>
                 <h2 className="testi-heading text-[70px]">
-                  <span className="block text-[#d8e0eb]">Less about us.</span>
-                  <span className="block text-[#48a75c]">More from them.</span>
+                  <span className="block text-[#d8e0eb]">What they have actually</span>
+                  <span className="block text-[#48a75c]">felt, seen and received.</span>
                 </h2>
               </div>
 
               <p className="mt-[24px] max-w-[470px] text-[17px] leading-[32px] text-[#6e7b72]" data-reveal="left" style={{ '--reveal-delay': '120ms' }}>
-                Real feedback from the brands we support.
+                Real feedback from healthcare brands we support.
                 <br />
-                Proof that the work is moving.
+                Proof that the work is moving beyond vanity metrics.
               </p>
-
-              <span className="testi-trust-pill mt-[30px]" data-reveal="left" style={{ '--reveal-delay': '220ms' }}>
-                <span aria-hidden="true" className="testi-gemini-icon"></span>
-                <span>Good people. Great collaborations.</span>
-              </span>
             </div>
 
             <div className="testi-right-panel">

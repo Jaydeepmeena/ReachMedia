@@ -1,7 +1,7 @@
 function LeadForm({
   className = '',
   title = 'Tell us about your growth goals',
-  responseTime = '24 hours',
+  responseTime = '3 working days',
 }) {
   return (
     <form
@@ -39,7 +39,7 @@ function LeadForm({
           <span className="sr-only">Project message</span>
           <textarea
             rows="4"
-            placeholder="Your message"
+            placeholder="Speciality and social media handle"
             className="w-full resize-none border-0 border-b border-white/18 bg-transparent px-0 pb-[16px] text-[15px] text-white outline-none transition-colors duration-500 placeholder:text-white/48 focus:border-[#d7ff2f]"
           ></textarea>
         </label>
@@ -50,7 +50,7 @@ function LeadForm({
           type="checkbox"
           className="h-[18px] w-[18px] rounded border border-white/28 bg-transparent accent-[#d7ff2f]"
         />
-        Subscribe to newsletter
+        Send me the 30-day content plan
       </label>
 
       <button
@@ -60,7 +60,7 @@ function LeadForm({
         <span className="inline-flex h-[46px] w-[46px] items-center justify-center rounded-full bg-[#d7ff2f] text-[#101112]">
           <i className="fa-solid fa-arrow-right"></i>
         </span>
-        Submit now
+        Get free audit
       </button>
     </form>
   )

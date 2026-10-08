@@ -4,9 +4,9 @@ import 'swiper/css'
 import ctaShape from '../assets/images/website-shap.webp'
 
 const checklist = [
-  'Free 30-min strategy call',
-  'No obligation to continue',
-  'Reply within 24 hours',
+  'Profile and competitor teardown',
+  'Missing treatment topics for your speciality',
+  'A 30-day content plan, yours to keep',
 ]
 
 const stats = [
@@ -56,9 +56,9 @@ function CtaSection() {
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    const subject = encodeURIComponent('Free strategy call request')
+    const subject = encodeURIComponent('Free social media audit request')
     const body = encodeURIComponent(
-      `Hi Reach Media,\n\nI'd like to book a free strategy call.\nMy email: ${email}`,
+      `Hi Reach Media,\n\nI'd like to get a free social media audit for my profile.\nMy email: ${email}`,
     )
 
     window.location.href = `mailto:contact@reachmedia.co.in?subject=${subject}&body=${body}`
@@ -90,17 +90,18 @@ function CtaSection() {
           <div className="relative z-[2] mx-auto max-w-[700px]">
             <span className="inline-flex items-center gap-[10px] rounded-full border border-white/15 bg-white/5 px-[20px] py-[10px] text-[13px] font-[600] uppercase tracking-[0.14em] text-[#b8ee00]">
               <i className="fa-solid fa-bolt"></i>
-              Free Strategy Call
+              Free Audit
             </span>
 
             <h2 className="mx-auto mt-[22px] max-w-[600px] font-['Nunito'] text-[38px] font-[800] leading-[46px] text-white md:text-[52px] md:leading-[60px]">
-              Start growing your enquiries this month
+              Get a free social media
+              <span className="block text-[#b8ee00]">audit for your profile</span>
             </h2>
 
             <p className="mx-auto mt-[20px] max-w-[540px] text-[16px] leading-[29px] text-white/60 md:text-[17px] md:leading-[31px]">
-              Share your clinic or brand details and get a practical growth
-              plan back — content direction, campaign ideas, and clear next
-              steps.
+              Tell us your speciality and your handle. Within 3 working days
+              you get a recorded walkthrough of what is working, what is
+              leaking enquiries, and a 30-day plan.
             </p>
 
             <form
@@ -123,7 +124,7 @@ function CtaSection() {
                 type="submit"
                 className="inline-flex h-[52px] shrink-0 items-center justify-center gap-[10px] rounded-[12px] bg-white px-[26px] text-[14px] font-[700] text-[#101112] transition duration-300 hover:bg-[#b8ee00] sm:rounded-full"
               >
-                Get Started
+                Get Audit
                 <i className="fa-solid fa-arrow-right"></i>
               </button>
             </form>

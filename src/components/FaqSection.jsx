@@ -3,24 +3,39 @@ import LeadForm from './LeadForm'
 
 const faqs = [
   {
-    question: 'What services do you offer?',
+    question: 'What exactly does Reach Media do?',
     answer:
-      'We plan and manage social media, content, reels, paid campaigns, influencer activity, landing pages, and performance reporting for healthcare and service brands.',
+      'We run social media end to end for doctors, clinics, clinic chains, hospitals and healthcare creators: strategy, content calendar, graphics, video, publishing, community management and monthly reporting. You approve once a month; we handle the rest.',
   },
   {
-    question: 'How long does a campaign setup take?',
+    question: 'Do our doctors have to shoot videos every week?',
     answer:
-      'Most campaigns can be planned and launched within 5-7 days once the brief, assets, approvals, and tracking requirements are clear.',
+      "No. One on-site shoot day a month covers the full month's reels and content, whether it is for a doctor's personal profile, a clinic or a hospital department, so the time commitment stays under two hours.",
   },
   {
-    question: 'Do you work with clinics outside one city?',
+    question: 'Which platforms do you manage?',
     answer:
-      'Yes. We support single-location clinics, multi-branch groups, and hospital brands that need location-wise campaigns and reporting.',
+      'Instagram as the primary platform, LinkedIn as a growing authority channel, Facebook for community and local reach, and YouTube for longer-form patient education content, each planned for its own role.',
   },
   {
-    question: 'How do you report results?',
+    question: 'Can you manage a personal profile, not just a clinic or hospital account?',
     answer:
-      'We share simple reports focused on enquiries, campaign performance, content learnings, spend, and the next actions needed to improve results.',
+      'Yes. We manage individual doctor profiles, single clinics, multi-location clinic chains, hospital accounts across departments, and pages for healthcare influencers and content creators.',
+  },
+  {
+    question: 'How do you handle patient privacy and consent?',
+    answer:
+      'Every before-after, testimonial or patient-facing piece requires documented consent before it is shot, and again before it is published. No patient name, phone number or medical history appears in content.',
+  },
+  {
+    question: 'Will this actually bring appointments?',
+    answer:
+      'Social media supports patient trust, recall and enquiry flow when planned around real patient questions and backed by responsive community management and paid promotion. It works alongside your other marketing, not instead of it.',
+  },
+  {
+    question: 'Who is Reinvent Digital?',
+    answer:
+      "Reinvent Digital is Reach Media's parent company, a team that already runs SEO, paid ads and patient-acquisition reporting for healthcare clients across India.",
   },
 ]
 
@@ -55,11 +70,12 @@ function FaqSection() {
                 {`{${faqCount}} FAQs`}
               </span>
               <h2 className="mt-[20px] max-w-[720px] font-['Nunito'] text-[48px] font-[800] leading-[56px] text-white md:text-[62px] md:leading-[70px]">
-                Learn more from FAQs
+                What every clinic owner
+                <span className="block text-[#b8ee00]">wants to know first</span>
               </h2>
               <p className="mt-[18px] max-w-[620px] text-[16px] leading-[30px] text-white/52">
-                A quick look at how we plan, launch, manage, and report growth
-                work for clinics and healthcare brands.
+                Something specific to your speciality? Email us the question -
+                a strategist replies, not a bot.
               </p>
             </div>
 

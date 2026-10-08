@@ -529,12 +529,12 @@
     box-shadow: 0 26px 54px rgba(19, 35, 49, 0.12);
   }
 
-  .testi-swiper .swiper-slide:not(.swiper-slide-active) .testi-card > * {
+  .testi-swiper .swiper-slide:not(.swiper-slide-active) .testi-card>* {
     opacity: 0;
     transition: opacity 220ms ease;
   }
 
-  .testi-swiper .swiper-slide-active .testi-card > * {
+  .testi-swiper .swiper-slide-active .testi-card>* {
     opacity: 1;
     transition: opacity 320ms ease 170ms;
   }
@@ -655,16 +655,16 @@
     padding-bottom: 104px;
   }
 
-  .how-it-sticky-panel > .container > div {
+  .how-it-sticky-panel>.container>div {
     margin-top: -78px;
   }
 
-  .how-it-sticky-panel > .container > div > div:first-child {
+  .how-it-sticky-panel>.container>div>div:first-child {
     padding-top: 34px;
     padding-bottom: 34px;
   }
 
-  .how-it-sticky-panel > .container > div > div:last-child {
+  .how-it-sticky-panel>.container>div>div:last-child {
     min-height: 430px;
   }
 
@@ -672,7 +672,7 @@
     margin-top: 24px;
   }
 
-  .how-it-sticky-panel .how-it-card > div {
+  .how-it-sticky-panel .how-it-card>div {
     margin-top: 22px;
     gap: 18px;
   }
@@ -777,6 +777,7 @@
 }
 
 @keyframes ai-typing-dot {
+
   0%,
   80%,
   100% {
@@ -1164,7 +1165,7 @@
     padding-right: 24px;
   }
 
-  .hero-stats-swiper .swiper-slide > div {
+  .hero-stats-swiper .swiper-slide>div {
     padding-top: 18px;
     padding-bottom: 18px;
   }
@@ -1178,12 +1179,12 @@
     padding-bottom: 46px;
   }
 
-  .what-we-do-section .container > div:first-child {
+  .what-we-do-section .container>div:first-child {
     margin-bottom: 34px;
     gap: 18px;
   }
 
-  .what-we-do-section .container > div:nth-child(2) > div:first-child {
+  .what-we-do-section .container>div:nth-child(2)>div:first-child {
     width: 100%;
     max-width: 100%;
     min-height: auto;
@@ -1192,7 +1193,7 @@
     padding: 16px;
   }
 
-  .what-we-do-section .container > div:nth-child(2) > div:first-child > div {
+  .what-we-do-section .container>div:nth-child(2)>div:first-child>div {
     display: flex;
     gap: 10px;
     width: 100%;
@@ -1206,7 +1207,7 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  .what-we-do-section .container > div:nth-child(2) > div:first-child > div::-webkit-scrollbar {
+  .what-we-do-section .container>div:nth-child(2)>div:first-child>div::-webkit-scrollbar {
     display: none;
   }
 
@@ -1225,20 +1226,20 @@
     padding-right: 58px !important;
   }
 
-  .what-we-do-section button > span:first-child {
+  .what-we-do-section button>span:first-child {
     max-width: 180px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
-  .what-we-do-section button > span:last-child {
+  .what-we-do-section button>span:last-child {
     height: 38px;
     width: 38px;
     font-size: 15px;
   }
 
-  .what-we-do-section .container > div:nth-child(2) > div:last-child {
+  .what-we-do-section .container>div:nth-child(2)>div:last-child {
     min-height: auto;
     margin-top: 14px;
     border-radius: 26px;
@@ -1264,55 +1265,54 @@
     padding: 22px 20px;
   }
 
-  .what-we-do-section .work-stat-animate > div {
+  .what-we-do-section .work-stat-animate>div {
     margin-bottom: 16px;
     padding: 12px;
   }
 
-  .what-we-do-section .work-stat-animate > div > div {
+  .what-we-do-section .work-stat-animate>div>div {
     padding: 20px 24px;
   }
 
   .how-it-scroll-stage {
     height: 330vh;
-    padding-bottom: 0;
   }
 
   .how-it-sticky-panel {
     position: sticky;
-    top: 80px;
+    top: 0;
     overflow: visible;
   }
 
   .how-it-heading-panel {
-    padding: 22px 16px 58px;
+    padding: 22px 16px 100px;
     border-bottom-left-radius: 22px;
     border-bottom-right-radius: 22px;
   }
 
   .how-it-heading-panel .heading h2 {
     margin-top: 10px;
-    font-size: 22px;
-    line-height: 27px;
+    font-size: 28px;
+    line-height: 34px;
   }
 
   .how-it-heading-panel .heading p {
     margin-top: 10px;
-    font-size: 11px;
-    line-height: 17px;
+    font-size: 14px;
+    line-height: 20px;
   }
 
-  .how-it-sticky-panel > .container {
+  .how-it-sticky-panel>.container {
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  .how-it-sticky-panel > .container > div {
-    margin-top: -38px;
+  .how-it-sticky-panel>.container>div {
+    margin-top: -85px;
     border-radius: 20px;
   }
 
-  .how-it-sticky-panel > .container > div > div:first-child {
+  .how-it-sticky-panel>.container>div>div:first-child {
     padding: 14px 14px 14px;
   }
 
@@ -1333,7 +1333,7 @@
     flex: 0 0 auto;
     min-height: 38px;
     padding: 8px 14px;
-    font-size: 10px;
+    font-size: 11px;
     line-height: 15px;
     white-space: nowrap;
     scroll-snap-align: start;
@@ -1350,16 +1350,16 @@
 
   .how-it-sticky-panel .how-it-card p {
     margin-top: 7px;
-    font-size: 11px;
-    line-height: 16px;
+    font-size: 14px;
+    line-height: 20px;
   }
 
-  .how-it-sticky-panel .how-it-card > div {
+  .how-it-sticky-panel .how-it-card>div {
     margin-top: 12px;
     gap: 8px;
   }
 
-  .how-it-sticky-panel .how-it-card > div > div {
+  .how-it-sticky-panel .how-it-card>div>div {
     gap: 12px;
   }
 
@@ -1370,17 +1370,17 @@
   }
 
   .how-it-sticky-panel .how-it-card h4 {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 18px;
   }
 
-  .how-it-sticky-panel .how-it-card h4 + p {
+  .how-it-sticky-panel .how-it-card h4+p {
     margin-top: 4px;
-    font-size: 11px;
-    line-height: 16px;
+    font-size: 13px;
+    line-height: 19px;
   }
 
-  .how-it-sticky-panel > .container > div > div:last-child {
+  .how-it-sticky-panel>.container>div>div:last-child {
     display: block;
     min-height: 180px;
   }
@@ -1396,7 +1396,7 @@
     width: 100% !important;
   }
 
-  .why-us-swiper .swiper-slide > article {
+  .why-us-swiper .swiper-slide>article {
     height: 100%;
     min-height: 350px;
   }
@@ -1490,7 +1490,7 @@
     padding-right: 26px;
   }
 
-  .cta-stats-slider .swiper-slide > div {
+  .cta-stats-slider .swiper-slide>div {
     min-height: 132px;
   }
 

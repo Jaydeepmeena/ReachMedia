@@ -4,50 +4,50 @@ const workItems = [
   {
     title: 'Social Media Handling',
     description:
-      'Daily planning, posting, community response, and profile management built for consistent brand visibility.',
-    points: ['Monthly content calendar', 'Profile optimization', 'Audience engagement'],
-    stat: '6x',
-    statText: 'Sharper presence across social touchpoints',
+      'End-to-end ownership of Instagram, LinkedIn, Facebook and YouTube: strategy, calendar, publishing, community management and reporting, run as one system.',
+    points: ['Three-month content strategy', 'Daily posting and stories', 'DMs, comments and reviews answered'],
+    stat: '3M',
+    statText: 'Content calendar, planned quarterly',
   },
   {
     title: 'Content Creation & Design',
     description:
-      'Campaign creatives, carousels, static posts, and branded assets designed around clarity and recall.',
-    points: ['Brand-led creative direction', 'Campaign-ready post designs', 'Copy and visual alignment'],
-    stat: '30+',
-    statText: 'Creative formats planned for growth',
+      "Medically accurate, on-brand creative, plus captions and copywriting in your brand's own voice, not a generic agency tone.",
+    points: ['Treatment explainer carousels', 'Doctor credibility posts', 'Consented case-study layouts'],
+    stat: '30',
+    statText: '12-30 assets planned each month',
   },
   {
     title: 'Video & Reels',
     description:
-      'Short-form videos and reels that explain services, build trust, and keep your audience engaged.',
-    points: ['Reel scripting', 'Editing and motion graphics', 'Platform-first video formats'],
-    stat: '3s',
-    statText: 'Hook-first content for faster attention',
+      "Script to publish, we write it, direct the doctor on the day, and cut it for the platform it's actually going to live on.",
+    points: ['One on-site shoot day', 'Doctor reels with scripts', 'Patient testimonial films'],
+    stat: '1',
+    statText: 'One on-site shoot day per month',
   },
   {
     title: 'Paid Media',
     description:
-      'Ad campaigns focused on enquiries, local discovery, appointment intent, and measurable performance.',
-    points: ['Meta and Google campaigns', 'Lead funnel setup', 'Budget and result tracking'],
-    stat: 'ROI',
-    statText: 'Reporting built around spend clarity',
+      "Reach and content don't fill a waiting room on their own. We run the paid campaigns that turn the right person watching into the right person calling.",
+    points: ['Meta and Instagram ads', 'Landing page alignment', 'Weekly budget optimisation'],
+    stat: 'LIVE',
+    statText: 'Live ad account, managed weekly',
   },
   {
     title: 'Healthcare Influencer Marketing',
     description:
-      'Relevant creator collaborations for healthcare brands that need credibility and local reach.',
-    points: ['Influencer shortlisting', 'Campaign briefing', 'Content approval support'],
-    stat: 'Trust',
-    statText: 'Creator-led visibility with brand control',
+      'Not every healthcare creator is right for every clinic. We match your speciality to creators whose audience, tone and compliance history fit.',
+    points: ['Creator vetting by speciality', 'Medical-accuracy briefs', 'Consent and compliance checks'],
+    stat: 'FIT',
+    statText: 'Creators vetted per speciality',
   },
   {
     title: 'Reporting',
     description:
-      'Simple performance reports that show what worked, what changed, and what should happen next.',
-    points: ['Monthly insights', 'Platform-wise metrics', 'Next-step recommendations'],
+      'Content is only half the job. We track what turned into a DM, a call and a walk-in, not just what turned into a like.',
+    points: ['Live dashboard shared with your team', 'Lead tracking from post to appointment', 'Monthly next-step recommendations'],
     stat: '100%',
-    statText: 'Clear reporting without confusing noise',
+    statText: 'Monthly review with a live dashboard',
   },
 ]
 
@@ -70,21 +70,23 @@ function WhatWeDoSection() {
       <div className="container">
         <div className="mb-[58px] grid gap-[28px] lg:grid-cols-[1fr_0.86fr] lg:items-start">
           <div className="heading" data-reveal="left">
-            <h4>What We Do</h4>
+            <h4>What We Handle</h4>
             <h2 className="max-w-[640px] font-['Nunito'] text-[40px] font-[800] leading-[46px] text-black md:text-[56px] md:leading-[62px]">
-              Driving a better way of doing marketing
+              Everything from the idea to the{' '}
+              <span className="text-[#3c7f2b]">appointment</span>
             </h2>
           </div>
           <div className="lg:pt-[54px]" data-reveal="right">
             <p className="max-w-[560px] text-[17px] leading-[31px] text-slate-600">
-              We deliver healthcare marketing impact through strategy,
-              creative, paid media, influencer activity, and clear reporting.
+              From the first brief to the calendar, content, trends, shoot,
+              ads and reporting, one team runs it all, so you only have to
+              watch for the results.
             </p>
             <a
               href="#services"
               className="group relative mt-[30px] inline-block pb-[5px] text-[13px] font-extrabold uppercase tracking-[0.4px] text-[#070909]"
             >
-              View All Solutions
+              View All Services
               <span className="absolute bottom-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-[#60bd6a] transition-transform duration-300 group-hover:scale-x-100"></span>
             </a>
           </div>

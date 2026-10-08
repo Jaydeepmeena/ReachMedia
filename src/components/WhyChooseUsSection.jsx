@@ -14,19 +14,19 @@ const whyUsSliderBreakpoints = {
 
 const reasons = [
   {
-    title: 'Healthcare-focused planning',
+    title: 'Healthcare Only',
     description:
-      'We shape campaigns around patient intent, service awareness, local discovery, and appointment quality.',
+      'Every template, script and compliance check for each account is built for clinics and hospitals.',
   },
   {
-    title: 'Creative with clear recall',
+    title: 'Planned Alongside Paid Media',
     description:
-      'Every design, reel, carousel, and ad is made to explain the service quickly and keep the brand memorable.',
+      'Our parent team already runs Google and Meta ads for healthcare clients, so your content feeds that funnel.',
   },
   {
-    title: 'Transparent performance',
+    title: 'Enquiries, Not Just Likes',
     description:
-      'You get simple reporting, campaign insights, and practical next steps instead of confusing marketing noise.',
+      'We report on DMs, enquiries and consults booked, because that is the number that matters.',
   },
 ]
 
@@ -101,13 +101,16 @@ function WhyChooseUsSection() {
               <h4>Why Choose Reach Media</h4>
 
               <h2 className="max-w-[680px] font-['Nunito'] text-[40px] font-[800] leading-[48px] text-[#101820] md:text-[58px] md:leading-[66px]">
-                Smarter healthcare growth
+                Healthcare-focused marketing
+                <span className="block text-[#3c7f2b]">
+                  tracking leads to walk-ins
+                </span>
               </h2>
 
               <p className="mt-[24px] max-w-[650px] text-[16px] leading-[30px] text-[#6d747b] md:text-[17px] md:leading-[32px]">
-                We combine category understanding with performance campaigns,
-                content systems, and practical reporting so your brand shows up
-                with consistency, credibility, and measurable direction.
+                We plan social content with the same seriousness as a patient
+                acquisition campaign: speciality context, consent checks,
+                paid-media alignment and enquiry tracking.
               </p>
 
               <a

@@ -6,28 +6,28 @@ const timelineSteps = [
     title: 'Clinic Deep-Dive',
     duration: 'Week 1',
     description:
-      'Our content strategists sit with your doctors and front desk to map every treatment, ticket size, and seasonal pattern specific to your specialty, pulling the list of questions patients actually ask before they book.',
+      'Our content strategists sit with your doctors and front desk to map every treatment, ticket size and seasonal pattern specific to your speciality, pulling patient questions from real conversations.',
   },
   {
     number: '02',
     title: 'Strategy & Calendar',
     duration: 'Week 1-2',
     description:
-      'Our content strategists and copywriters build a specialty-specific content plan, mapping every post to a platform, a patient type, and a call to action before it is written, then get it approved once by your team and run it for the full month.',
+      'Our strategists and copywriters build a speciality-specific content plan, mapping every post to a platform, patient type and call to action before it is written.',
   },
   {
     number: '03',
     title: 'Shoot & Produce',
     duration: 'Week 2',
     description:
-      'Our videographers and designers cover the full month in one on-site shoot day, with scripts ready before the doctor arrives and editing handled afterwards.',
+      'Our videographers and designers cover the full month in one on-site shoot day, scripts ready before the doctor arrives and editing handled entirely on our side afterwards.',
   },
   {
     number: '04',
     title: 'Publish & Respond',
     duration: 'Week 4',
     description:
-      'Our community managers keep every platform active with daily posting and stories, answer comments and DMs within the day, and route every enquiry to your front desk with a tracked handover.',
+      'Our community managers keep every platform active with daily posting and stories, answer comments and DMs within the day, and route every enquiry to your front desk.',
   },
   {
     number: '05',
@@ -93,11 +93,12 @@ function HowWeWorkSection() {
         <div className="heading text-center" data-reveal="up">
           <h4 className="justify-center">How We Work</h4>
           <h2 className="mt-[16px] !text-white">
-            From start to finish, your month stays clear
+            The process behind every month
+            <span className="block text-[#b8ee00]">Start to finish</span>
           </h2>
           <p className="mx-auto mt-[20px] max-w-[620px] text-[17px] leading-[31px] text-white/62">
-            You spend focused time with us once. We spend the rest of the month
-            planning, producing, publishing, promoting, and reporting what moved.
+            You spend two hours a month with us. We spend the rest of it making
+            sure that time was worth it.
           </p>
         </div>
 

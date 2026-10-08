@@ -17,15 +17,15 @@ import radiantDentalCareLogo from '../assets/images/radiant-dental-care.avif'
 const features = [
   {
     icon: 'fa-solid fa-check',
-    title: 'Strategy Built Around Growth',
+    title: 'Healthcare-Only Focus',
     description:
-      'Clear planning, audience intent, and creative direction for brands that want consistent results.',
+      'Every template, script and compliance check is built for clinics and hospitals.',
   },
   {
     icon: 'fa-solid fa-check',
-    title: 'Performance That Stays Visible',
+    title: '120+ Clinic Locations Supported',
     description:
-      'Campaign execution, reporting, and optimization handled with a clear growth-focused process.',
+      'Content planning is handled like a patient-acquisition campaign.',
   },
 ]
 
@@ -100,16 +100,20 @@ function AboutSection() {
               }`}
           >
             <div className="heading">
-              <h4>Who We Are</h4>
+              <h4>A Social Initiative by Reinvent Digital</h4>
               <h2>
-                We turn digital attention into real growth.
+                A hardcore healthcare marketing team{' '}
+                <span className="text-[#3c7f2b]">
+                  Not just a generic posting agency.
+                </span>
               </h2>
             </div>
 
             <p className="mt-[20px] max-w-[760px] text-[16px] leading-[30px] text-slate-600 md:text-[17px] md:leading-[32px]">
-              Reach Media partners with ambitious healthcare, service, and
-              consumer brands to plan smarter campaigns, create stronger
-              content, and improve digital performance with clarity.
+              Reach Media is the social media arm of Reinvent Digital, a team
+              that already runs SEO, paid ads and patient-acquisition reporting
+              for clinics and hospitals across India. We plan content around
+              what actually turns into an inquiry, not what gets a like.
             </p>
 
             <div className="mt-[34px] grid gap-[24px] md:grid-cols-2">
