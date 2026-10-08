@@ -95,7 +95,7 @@ function TestimonialsSection() {
     const viewportHeight = window.innerHeight || document.documentElement.clientHeight
     const viewportWidth = window.innerWidth || document.documentElement.clientWidth
 
-    if (!el || viewportWidth < 992 || viewportHeight < 640) return
+    if (!el || viewportWidth < 992) return
 
     const scrollableDistance = el.offsetHeight - viewportHeight
     const progress = index / (testimonials.length - 1)
@@ -131,7 +131,7 @@ function TestimonialsSection() {
       const rect = el.getBoundingClientRect()
       const viewportHeight = window.innerHeight || document.documentElement.clientHeight
 
-      if (window.innerWidth < 992 || viewportHeight < 640) return
+      if (window.innerWidth < 992) return
 
       const pinnedDistance = Math.max(rect.height - viewportHeight, 1)
       const progress = Math.min(Math.max(-rect.top / pinnedDistance, 0), 1)

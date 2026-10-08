@@ -106,7 +106,7 @@ function HowItWorksSection() {
     const section = sectionRef.current
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
     const stickyLayout = window.matchMedia(
-      '(max-width: 767px), (min-width: 992px) and (min-height: 640px)',
+      '(max-width: 767px), (min-width: 992px)',
     )
     let frameId = 0
 
