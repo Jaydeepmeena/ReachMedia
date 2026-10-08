@@ -628,7 +628,7 @@
   }
 }
 
-@media (min-width: 992px) and (min-height: 760px) {
+@media (min-width: 992px) and (min-height: 640px) {
   .testimonials-scroll-stage {
     height: 390vh;
   }
