@@ -1412,7 +1412,7 @@
 
   .how-it-sticky-panel {
     position: sticky;
-    top: 0;
+    top: -8%;
     overflow: visible;
   }
 

@@ -127,7 +127,7 @@ function AboutSection() {
             <img
               src={aboutImage}
               alt="Reach Media support specialist"
-              className="relative z-[3] max-h-[400px] w-auto object-contain sm:max-h-[610px] lg:max-h-[725px]"
+              className="relative z-[3] max-h-[350px] w-auto object-contain sm:max-h-[610px] lg:max-h-[725px]"
             />
           </div>
 
