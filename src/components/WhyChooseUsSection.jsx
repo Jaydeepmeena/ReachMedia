@@ -3,9 +3,6 @@ import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 
-const whyUsImage =
-  'https://demo.omispace.com/pitwo/wp-content/uploads/sites/5/2026/07/Why-Us-Image.jpg'
-
 const whyUsSliderBreakpoints = {
   0: { slidesPerView: 1, spaceBetween: 18 },
   640: { slidesPerView: 1.25, spaceBetween: 20 },
@@ -16,21 +13,32 @@ const reasons = [
   {
     title: 'Healthcare Only',
     description:
-      'Every template, script and compliance check for each account is built for clinics and hospitals.',
+      'Every template, script and compliance check for each account is built for your clinics and hospitals.',
   },
   {
     title: 'Planned Alongside Paid Media',
     description:
-      'Our parent team already runs Google and Meta ads for healthcare clients, so your content feeds that funnel.',
+      'Our parent team already runs Google and Meta ads for healthcare clients, so your content gets planned to feed that funnel, not published in isolation from it.',
+  },
+  {
+    title: 'Consent and Compliance First',
+    description:
+      'We check patient consent, advertising norms and claim language before anything goes live, so your account never becomes the case study for what not to post.',
   },
   {
     title: 'Enquiries, Not Just Likes',
     description:
-      'We report on DMs, enquiries and consults booked, because that is the number that matters.',
+      "We report on DMs, enquiries and consults booked, because that's the only number that was ever going to matter to the person paying for this.",
   },
 ]
 
-function CounterNumber({ value, suffix = '', decimals = 0, isActive }) {
+function CounterNumber({
+  value,
+  suffix = '',
+  decimals = 0,
+  isActive,
+  useGrouping = false,
+}) {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
@@ -60,7 +68,12 @@ function CounterNumber({ value, suffix = '', decimals = 0, isActive }) {
 
   return (
     <span>
-      {count.toFixed(decimals)}
+      {useGrouping
+        ? count.toLocaleString('en-US', {
+            maximumFractionDigits: decimals,
+            minimumFractionDigits: decimals,
+          })
+        : count.toFixed(decimals)}
       {suffix}
     </span>
   )
@@ -101,26 +114,24 @@ function WhyChooseUsSection() {
               <h4>Why Choose Reach Media</h4>
 
               <h2 className="max-w-[680px] font-['Nunito'] text-[40px] font-[800] leading-[48px] text-[#101820] md:text-[58px] md:leading-[66px]">
-                Healthcare-focused marketing
+                Healthcare-Focused Marketing Agency
                 <span className="block text-[#3c7f2b]">
-                  tracking leads to walk-ins
+                  From Lead To <span className="whitespace-nowrap">Walk-Ins!</span>
                 </span>
               </h2>
 
-              <p className="mt-[24px] max-w-[650px] text-[16px] leading-[30px] text-[#6d747b] md:text-[17px] md:leading-[32px]">
-                We plan social content with the same seriousness as a patient
-                acquisition campaign: speciality context, consent checks,
-                paid-media alignment and enquiry tracking.
+              <p className="mt-[34px] max-w-[690px] text-[16px] leading-[30px] text-[#6d747b] md:text-[17px] md:leading-[34px]">
+                We plan healthcare marketing with the same seriousness as a
+                patient acquisition campaign: speciality content, consent
+                checks, paid-media alignment and enquiry tracking.
               </p>
 
               <a
                 href="#contact"
-                className="group mt-[28px] inline-flex h-[66px] overflow-hidden rounded-[10px] bg-[#101112] pl-[28px] text-[15px] font-[700] text-white transition duration-500 hover:bg-[#24272a]"
+                className="mt-[34px] inline-flex h-[66px] items-center overflow-hidden rounded-[9px] bg-[#101112] pl-[28px] text-[15px] font-[800] text-white transition duration-300 hover:bg-[#60bd6a]"
               >
-                <span className="flex items-center pr-[28px]">
-                  Why Partner With Us
-                </span>
-                <span className="m-[5px] inline-flex w-[56px] items-center justify-center rounded-[8px] bg-white text-[#101112] transition duration-500 group-hover:bg-[#f4f6f7] group-hover:text-[#101112]">
+                <span className="pr-[36px]">Why Partner With Us</span>
+                <span className="mr-[6px] inline-flex h-[56px] w-[56px] items-center justify-center rounded-[8px] bg-white text-[18px] text-[#101112] transition duration-300">
                   <i className="fa-solid fa-arrow-up-long rotate-45"></i>
                 </span>
               </a>
@@ -226,27 +237,56 @@ function WhyChooseUsSection() {
             </SwiperSlide>
 
             <SwiperSlide>
-              <article className="relative min-h-[350px] overflow-hidden rounded-[22px] bg-[#49a6dc] shadow-none lg:shadow-[0_18px_60px_rgba(37,56,80,0.08)]">
-                <span className="absolute right-[14px] top-[14px] z-[2] inline-flex h-[56px] w-[56px] items-center justify-center rounded-[12px] bg-white text-[22px] text-[#60bd6a]">
-                  <i className="fa-solid fa-shield-heart"></i>
+              <article className={`why-walkins-card ${countersActive ? 'is-active' : ''} relative flex h-full min-h-[350px] overflow-hidden rounded-[22px] bg-white p-[24px] shadow-none lg:shadow-[0_18px_60px_rgba(37,56,80,0.08)]`}>
+                <span className="why-walkins-multiplier absolute right-[22px] top-[20px] select-none font-['Nunito'] text-[84px] font-[800] italic leading-none text-[#101112]">
+                  <CounterNumber
+                    value={2}
+                    suffix="x"
+                    isActive={countersActive}
+                  />
                 </span>
-                <img
-                  src={whyUsImage}
-                  alt="Reach Media growth expertise"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-                <div className="absolute bottom-[18px] left-[18px] z-[2] inline-flex min-h-[58px] items-center overflow-hidden rounded-[12px] bg-white text-[#101820] shadow-[0_16px_36px_rgba(16,24,32,0.12)]">
-                  <span className="px-[20px] text-[16px] font-[800] text-[#5b7cff]">
-                    <CounterNumber
-                      value={12}
-                      suffix="+"
-                      isActive={countersActive}
-                    />
-                  </span>
-                  <span className="h-[32px] w-px bg-slate-200"></span>
-                  <span className="px-[20px] text-[15px] font-[800]">
-                    Growth Expertise
-                  </span>
+
+                <div className="why-walkins-content relative z-[2] flex h-full w-full flex-col">
+                  <div>
+                    <span className="text-[12px] font-[800] uppercase tracking-[0.18em] text-[#60bd6a]">
+                      Patient Growth
+                    </span>
+                    <h3 className="why-walkins-heading mt-[8px] max-w-[300px] font-['Nunito'] text-[25px] font-[800] leading-[30px] text-[#8f9495]">
+                      Walk-ins per month
+                    </h3>
+                  </div>
+
+                  <div className="why-walkins-rows mt-auto grid gap-[20px] pt-[80px]">
+                    <div
+                      className="why-walkins-bar why-walkins-bar--after grid min-h-[72px] grid-cols-[minmax(0,1fr)_auto] items-center gap-[12px] rounded-[13px] px-[20px]"
+                      style={{ '--fill-percent': '100%' }}
+                    >
+                      <span className="why-walkins-bar-fill"></span>
+                      <span className="why-walkins-bar-text text-[18px] font-[600] leading-[23px]">
+                        Walk-ins after 8 months
+                      </span>
+                      <strong className="why-walkins-bar-text font-['Nunito'] text-[23px] font-[800] leading-none">
+                        <CounterNumber
+                          value={11500}
+                          isActive={countersActive}
+                          useGrouping
+                        />
+                      </strong>
+                    </div>
+
+                    <div className="why-walkins-before grid grid-cols-[minmax(0,0.94fr)_minmax(82px,0.8fr)] items-center gap-[18px]">
+                      <span className="inline-flex min-h-[64px] items-center rounded-[13px] bg-[#eeeee6] px-[20px] text-[18px] font-[600] leading-[23px] text-[#242520]">
+                        Walk-ins before
+                      </span>
+                      <strong className="font-['Nunito'] text-[23px] font-[800] leading-none text-[#242520]">
+                        <CounterNumber
+                          value={5500}
+                          isActive={countersActive}
+                          useGrouping
+                        />
+                      </strong>
+                    </div>
+                  </div>
                 </div>
               </article>
             </SwiperSlide>

@@ -1,6 +1,6 @@
 function LeadForm({
   className = '',
-  title = 'Tell us about your growth goals',
+  title = 'Something Specific To Your Speciality?',
   responseTime = '3 working days',
 }) {
   return (
@@ -12,7 +12,7 @@ function LeadForm({
         Response time: {responseTime}
       </span>
 
-      <h3 className="mt-[24px] max-w-[420px] font-['Nunito'] text-[34px] font-[800] leading-[42px] text-white md:text-[40px] md:leading-[48px]">
+      <h3 className="mt-[24px] max-w-[420px] font-['Nunito'] text-[34px] font-[800] leading-[42px] text-white md:text-[39px] md:leading-[48px]">
         {title}
       </h3>
 

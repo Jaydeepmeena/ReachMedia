@@ -4,15 +4,15 @@ import 'swiper/css'
 import ctaShape from '../assets/images/website-shap.webp'
 
 const checklist = [
-  'Profile and competitor teardown',
-  'Missing treatment topics for your speciality',
-  'A 30-day content plan, yours to keep',
+  'Profile & Competitor Teardown',
+  'Missing Treatment Topics For Your Speciality',
+  'A 30-Day Content Plan, Yours To Keep',
 ]
 
 const stats = [
   { value: '115+', label: 'Healthcare Accounts Managed' },
   { value: '4.2M', label: 'Monthly Content Views' },
-  { value: '10+', label: 'Years Of Experience' },
+  { value: '10+', label: 'Years of Healthcare Marketing Experience' },
 ]
 
 const statsSliderBreakpoints = {
@@ -93,15 +93,14 @@ function CtaSection() {
               Free Audit
             </span>
 
-            <h2 className="mx-auto mt-[22px] max-w-[600px] font-['Nunito'] text-[38px] font-[800] leading-[46px] text-white md:text-[52px] md:leading-[60px]">
-              Get a free social media
-              <span className="block text-[#b8ee00]">audit for your profile</span>
+            <h2 className="mx-auto mt-[22px] max-w-[600px] font-['Nunito'] text-[27px] font-[800] leading-[34px] text-white md:text-[52px] md:leading-[60px]">
+              Get a Free Social Media
+              <span className="block text-[#b8ee00]">Audit for Your Profile</span>
             </h2>
 
             <p className="mx-auto mt-[20px] max-w-[540px] text-[16px] leading-[29px] text-white/60 md:text-[17px] md:leading-[31px]">
-              Tell us your speciality and your handle. Within 3 working days
-              you get a recorded walkthrough of what is working, what is
-              leaking enquiries, and a 30-day plan.
+              Tell us your speciality and handle. Within 3 working days, get a
+              recorded audit and a focused 30-day content plan.
             </p>
 
             <form
@@ -122,7 +121,7 @@ function CtaSection() {
               />
               <button
                 type="submit"
-                className="inline-flex h-[52px] shrink-0 items-center justify-center gap-[10px] rounded-[12px] bg-white px-[26px] text-[14px] font-[700] text-[#101112] transition duration-300 hover:bg-[#b8ee00] sm:rounded-full"
+                className="inline-flex h-[52px] shrink-0 items-center justify-center gap-[10px] rounded-[12px] bg-white px-[26px] text-[13px] font-[700] text-[#101112] transition duration-300 hover:bg-[#b8ee00] sm:rounded-full md:text-[14px]"
               >
                 Get Audit
                 <i className="fa-solid fa-arrow-right"></i>

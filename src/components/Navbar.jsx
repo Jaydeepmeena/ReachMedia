@@ -7,8 +7,8 @@ const menuItems = [
   { label: 'Services', href: '#services' },
   { label: 'Process', href: '#process' },
   { label: 'Why Us', href: '#why-choose-us' },
-  { label: 'Results', href: '#results' },
-  { label: 'Work', href: '#work' },
+  { label: 'How We Work', href: '#how-we-work' },
+  { label: 'Work Samples', href: '#reels' },
   { label: 'FAQs', href: '#faqs' },
   { label: 'Review', href: '#testimonials' },
 ]

@@ -9,60 +9,52 @@ const serviceItems = [
     title: 'IVF & Fertility',
     image: fertilityImage,
     description:
-      'Fertility treatment is rarely discussed openly, which means most of the research happens quietly, over several months, before a couple ever calls a clinic. Content built for this speciality has to hold that patience, answering cost, process and success-rate questions clearly, without pushing for an enquiry too soon.',
+      'Fertility research often happens privately over months before a clinic visit. Content should patiently address treatment costs, processes, and success rates without pressuring couples to enquire.',
     points: [
       'IVF & IUI Process Explainers',
       'Success-Rate Context, Stated Plainly',
       'Content That Acknowledges The Emotional Weight Of Trying Again',
       'Cost & Instalment Clarity, Upfront',
     ],
-    stat: '3.1X',
-    statText: 'More Enquiry DMs. Typical 6 Month Engagement',
     cta: 'Audit My IVF & Fertility Presence',
   },
   {
     title: 'Eye Hospitals',
     image: eyeImage,
     description:
-      'An eye patient often moves from noticing a symptom to booking a consultation within days, sometimes hours. Content for this speciality has to recognise urgency without exaggerating risk, and explain routine procedures clearly enough that older patients feel informed rather than alarmed.',
+      'Eye patients often seek consultations quickly after noticing symptoms. Content should address urgency without causing fear and explain procedures clearly, helping older patients feel informed and reassured.',
     points: [
       'Symptom-Recognition Content ("Signs Not To Ignore")',
       'Cataract & Lasik Procedure Explainers',
       'Pre-Op & Post-Op Expectation-Setting',
       'Content Built For An Older, More Cautious Audience',
     ],
-    stat: '+48%',
-    statText: 'LASIK Enquiry Share. Typical 6 Month Engagement',
     cta: 'Audit My Eye Clinic/Hospital Presence',
   },
   {
     title: 'Dental Clinics',
     image: dentalImage,
     description:
-      'Dental patients decide faster when they can see the outcome for themselves, which is why comparable, visual content works harder here than in most other specialities. Every treatment gets explained alongside what it actually costs, since price is usually the first real objection.',
+      'Dental patients make quicker decisions when they see treatment results. Clear visual content, treatment explanations, and transparent pricing help build trust and address cost concerns.',
     points: [
       'Implant & Aligner Explainers',
       'Documented, Consented Before-After Content',
       'Clear Pricing & Instalment Information',
       'Local Reputation & Review-Led Content',
     ],
-    stat: '2.4X',
-    statText: 'Consultation Bookings. Typical 6 Month Engagement',
     cta: 'Audit My Dental Clinic/Hospital Presence',
   },
   {
     title: 'Multi-Speciality Hospitals',
     image: hospitalImage,
     description:
-      'A multi-speciality hospital is effectively several clinics operating under one name. Each department needs its own content voice and its own calendar slot, while the hospital brand itself keeps building trust across all of them at once, one is not sacrificed for the other.',
+      'Multi-speciality hospitals need tailored content for each department while maintaining a consistent brand identity. Strategic content planning helps build trust across all specialities.',
     points: [
       'Department-Specific Content Calendars',
       'Doctor-Led Authority Content, By Department',
       'Facility & Infrastructure Films',
       'Patient Experience Stories, With Consent',
     ],
-    stat: '11',
-    statText: 'Departments Run Monthly. Typical 6 Month Engagement',
     cta: 'Audit My Multi-Speciality Presence',
   },
 ]
@@ -110,11 +102,10 @@ function ServicesSection() {
             </div>
 
             <div
-              className={`heading ${
-                isVisible
+              className={`heading ${isVisible
                   ? 'about-slide-left about-motion-in'
                   : 'about-slide-left'
-              }`}
+                }`}
             >
               <h2 className="max-w-[650px] !text-white">
                 Every speciality has its own{' '}
@@ -148,9 +139,8 @@ function ServicesSection() {
                 <article
                   key={service.title}
                   tabIndex={0}
-                  className={`group grid min-h-[80px] border-b border-white/20 transition-all duration-[400ms] ease-out last:border-b-0 lg:grid-cols-[130px_minmax(0,1fr)_390px] xl:grid-cols-[130px_minmax(0,1fr)_470px] 2xl:grid-cols-[130px_minmax(0,1fr)_540px] ${
-                    isActive ? 'service-item-open' : ''
-                  }`}
+                  className={`group grid min-h-[80px] border-b border-white/20 transition-all duration-[400ms] ease-out last:border-b-0 lg:grid-cols-[130px_minmax(0,1fr)_390px] xl:grid-cols-[130px_minmax(0,1fr)_470px] 2xl:grid-cols-[130px_minmax(0,1fr)_540px] ${isActive ? 'service-item-open' : ''
+                    }`}
                   onMouseEnter={() => setActiveIndex(index)}
                   onClick={() => setActiveIndex(index)}
                   onFocus={() => setActiveIndex(index)}
@@ -162,9 +152,8 @@ function ServicesSection() {
                   <div className="py-[22px] lg:px-[64px]">
                     <a
                       href="#!"
-                      className={`service-title-link mb-[18px] inline-block font-['Nunito'] text-[29px] font-[800] leading-[38px] transition duration-[400ms] md:text-[34px] md:leading-[44px] ${
-                        isActive ? 'text-white' : 'text-white/45'
-                      }`}
+                      className={`service-title-link mb-[18px] inline-block font-['Nunito'] text-[29px] font-[800] leading-[38px] transition duration-[400ms] md:text-[34px] md:leading-[44px] ${isActive ? 'text-white' : 'text-white/45'
+                        }`}
                       onClick={(event) => event.preventDefault()}
                     >
                       {service.title}
@@ -172,7 +161,7 @@ function ServicesSection() {
 
                     <div className={`service-panel ${isActive ? 'is-open' : ''}`}>
                       <div className="service-panel-inner overflow-hidden">
-                        <p className="mb-[24px] max-w-[520px] text-[17px] leading-[30px] text-white/75">
+                        <p className="mb-[24px] text-[17px] leading-[30px] text-white/75">
                           {service.description}
                         </p>
                         <ul className="mb-[30px] grid gap-[14px] text-[17px] text-white">
@@ -185,14 +174,6 @@ function ServicesSection() {
                             </li>
                           ))}
                         </ul>
-                        <div className="mb-[26px]">
-                          <strong className="font-['Nunito'] text-[42px] font-[800] leading-none text-[#b8ee00]">
-                            {service.stat}
-                          </strong>
-                          <span className="mt-[6px] block max-w-[360px] text-[15px] font-[700] leading-[22px] text-white/90">
-                            {service.statText}
-                          </span>
-                        </div>
                         <a
                           href="#contact"
                           className="inline-flex h-[50px] w-fit items-center gap-[14px] rounded-full border border-white/30 pr-[24px] text-[15px] font-semibold text-white transition duration-[400ms] hover:border-white hover:bg-white hover:text-[#070909]"
@@ -208,11 +189,10 @@ function ServicesSection() {
 
                   <div className="py-[0px] lg:py-[0px]">
                     <div
-                      className={`overflow-hidden transition-[height] duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                        isActive
+                      className={`overflow-hidden transition-[height] duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive
                           ? 'max-h-[400px] h-[190px] sm:h-[230px] lg:h-[360px]'
                           : 'h-[58px] sm:h-[78px] lg:h-[82px]'
-                      }`}
+                        }`}
                     >
                       <img
                         src={service.image}

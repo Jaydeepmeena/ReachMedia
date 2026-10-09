@@ -4,37 +4,37 @@ const timelineSteps = [
   {
     number: '01',
     title: 'Clinic Deep-Dive',
-    duration: 'Week 1',
+    duration: 'WEEK 1',
     description:
-      'Our content strategists sit with your doctors and front desk to map every treatment, ticket size and seasonal pattern specific to your speciality, pulling patient questions from real conversations.',
+      'Our content strategists sit with your doctors and front desk to map every treatment, ticket size and seasonal pattern specific to your speciality, pulling the list of questions patients actually ask before they book straight from real conversations, not assumptions.',
   },
   {
     number: '02',
     title: 'Strategy & Calendar',
-    duration: 'Week 1-2',
+    duration: 'WEEK 1-2',
     description:
-      'Our strategists and copywriters build a speciality-specific content plan, mapping every post to a platform, patient type and call to action before it is written.',
+      "Our content strategists and copywriters build a speciality-specific content plan, mapping every post to a platform, a patient type and a call to action before it's written, then get it approved once by your team and run it for the full month.",
   },
   {
     number: '03',
     title: 'Shoot & Produce',
-    duration: 'Week 2',
+    duration: 'WEEK 2',
     description:
-      'Our videographers and designers cover the full month in one on-site shoot day, scripts ready before the doctor arrives and editing handled entirely on our side afterwards.',
+      'Our videographers and designers cover the full month in one on-site shoot day, scripts ready before the doctor arrives and in and out within two hours, with editing and design handled entirely on our side afterwards.',
   },
   {
     number: '04',
     title: 'Publish & Respond',
-    duration: 'Week 4',
+    duration: 'WEEK 4',
     description:
-      'Our community managers keep every platform active with daily posting and stories, answer comments and DMs within the day, and route every enquiry to your front desk.',
+      'Our community managers keep every platform active with daily posting and stories, answer comments and DMs within the day, and route every enquiry to your front desk with a tracked handover, so nothing gets lost between a DM and a phone call.',
   },
   {
     number: '05',
     title: 'Promote & Report',
-    duration: 'Week 5',
+    duration: 'WEEK 5',
     description:
-      'Our performance marketers and analysts run paid campaigns and influencer collaborations alongside the content, then track every enquiry back to its source and bring you a monthly report on what actually turned into a call.',
+      'Our performance marketers and analysts run the paid campaigns and influencer collaborations alongside the content, then track every enquiry back to its source and bring you a monthly report on what actually turned into a call.',
   },
 ]
 
@@ -93,8 +93,12 @@ function HowWeWorkSection() {
         <div className="heading text-center" data-reveal="up">
           <h4 className="justify-center">How We Work</h4>
           <h2 className="mt-[16px] !text-white">
-            The process behind every month
-            <span className="block text-[#b8ee00]">Start to finish</span>
+            The Process Behind Every Month
+            <span className="mt-[6px] flex items-center justify-center gap-[18px] text-[#b8ee00]">
+              <i className="fa-solid fa-arrow-right-long rotate-180 text-[0.58em]"></i>
+              Start To Finish
+              <i className="fa-solid fa-arrow-right-long text-[0.58em]"></i>
+            </span>
           </h2>
           <p className="mx-auto mt-[20px] max-w-[620px] text-[17px] leading-[31px] text-white/62">
             You spend two hours a month with us. We spend the rest of it making

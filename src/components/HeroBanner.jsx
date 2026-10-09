@@ -156,21 +156,21 @@ function HeroBanner() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/65"></div>
       <div className="container relative z-[1]">
         <div className="hero-banner-inner flex min-h-[460px] flex-col items-center justify-center py-[64px] text-center sm:min-h-[560px] md:py-[80px] lg:min-h-[720px] lg:py-[92px]">
-          <div className="hero-copy mx-auto max-w-[860px]">
+          <div className="hero-copy mx-auto max-w-[1180px]">
             <p className="hero-eyebrow-slide mb-[18px] text-[14px] font-[700] uppercase tracking-[0.22em] text-[#b8ee00]">
               An Initiative by Reinvent Digital
             </p>
-            <h1 className="font-['Nunito'] text-[44px] font-[800] leading-[50px] md:text-[70px] md:leading-[76px]">
-              <span className="hero-title-line [animation-delay:120ms]">
-                Content built for
+            <h1 className="font-['Nunito'] text-[44px] font-[800] leading-[50px] md:text-[62px] md:leading-[68px] xl:text-[68px] xl:leading-[74px] 2xl:text-[76px] 2xl:leading-[82px]">
+              <span className="hero-title-line md:whitespace-nowrap [animation-delay:120ms]">
+                Content Built for Real Patients
               </span>
-              <span className="hero-title-line [animation-delay:240ms]">
-                real patients, not
-              </span>
-              <span className="hero-title-line [animation-delay:360ms]">
-                random viewers.
+              <span className="hero-title-line md:whitespace-nowrap [animation-delay:240ms]">
+                Not for the Random Viewers!
               </span>
             </h1>
+            <p className="hero-reveal [animation-delay:360ms] mx-auto mt-[18px] max-w-[650px] text-[14px] font-[700] uppercase tracking-[0.1em] text-[#b8ee00] md:text-[15px]">
+              Likes. Shares. Follows. Impressions &gt;&gt; Booked Appointments
+            </p>
             <p className="hero-reveal [animation-delay:480ms] mx-auto mt-[24px] max-w-[650px] text-[18px] leading-[32px] text-white/90">
               Reach Media builds, shoots and runs your social media across
               Instagram, LinkedIn, Facebook and YouTube, so every doctor,

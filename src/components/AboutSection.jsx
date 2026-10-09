@@ -16,16 +16,18 @@ import radiantDentalCareLogo from '../assets/images/radiant-dental-care.avif'
 
 const features = [
   {
-    icon: 'fa-solid fa-check',
-    title: 'Healthcare-Only Focus',
-    description:
-      'Every template, script and compliance check is built for clinics and hospitals.',
+    value: 100,
+    suffix: '%',
+    label: 'Healthcare-Only Focus',
+    color: 'bg-[#60bd6a]',
+    icon: 'fa-solid fa-heart-pulse',
   },
   {
-    icon: 'fa-solid fa-check',
-    title: '120+ Clinic Locations Supported',
-    description:
-      'Content planning is handled like a patient-acquisition campaign.',
+    value: 120,
+    suffix: '+',
+    label: 'Clinic Locations Supported',
+    color: 'bg-[#43A0A1]',
+    icon: 'fa-solid fa-location-dot',
   },
 ]
 
@@ -44,6 +46,42 @@ const partners = [
   { name: 'Kenia Eye & Dental', logo: keniaEyeDentalLogo },
   { name: 'Oracare Prime', logo: oracarePrimeLogo },
 ]
+
+function CounterNumber({ value, suffix = '', isActive }) {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (!isActive) {
+      return undefined
+    }
+
+    let frame = 0
+    const duration = 1400
+    const start = performance.now()
+
+    const updateCount = (time) => {
+      const progress = Math.min((time - start) / duration, 1)
+      const easedProgress = 1 - Math.pow(1 - progress, 3)
+
+      setCount(Math.round(value * easedProgress))
+
+      if (progress < 1) {
+        frame = requestAnimationFrame(updateCount)
+      }
+    }
+
+    frame = requestAnimationFrame(updateCount)
+
+    return () => cancelAnimationFrame(frame)
+  }, [isActive, value])
+
+  return (
+    <span>
+      {count}
+      {suffix}
+    </span>
+  )
+}
 
 function AboutSection() {
   const marqueeItems = [...partners, ...partners]
@@ -100,37 +138,41 @@ function AboutSection() {
               }`}
           >
             <div className="heading">
-              <h4>A Social Initiative by Reinvent Digital</h4>
+              <h4>A SOCIAL INITIATIVE BY REINVENT DIGITAL</h4>
               <h2>
-                A hardcore healthcare marketing team{' '}
+                A Hardcore Healthcare Marketing Team{' '}
                 <span className="text-[#3c7f2b]">
-                  Not just a generic posting agency.
+                  Not Just A Generic Posting Agency!
                 </span>
               </h2>
             </div>
 
-            <p className="mt-[20px] max-w-[760px] text-[16px] leading-[30px] text-slate-600 md:text-[17px] md:leading-[32px]">
+            <p className="mt-[20px] text-[16px] leading-[30px] text-slate-600 md:text-[17px] md:leading-[32px]">
               Reach Media is the social media arm of Reinvent Digital, a team
               that already runs SEO, paid ads and patient-acquisition reporting
-              for clinics and hospitals across India. We plan content around
-              what actually turns into an inquiry, not what gets a like.
+              for clinics and hospitals across India. We plan content the same
+              way we plan a paid campaign: around what actually turns into an
+              inquiry, not around what gets a like.
             </p>
 
             <div className="mt-[34px] grid gap-[24px] md:grid-cols-2">
-              {features.map((feature, index) => (
-                <div className="flex gap-[16px]" key={feature.title}>
+              {features.map((feature) => (
+                <div className="flex gap-[16px]" key={feature.label}>
                   <span
-                    className={`inline-flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full text-[20px] text-white ${index === 0 ? 'bg-[#60bd6a]' : 'bg-[#43A0A1]'
-                      }`}
+                    className={`inline-flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-full text-[20px] text-white ${feature.color}`}
                   >
                     <i className={feature.icon}></i>
                   </span>
                   <div>
-                    <h3 className="mb-[8px] text-[19px] font-bold leading-[27px] text-slate-950">
-                      {feature.title}
+                    <h3 className="mb-[4px] font-['Nunito'] text-[28px] font-[800] leading-[32px] text-slate-950">
+                      <CounterNumber
+                        value={feature.value}
+                        suffix={feature.suffix}
+                        isActive={isVisible}
+                      />
                     </h3>
-                    <p className="m-0 text-[15px] leading-[27px] text-slate-600">
-                      {feature.description}
+                    <p className="m-0 text-[15px] font-[700] leading-[24px] text-slate-700">
+                      {feature.label}
                     </p>
                   </div>
                 </div>
@@ -140,7 +182,7 @@ function AboutSection() {
         </div>
 
         <div
-          className={`relative z-[2] mt-[0px] w-full overflow-hidden rounded-[26px] border border-white/10 bg-[#101a1f] px-[18px] pb-[36px] pt-[38px] md:mt-[-266px] md:px-[34px] lg:px-[52px] lg:pb-[46px] lg:pl-[430px] lg:pt-[54px]`}
+          className={`relative z-[2] w-full overflow-hidden rounded-[26px] border border-white/10 bg-[#101a1f] px-[18px] pb-[36px] pt-[38px] md:mt-[-265px] md:px-[34px] lg:px-[52px] lg:pb-[46px] lg:pl-[430px] lg:pt-[54px]`}
         >
           <div
             className="pointer-events-none absolute inset-0 opacity-50"
@@ -153,7 +195,7 @@ function AboutSection() {
 
           <div className="relative z-[1] heading mx-auto mb-[30px] max-w-[720px] text-center lg:mb-[40px]">
             <h3 className="text-white">
-              Trusted Partner's
+              Trusted Partners
             </h3>
           </div>
 

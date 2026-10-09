@@ -66,7 +66,7 @@ function LeadPopup() {
 
         <LeadForm
           className="max-h-[min(86vh,760px)] overflow-y-auto pr-[58px]"
-          title="Tell us about your project"
+          title="Something Specific To Your Speciality?"
           responseTime="24 hours"
         />
       </div>

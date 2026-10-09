@@ -5,20 +5,25 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 
 const reelLinks = [
-  'https://www.instagram.com/reel/DdOkHbsCZuw/',
   'https://www.instagram.com/reel/DdMj5lOHJZK/',
-  'https://www.instagram.com/reel/DdeA7MQk9sw/',
   'https://www.instagram.com/reel/DcvqmtIj8Oy/',
   'https://www.instagram.com/reel/DdoQuuHAnbk/',
+  'https://www.instagram.com/reel/DdiacgNMziG/',
+  'https://www.instagram.com/reel/Dd6ZIh5AVjT/',
+  'https://www.instagram.com/reel/Dd1S7ZtFB5Q/',
+  'https://www.instagram.com/reel/DeHUofVATSY/',
+  'https://www.instagram.com/reel/Dda-x1wgnAt/',
 ]
 
 const postLinks = [
-  'https://www.instagram.com/radiantdentalcare_official/p/Dd-TtTWDH8d/',
-  'https://www.instagram.com/radiantdentalcare_official/p/DdthJhxDHgS/',
   'https://www.instagram.com/radiantdentalcare_official/p/Dd2lUN9l6_w/',
-  'https://www.instagram.com/parthadentalcare/p/DU9vXQkjGXE/',
-  'https://www.instagram.com/parthadentalcare/p/DU3AJ5IEmSq/',
   'https://www.instagram.com/parthadentalcare/p/Dd-akoYjInr/',
+  'https://www.instagram.com/p/Dd-akhxDPvO/',
+  'https://www.instagram.com/p/DeHUfQjjErJ/',
+  'https://www.instagram.com/p/DdiTkUml8kn/',
+  'https://www.instagram.com/p/Dd2-89rFwpu/',
+  'https://www.instagram.com/p/DeGqpttDIFZ/',
+  'https://www.instagram.com/p/Ddnp8JPHICJ/',
 ]
 
 const getPostPermalink = (url) => {
@@ -104,13 +109,20 @@ function InstagramReelsSection() {
   return (
     <section id="reels" className="bg-white py-[60px]">
       <div className="container">
-        <div className="mb-[30px] grid gap-[24px] lg:grid-cols-[0.9fr_0.7fr] lg:items-end">
+        <div className="mb-[30px] grid gap-[24px] lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
           <div className="heading" data-reveal="left">
             <h4>Work Samples</h4>
-            <h2 className="max-w-[690px] font-['Nunito'] text-[40px] font-[800] leading-[48px] text-[#070909] md:text-[58px] md:leading-[66px]">
-              Reels, carousels and campaigns
-              <span className="block text-[#3c7f2b]">we have actually posted</span>
+            <h2 className="max-w-[1040px] font-['Nunito'] text-[40px] font-[800] leading-[48px] text-[#070909] md:text-[58px] md:leading-[66px] xl:text-[64px] xl:leading-[72px]">
+              <span className="block xl:whitespace-nowrap">
+                Reels, Carousels & Campaigns
+              </span>
+              <span className="block text-[#3c7f2b]">We Have Actually Posted!</span>
             </h2>
+            <p className="mt-[18px] max-w-[780px] text-[17px] leading-[31px] text-slate-600">
+              Real work for real clinics, hospitals & doctors, across dental,
+              fertility, eye care and multi-speciality, shaped by the
+              deep-driven process we follow for each account.
+            </p>
           </div>
 
           <div className="flex items-end justify-between gap-[24px] lg:justify-self-end" data-reveal="right">
@@ -172,9 +184,8 @@ function InstagramReelsSection() {
         <div className="mt-[58px] flex items-end justify-between gap-[24px]">
           <div className="heading" data-reveal="left">
             <h4>Work Samples</h4>
-            <h2 className="max-w-[690px] font-['Nunito'] text-[40px] font-[800] leading-[48px] text-[#070909] md:text-[58px] md:leading-[66px]">
-              Real work for clinics,
-              <span className="block text-[#3c7f2b]">hospitals and doctors</span>
+            <h2 className="font-['Nunito'] text-[40px] font-[800] leading-[48px] text-[#070909] md:text-[58px] md:leading-[66px]">
+              Recent <span className="text-[#3c7f2b]">Campaign Posts</span>
             </h2>
           </div>
 

@@ -183,16 +183,10 @@ function TestimonialsSection() {
               <div className="heading" data-reveal="left">
                 <h4>Word From Our Clients</h4>
                 <h2 className="testi-heading text-[70px]">
-                  <span className="block text-[#d8e0eb]">What they have actually</span>
-                  <span className="block text-[#48a75c]">felt, seen and received.</span>
+                  <span className="block text-[#d8e0eb]">What They Have Actually</span>
+                  <span className="block text-[#48a75c]">Felt, Seen & Received!</span>
                 </h2>
               </div>
-
-              <p className="mt-[24px] max-w-[470px] text-[17px] leading-[32px] text-[#6e7b72]" data-reveal="left" style={{ '--reveal-delay': '120ms' }}>
-                Real feedback from healthcare brands we support.
-                <br />
-                Proof that the work is moving beyond vanity metrics.
-              </p>
             </div>
 
             <div className="testi-right-panel">

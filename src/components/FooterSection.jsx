@@ -9,7 +9,7 @@ const quickLinks = [
   { label: 'Services', href: '#services' },
   { label: 'Process', href: '#process' },
   { label: 'Why Us', href: '#why-choose-us' },
-  { label: 'Results', href: '#results' },
+  { label: 'Work Samples', href: '#reels' },
 ]
 
 const contactItems = [
