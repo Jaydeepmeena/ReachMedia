@@ -198,7 +198,7 @@ function WhatWeDoSection() {
               key={activeItem.title}
               className="work-detail-animate grid w-full items-center gap-[34px] lg:grid-cols-[minmax(0,1fr)_minmax(250px,340px)] xl:gap-[58px]"
             >
-              <div className="max-w-[720px]">
+              <div className="work-detail-copy max-w-[720px]">
                 <h3 className="mb-[24px] font-['Nunito'] text-[24px] font-[800] leading-[32px] text-black md:text-[30px] md:leading-[38px]">
                   {activeItem.metric}
                 </h3>

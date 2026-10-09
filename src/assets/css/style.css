@@ -79,6 +79,7 @@
   .heading h2 {
     @apply m-0 text-[50px] font-[800] leading-[55px] text-[#333];
     font-family: "Nunito", Arial, sans-serif;
+    text-transform: capitalize;
   }
 
   .heading h3 {
@@ -424,7 +425,9 @@
   .why-walkins-bar-text {
     position: relative;
     z-index: 2;
+    overflow: hidden;
     white-space: nowrap;
+    text-overflow: ellipsis;
     opacity: 0;
     transition: opacity 700ms ease;
   }
@@ -967,7 +970,7 @@
   }
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 990px) {
   .heading h2.testi-heading {
     font-size: 52px;
     line-height: 58px;
@@ -989,6 +992,23 @@
 
   .testi-right-panel {
     margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 990px) {
+  .heading h2 {
+    font-size: 34px;
+    line-height: 42px;
+  }
+
+  .heading h2.testi-heading {
+    font-size: 40px;
+    line-height: 46px;
+  }
+
+  .heading h3 {
+    font-size: 30px;
+    line-height: 40px;
   }
 }
 
@@ -1018,6 +1038,11 @@
   .heading h2 {
     font-size: 42px;
     line-height: 54px;
+  }
+
+  .heading h2.testi-heading {
+    font-size: 54px;
+    line-height: 60px;
   }
 
   .heading h3 {
@@ -1100,9 +1125,26 @@
     padding-right: 16px;
   }
 
+  .work-stat-animate {
+    display: none;
+  }
+
+  .work-detail-animate {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .work-detail-copy {
+    max-width: none;
+  }
+
   .heading h2 {
     font-size: 36px;
     line-height: 46px;
+  }
+
+  .heading h2.testi-heading {
+    font-size: 46px;
+    line-height: 52px;
   }
 
   .heading h3 {

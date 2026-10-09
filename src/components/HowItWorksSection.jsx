@@ -11,15 +11,15 @@ const processSteps = [
     image: healthcareOnlyImage,
     title: 'Healthcare Only',
     description:
-      "A generic social media agency treats a dental implant post the same way it treats a restaurant's dinner special. We don't, because the two have nothing in common. Every template, script, and compliance check on this page was built for clinics and hospitals, and for nothing else.",
+      "A generic agency treats a dental implant post the same way it treats a restaurant's dinner special. We don't, because the two have nothing in common. Every template, script and compliance check we use was built for doctors, clinics and hospitals, and for nothing else.",
     points: [
       {
-        title: 'Built for clinics and hospitals',
-        description: 'Healthcare context shapes every template, script, campaign idea, and review step.',
+        title: 'Built for Healthcare Decisions',
+        description: 'Healthcare context shapes every template, script, campaign idea and review step.',
       },
       {
-        title: 'Nothing generic',
-        description: 'The strategy is made for clinic and hospital decisions, not ordinary lifestyle marketing.',
+        title: 'Nothing Generic',
+        description: 'Strategy is made for how patients choose a doctor or hospital, not for lifestyle marketing.',
       },
     ],
   },
@@ -27,17 +27,17 @@ const processSteps = [
     number: '02',
     tab: 'Paid Media Planning',
     image: paidMediaImage,
-    title: 'Planned Alongside Paid Media',
+    title: 'Paid Media Planning',
     description:
-      'Most social media agencies hand you a content calendar and walk away before the ad account even opens. Our parent team already runs Google and Meta ads for healthcare clients, so your content gets planned to feed that funnel, not published in isolation from it.',
+      "Social content and paid ads work better when one team plans both. Our parent team, Reinvent Digital, already runs Google and Meta ads for healthcare clients, so your content is built to feed the funnel, not sit beside it.",
     points: [
       {
-        title: 'Content feeds campaigns',
-        description: 'Posts, reels, landing pages, and campaigns support the same service priorities.',
+        title: 'Content and Ads Planned Together',
+        description: 'Every campaign idea is mapped to the treatment, audience and ad that will carry it.',
       },
       {
-        title: 'Performance ready',
-        description: 'Every asset is easier to boost, test, track, and connect back to enquiries.',
+        title: 'Built for High-Intent Treatments',
+        description: 'Budget goes behind the services patients are actively searching for.',
       },
     ],
   },
@@ -45,35 +45,35 @@ const processSteps = [
     number: '03',
     tab: 'Compliance First',
     image: complianceFirstImage,
-    title: 'Consent and Compliance First',
+    title: 'Compliance First',
     description:
-      'Most agencies find out about NMC advertising rules after a post gets flagged. We check patient consent, advertising norms, and claim language before anything goes live, so your account never becomes the case study for what not to post.',
+      'Most agencies learn about NMC advertising rules after a post gets flagged. We check patient consent, advertising norms and claim language before anything is scheduled, so your account never becomes the example of what not to post.',
     points: [
       {
-        title: 'Safer publishing',
-        description: 'Doctor, patient, and procedure communication stays clean before publishing.',
+        title: 'Consent Before Every Patient Story',
+        description: 'Before/after and testimonial content needs documented consent, before the shoot and again before publishing.',
       },
       {
-        title: 'Claim checks',
-        description: 'Consent, ad norms, and sensitive claim language are reviewed early.',
+        title: 'Careful Claim Language',
+        description: 'No guaranteed outcomes, no patient details, and no medical advice in captions.',
       },
     ],
   },
   {
     number: '04',
-    tab: 'Enquiries First',
+    tab: 'Enquiry Reporting',
     image: enquiriesFirstImage,
-    title: 'Enquiries, Not Just Likes',
+    title: 'Enquiry Reporting',
     description:
-      "A follower count doesn't tell a clinic owner anything useful. We report on DMs, enquiries, and consults booked, because that's the only number that was ever going to matter to the person paying for this.",
+      'A follower count tells a doctor or hospital team very little. We report on DMs, enquiries and consultations booked, because that is the number that matters to the person paying for this.',
     points: [
       {
-        title: 'Real lead movement',
-        description: 'We track campaign work by the response it creates, not by vanity numbers.',
+        title: 'Reporting Beyond Reach',
+        description: 'Monthly reviews trace enquiries back to the post, reel or ad that started them.',
       },
       {
-        title: 'Simple reporting',
-        description: 'You see what turned into calls, messages, bookings, and useful next steps.',
+        title: 'Clear Next Steps',
+        description: 'Every report ends with what to keep, what to change and what to test next.',
       },
     ],
   },
@@ -170,15 +170,15 @@ function HowItWorksSection() {
           ></div>
 
           <div className="relative z-[1] heading" data-reveal="left">
-            <h4 className="justify-center">How It Works</h4>
+            <h4 className="justify-center">The Reach Media Difference</h4>
             <h2 className="mt-[16px] !text-white">
-              Healthcare-focused marketing
-              <span className="block text-[#b8ee00]">from lead to walk-ins</span>
+              From First Scroll to First Appointment,
+              <span className="block text-[#b8ee00]">Built for Healthcare!</span>
             </h2>
             <p className="mx-auto mt-[20px] max-w-[680px] text-[17px] leading-[31px] text-white/66">
-              Healthcare-only planning, paid-media alignment, consent checks
-              and enquiry reporting keep each account focused on real patient
-              action.
+              Healthcare-only planning, paid media alignment, consent checks
+              and enquiry reporting keep every doctor, clinic and hospital
+              account focused on real patient action.
             </p>
           </div>
         </div>

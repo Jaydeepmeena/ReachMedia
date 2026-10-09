@@ -148,11 +148,7 @@ function AboutSection() {
             </div>
 
             <p className="mt-[20px] text-[16px] leading-[30px] text-slate-600 md:text-[17px] md:leading-[32px]">
-              Reach Media is the social media arm of Reinvent Digital, a team
-              that already runs SEO, paid ads and patient-acquisition reporting
-              for clinics and hospitals across India. We plan content the same
-              way we plan a paid campaign: around what actually turns into an
-              inquiry, not around what gets a like.
+              Reach Media, the social media arm of Reinvent Digital, creates result-driven content for clinics and hospitals across India, focused on turning engagement into patient inquiries.
             </p>
 
             <div className="mt-[34px] grid gap-[24px] md:grid-cols-2">

@@ -2,6 +2,7 @@ import AboutSection from '../components/AboutSection'
 import CtaSection from '../components/CtaSection'
 import FaqSection from '../components/FaqSection'
 import FooterSection from '../components/FooterSection'
+import HowItWorksSection from '../components/HowItWorksSection'
 import HowWeWorkSection from '../components/HowWeWorkSection'
 import HeroBanner from '../components/HeroBanner'
 import InstagramReelsSection from '../components/InstagramReelsSection'
@@ -23,6 +24,8 @@ function Home() {
       <WhatWeDoSection />
 
       <WhyChooseUsSection />
+
+      <HowItWorksSection />
 
       <HowWeWorkSection />
 
