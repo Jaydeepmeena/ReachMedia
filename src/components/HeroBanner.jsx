@@ -144,7 +144,7 @@ function HeroBanner() {
       className="hero-banner-section relative overflow-hidden bg-black text-white"
     >
       <video
-        className="absolute inset-0 h-full w-full object-cover object-[center_25%]"
+        className="absolute inset-0 h-full w-full object-cover object-[center_25%] opacity-55"
         src={bannerVideo}
         autoPlay
         muted
@@ -153,7 +153,7 @@ function HeroBanner() {
         preload="metadata"
         aria-hidden="true"
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/65"></div>
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-black/75"></div>
       <div className="container relative z-[1]">
         <div className="hero-banner-inner flex min-h-[460px] flex-col items-center justify-center py-[64px] text-center sm:min-h-[560px] md:py-[80px] lg:min-h-[720px] lg:py-[92px]">
           <div className="hero-copy mx-auto max-w-[1180px]">
