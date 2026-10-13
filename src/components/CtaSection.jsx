@@ -93,12 +93,12 @@ function CtaSection() {
               Free Audit
             </span>
 
-            <h2 className="mx-auto mt-[22px] max-w-[600px] font-['Nunito'] text-[27px] font-[800] leading-[34px] text-white md:text-[52px] md:leading-[60px]">
+            <h2 className="mx-auto mt-[22px] max-w-[600px] font-['Nunito'] text-[24px] font-[800] leading-[30px] text-white md:text-[38px] md:leading-[46px]">
               Get a Free Social Media
               <span className="block text-[#b8ee00]">Audit for Your Profile</span>
             </h2>
 
-            <p className="mx-auto mt-[20px] max-w-[540px] text-[16px] leading-[29px] text-white/60 md:text-[17px] md:leading-[31px]">
+            <p className="mx-auto mt-[20px] max-w-[540px] text-[14px] leading-[25px] text-white/60 md:text-[15px] md:leading-[27px]">
               Tell us your speciality and handle. Within 3 working days, get a
               recorded audit and a focused 30-day content plan.
             </p>
@@ -152,10 +152,10 @@ function CtaSection() {
             {stats.map((stat) => (
               <SwiperSlide key={stat.label}>
                 <div className="min-h-[118px] rounded-[16px] border border-white/10 bg-white/[0.04] px-[20px] py-[22px] text-left">
-                  <strong className="block font-['Nunito'] text-[30px] font-[800] leading-none text-white">
+                  <strong className="block font-['Nunito'] text-[25px] font-[800] leading-none text-white">
                     {stat.value}
                   </strong>
-                  <span className="mt-[10px] block text-[13px] leading-[19px] text-white/50">
+                  <span className="mt-[8px] block text-[12px] leading-[18px] text-white/50">
                     {stat.label}
                   </span>
                 </div>

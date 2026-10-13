@@ -77,13 +77,13 @@
   }
 
   .heading h2 {
-    @apply m-0 text-[50px] font-[800] leading-[55px] text-[#333];
+    @apply m-0 text-[54px] font-[800] leading-[60px] text-[#333];
     font-family: "Nunito", Arial, sans-serif;
     text-transform: capitalize;
   }
 
   .heading h3 {
-    @apply m-0 text-[38px] font-extrabold leading-[48px] text-[#333];
+    @apply m-0 text-[40px] font-extrabold leading-[50px] text-[#333];
     font-family: "Nunito", Arial, sans-serif;
   }
 
@@ -1030,92 +1030,217 @@
   }
 }
 
-@media screen and (min-width: 1201px) and (max-width: 1400px) {
-  .container {
-    max-width: 1140px;
+@media screen and (min-width: 1201px) and (max-width: 1450px) {
+  .heading h2 {
+    font-size: 40px;
+    line-height: 45px;
   }
 
-  .heading h2 {
-    font-size: 42px;
-    line-height: 54px;
+  p {
+    font-size: 15px;
+    line-height: 25px;
   }
 
   .heading h2.testi-heading {
-    font-size: 54px;
-    line-height: 60px;
+    font-size: 42px;
+    line-height: 48px;
   }
 
   .heading h3 {
-    font-size: 34px;
-    line-height: 44px;
+    font-size: 27px;
+    line-height: 35px;
   }
 
-  .rm-navbar-desktop {
-    grid-template-columns: 235px minmax(0, 1fr);
-    min-height: 132px;
+  .heading h4 {
+    font-size: 11px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+  }
+
+  .section-tag {
+    font-size: 12px;
   }
 
   .rm-navbar-logo {
-    width: 156px;
+    width: 134px;
   }
 
   .rm-navbar-top {
-    padding-left: 30px;
-    gap: 20px;
+    padding-left: 45px;
+    gap: 14px;
   }
 
   .rm-contact-group,
   .rm-contact-item {
-    gap: 16px;
+    gap: 10px;
+  }
+
+  .rm-contact-link {
+    gap: 8px;
   }
 
   .rm-contact-icon {
-    width: 30px;
-    height: 30px;
-    font-size: 22px;
+    width: 26px;
+    height: 26px;
+    font-size: 18px;
   }
 
   .rm-contact-label {
-    font-size: 10px;
-    letter-spacing: 0.5px;
+    font-size: 9px;
+    letter-spacing: 0.4px;
   }
 
   .rm-contact-value {
-    font-size: 13px;
-    line-height: 20px;
+    font-size: 12px;
+    line-height: 17px;
   }
 
   .rm-contact-divider {
-    font-size: 23px;
+    font-size: 19px;
+  }
+
+  .rm-socials {
+    gap: 6px;
   }
 
   .rm-social-link {
-    width: 44px;
-    height: 44px;
-    font-size: 17px;
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
   }
 
   .rm-navbar-bottom {
-    padding-left: 30px;
-    gap: 18px;
+    padding-left: 50px;
+    gap: 12px;
   }
 
   .rm-menu-list {
-    gap: 24px;
+    gap: 20px;
   }
 
   .rm-menu-link {
-    font-size: 13px;
-    padding-top: 18px;
-    padding-bottom: 18px;
+    font-size: 11px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    letter-spacing: 0.1px;
   }
 
   .rm-nav-cta {
-    min-width: 154px;
-    height: 48px;
-    padding-left: 22px;
-    padding-right: 22px;
+    min-width: 150px;
+    height: 42px;
+    gap: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 11px;
   }
+
+  .rm-nav-cta .btn-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .about-us-img {
+    max-height: 660px;
+  }
+
+  .about-partner {
+    margin-top: -252px;
+  }
+
+  .service-li {
+    font-size: 15px;
+  }
+
+  .service-sec {
+    padding: 60px 0;
+  }
+
+  .what-we-do-box {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 200px);
+  }
+
+  .what-we-do-btn button {
+    font-size: 17px;
+    min-height: 65px;
+  }
+
+  .what-we-do-bx,
+  .what-we-do-detail-bx {
+    min-height: 500px;
+  }
+
+  .why-head-point h3 {
+    font-size: 16px;
+  }
+
+  .why-head-bx {
+    grid-template-columns: 50% 50%;
+  }
+
+  .why-head-point p {
+    margin-top: 0px;
+    font-size: 13px;
+  }
+
+  .lead-popup-panel {
+    max-width: 440px;
+  }
+
+  .lead-popup-close {
+    top: 10px;
+    right: 10px;
+    height: 34px;
+    width: 34px;
+  }
+
+  .lead-popup-form {
+    max-height: min(80vh, 540px) !important;
+    padding: 20px !important;
+  }
+
+  .lead-popup-form h3 {
+    margin-top: 14px;
+    font-size: 22px !important;
+    line-height: 28px !important;
+  }
+
+  .lead-popup-form > span {
+    font-size: 12px;
+  }
+
+  .lead-popup-form > div {
+    margin-top: 18px !important;
+    gap: 16px !important;
+  }
+
+  .lead-popup-form input,
+  .lead-popup-form textarea {
+    font-size: 13px;
+    padding-bottom: 10px !important;
+  }
+
+  .lead-popup-form textarea {
+    height: 50px !important;
+  }
+
+  .lead-popup-form label.mt-\[28px\] {
+    margin-top: 16px !important;
+    font-size: 13px;
+  }
+
+  .lead-popup-form button {
+    margin-top: 20px !important;
+    height: 46px !important;
+    font-size: 13px;
+  }
+
+  .lead-popup-form button span {
+    height: 36px !important;
+    width: 36px !important;
+  }
+
 }
 
 @media screen and (min-width: 991px) and (max-width: 1200px) {

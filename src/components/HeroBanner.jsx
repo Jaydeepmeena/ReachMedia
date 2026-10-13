@@ -93,7 +93,7 @@ function StatCard({ stat, index, isActive }) {
       }`}
       style={{ animationDelay: `${revealDelay}ms` }}
     >
-      <strong className="block font-['Nunito'] text-[34px] font-[800] leading-none md:text-[58px]">
+      <strong className="block font-['Nunito'] text-[30px] font-[800] leading-none md:text-[44px]">
         <CounterNumber
           value={stat.value}
           suffix={stat.suffix}
@@ -102,7 +102,7 @@ function StatCard({ stat, index, isActive }) {
         />
       </strong>
       <span
-        className={`mt-[8px] block text-[14px] font-[500] leading-[22px] md:mt-[12px] md:text-[17px] ${
+        className={`mt-[8px] block text-[13px] font-[500] leading-[20px] md:mt-[10px] md:text-[15px] ${
           isFeatured ? 'text-white/88' : 'text-slate-600'
         }`}
       >
@@ -160,7 +160,7 @@ function HeroBanner() {
             <p className="hero-eyebrow-slide mb-[18px] text-[14px] font-[700] uppercase tracking-[0.22em] text-[#b8ee00]">
               An Initiative by Reinvent Digital
             </p>
-            <h1 className="font-['Nunito'] text-[44px] font-[800] leading-[50px] md:text-[62px] md:leading-[68px] xl:text-[68px] xl:leading-[74px] 2xl:text-[76px] 2xl:leading-[82px]">
+            <h1 className="font-['Nunito'] text-[38px] font-[800] leading-[44px] md:text-[48px] md:leading-[54px] lg:text-[52px] lg:leading-[58px] xl:text-[56px] xl:leading-[62px] 2xl:text-[60px] 2xl:leading-[66px]">
               <span className="hero-title-line md:whitespace-nowrap [animation-delay:120ms]">
                 Content Built for Real Patients
               </span>
@@ -171,11 +171,8 @@ function HeroBanner() {
             <p className="hero-reveal [animation-delay:360ms] mx-auto mt-[18px] max-w-[650px] text-[14px] font-[700] uppercase tracking-[0.1em] text-[#b8ee00] md:text-[15px]">
               Likes. Shares. Follows. Impressions &gt;&gt; Booked Appointments
             </p>
-            <p className="hero-reveal [animation-delay:480ms] mx-auto mt-[24px] max-w-[650px] text-[18px] leading-[32px] text-white/90">
-              Reach Media builds, shoots and runs your social media across
-              Instagram, LinkedIn, Facebook and YouTube, so every doctor,
-              clinic and hospital we work with is judged by appointments, not
-              algorithms.
+            <p className="hero-reveal [animation-delay:480ms] text-[18px] leading-[32px] text-[#fff] font-[700]">
+              Instagram | LinkedIn | Facebook | YouTube
             </p>
             <a
               className="hero-reveal [animation-delay:600ms] btn btn-primary hero-btn mt-[34px]"

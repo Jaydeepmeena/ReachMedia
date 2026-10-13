@@ -139,7 +139,7 @@ function WhatWeDoSection() {
               <span className="block text-[#3c7f2b]">To The Appointment</span>
             </h2>
           </div>
-          <div className="lg:pt-[54px]" data-reveal="right">
+          <div data-reveal="right">
             <p className="max-w-[560px] text-[17px] leading-[31px] text-slate-600">
               From the first brief to the calendar, the content, the trends,
               the shoot, the ads and the reporting, one team runs it all, so
@@ -156,8 +156,8 @@ function WhatWeDoSection() {
         </div>
 
         <div className="relative grid items-stretch lg:left-1/2 lg:min-h-[500px] lg:w-[min(1500px,calc(100vw-96px))] lg:-translate-x-1/2 lg:grid-cols-[390px_minmax(0,1fr)] min-[1400px]:grid-cols-[460px_minmax(0,1fr)]" data-reveal="up">
-          <div className="relative min-h-[470px] rounded-[34px] bg-black px-[20px] py-[30px] text-white md:px-[34px] md:py-[44px] lg:min-h-[640px] lg:rounded-r-[0px] lg:pr-[0px] xl:px-[42px]">
-            <div className="grid gap-[12px] md:gap-[16px] lg:gap-[18px]">
+          <div className="what-we-do-bx relative min-h-[470px] rounded-[34px] bg-black px-[20px] py-[30px] text-white md:px-[34px] md:py-[44px] lg:min-h-[640px] lg:rounded-r-[0px] lg:pr-[0px] xl:px-[42px]">
+            <div className="what-we-do-btn grid gap-[12px] md:gap-[16px] lg:gap-[18px]">
               {workItems.map((item, index) => (
                 <button
                   key={item.title}
@@ -193,19 +193,19 @@ function WhatWeDoSection() {
             </div>
           </div>
 
-          <div className="relative z-[10] mt-[18px] flex min-h-[470px] items-center rounded-[42px] bg-[#f5f5f8] p-[28px] md:p-[54px] lg:ml-[-44px] lg:mt-[0px] lg:min-h-[640px] lg:py-[62px] lg:pl-[144px] lg:pr-[56px] min-[1400px]:ml-[-62px] min-[1400px]:pl-[220px] min-[1400px]:pr-[72px]">
+          <div className="what-we-do-detail-bx relative z-[10] mt-[18px] flex min-h-[470px] items-center rounded-[42px] bg-[#f5f5f8] p-[28px] md:p-[54px] lg:ml-[-44px] lg:mt-[0px] lg:min-h-[640px] lg:py-[62px] lg:pl-[100px] lg:pr-[56px] min-[1400px]:ml-[-62px] min-[1400px]:pl-[96px] min-[1400px]:pr-[72px]">
             <div
               key={activeItem.title}
-              className="work-detail-animate grid w-full items-center gap-[34px] lg:grid-cols-[minmax(0,1fr)_minmax(250px,340px)] xl:gap-[58px]"
+              className="work-detail-animate what-we-do-box grid w-full items-center gap-[34px] lg:grid-cols-[minmax(0,1fr)_minmax(250px,340px)] xl:gap-[58px]"
             >
               <div className="work-detail-copy max-w-[720px]">
-                <h3 className="mb-[24px] font-['Nunito'] text-[24px] font-[800] leading-[32px] text-black md:text-[30px] md:leading-[38px]">
+                <h3 className="mb-[20px] font-['Nunito'] text-[22px] font-[800] leading-[28px] text-black md:text-[25px] md:leading-[32px]">
                   {activeItem.metric}
                 </h3>
-                <p className="mb-[34px] max-w-[720px] text-[17px] leading-[31px] max-md:text-[14px] max-md:leading-[20px] text-slate-700">
+                <p className="mb-[28px] max-w-[720px] text-[15px] leading-[26px] max-md:text-[13px] max-md:leading-[19px] text-slate-700">
                   {activeItem.description}
                 </p>
-                <ul className="grid min-h-[110px] gap-[14px] text-[16px] font-medium text-black">
+                <ul className="grid min-h-[110px] gap-[14px] text-[14px] font-medium text-black">
                   {activeItem.points.slice(0, 5).map((point) => (
                     <li key={point} className="flex items-center gap-[12px]">
                       <span className="inline-flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full bg-[#60bd6a] text-[11px] text-white">
@@ -227,15 +227,15 @@ function WhatWeDoSection() {
               <aside className="work-stat-animate mx-auto flex w-full max-w-[340px] flex-col items-center justify-center rounded-[34px] bg-white px-[28px] py-[42px] text-center shadow-[0_24px_70px_rgba(29,45,61,0.06)] lg:min-h-[310px]">
                 <div className="relative flex h-[148px] w-[148px] items-center justify-center rounded-full border border-[#dbe1ea]">
                   <div className="flex h-[116px] w-[116px] flex-col items-center justify-center rounded-full border border-[#60bd6a]">
-                    <strong className="font-['Nunito'] text-[42px] font-[800] leading-none text-black md:text-[48px]">
+                    <strong className="font-['Nunito'] text-[36px] font-[800] leading-none text-black md:text-[40px]">
                       {activeItem.stat.value}
                     </strong>
                     <i
-                      className={`fa-solid ${activeItem.stat.icon} mt-[12px] text-[24px] leading-none text-[#60bd6a]`}
+                      className={`fa-solid ${activeItem.stat.icon} mt-[10px] text-[20px] leading-none text-[#60bd6a]`}
                     ></i>
                   </div>
                 </div>
-                <p className="mt-[28px] max-w-[230px] text-[16px] leading-[26px] text-black">
+                <p className="mt-[24px] max-w-[230px] text-[14px] leading-[22px] text-black">
                   {activeItem.stat.caption}
                 </p>
               </aside>

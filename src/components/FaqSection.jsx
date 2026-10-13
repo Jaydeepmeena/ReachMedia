@@ -69,11 +69,11 @@ function FaqSection() {
                 <span className="h-[10px] w-[10px] rounded-full bg-[#d7ff2f] shadow-[0_0_18px_rgba(215,255,47,0.55)]"></span>
                 {`{${faqCount}} FAQs`}
               </span>
-              <h2 className="mt-[20px] max-w-[720px] font-['Nunito'] text-[48px] font-[800] leading-[56px] text-white md:text-[62px] md:leading-[70px]">
+              <h2 className="mt-[20px] max-w-[720px] font-['Nunito'] text-[36px] font-[800] leading-[42px] text-white md:text-[44px] md:leading-[52px]">
                 What every clinic owner
                 <span className="block text-[#b8ee00]">wants to know first</span>
               </h2>
-              <p className="mt-[18px] max-w-[620px] text-[16px] leading-[30px] text-white/52">
+              <p className="mt-[18px] max-w-[620px] text-[14px] leading-[26px] text-white/52">
                 Something specific to your speciality? Email us the question -
                 a strategist replies, not a bot.
               </p>
@@ -98,10 +98,10 @@ function FaqSection() {
                       aria-expanded={isOpen}
                     >
                       <span className="flex items-center gap-[22px]">
-                        <span className="font-['Nunito'] text-[22px] font-[800] text-white/44">
+                        <span className="font-['Nunito'] text-[18px] font-[800] text-white/44">
                           {String(index + 1).padStart(2, '0')}
                         </span>
-                        <span className="font-['Nunito'] text-[21px] font-[800] leading-[28px] text-white">
+                        <span className="font-['Nunito'] text-[17px] font-[800] leading-[24px] text-white">
                           {faq.question}
                         </span>
                       </span>
@@ -116,7 +116,7 @@ function FaqSection() {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <p className="border-t border-white/10 px-[22px] py-[24px] text-[16px] leading-[30px] text-white/56 md:px-[28px]">
+                        <p className="border-t border-white/10 px-[22px] py-[24px] text-[14px] leading-[26px] text-white/56 md:px-[28px]">
                           {faq.answer}
                         </p>
                       </div>

@@ -109,7 +109,7 @@ function WhyChooseUsSection() {
     <section ref={sectionRef} id="why-choose-us" className="bg-white">
       <div className="overflow-hidden rounded-t-[24px] border mx-[10px] border-[#d4edf8] bg-[#eefaff] px-[20px] py-[30px] md:px-[44px] md:py-[60px] lg:px-[90px] xl:px-[90px]">
         <div>
-          <div className="grid gap-[42px] lg:grid-cols-[minmax(0,0.92fr)_minmax(380px,0.72fr)] lg:items-end xl:gap-[78px]">
+          <div className="why-head-bx grid gap-[42px] lg:grid-cols-[minmax(0,0.92fr)_minmax(380px,0.72fr)] lg:items-end xl:gap-[78px]">
             <div className="heading" data-reveal="left">
               <h4>Why Choose Reach Media</h4>
 
@@ -137,7 +137,7 @@ function WhyChooseUsSection() {
               </a>
             </div>
 
-            <div className="grid gap-[28px] pt-[4px]">
+            <div className="why-head-point grid gap-[28px] pt-[4px]">
               {reasons.map((item, index) => (
                 <article
                   key={item.title}
@@ -149,10 +149,10 @@ function WhyChooseUsSection() {
                     <i className="fa-solid fa-check"></i>
                   </span>
                   <div>
-                    <h3 className="font-['Nunito'] text-[19px] md:text-[24px] font-[800] leading-[31px] text-[#101820]">
+                    <h3 className="font-['Nunito'] text-[17px] md:text-[19px] font-[800] leading-[25px] text-[#101820]">
                       {item.title}
                     </h3>
-                    <p className="mt-[12px] text-[14px] md:text-[16px] leading-normal text-[#6d747b]">
+                    <p className="mt-[10px] text-[13px] md:text-[14px] leading-normal text-[#6d747b]">
                       {item.description}
                     </p>
                   </div>

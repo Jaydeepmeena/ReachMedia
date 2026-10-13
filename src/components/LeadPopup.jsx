@@ -41,7 +41,7 @@ function LeadPopup() {
 
   return (
     <div
-      className="lead-popup fixed inset-0 z-[99] flex items-center justify-center bg-[#060706]/78 px-[16px] py-[26px] backdrop-blur-[7px]"
+      className="lead-popup fixed inset-0 z-[99] flex items-center justify-center bg-[#060706]/95 px-[16px] py-[26px] backdrop-blur-[20px]"
       role="dialog"
       aria-modal="true"
       aria-label="Project enquiry form"
@@ -54,7 +54,7 @@ function LeadPopup() {
       <div className="lead-popup-panel relative w-full max-w-[620px]">
         <a
           href="#close"
-          className="absolute right-[18px] top-[18px] z-[2] inline-flex h-[42px] w-[42px] items-center justify-center rounded-full bg-white/10 text-white transition duration-300 hover:bg-[#d7ff2f] hover:text-[#101112]"
+          className="lead-popup-close absolute right-[18px] top-[18px] z-[2] inline-flex h-[42px] w-[42px] items-center justify-center rounded-full bg-white/10 text-white transition duration-300 hover:bg-[#d7ff2f] hover:text-[#101112]"
           aria-label="Close enquiry form"
           onClick={(event) => {
             event.preventDefault()
@@ -65,7 +65,7 @@ function LeadPopup() {
         </a>
 
         <LeadForm
-          className="max-h-[min(86vh,760px)] overflow-y-auto pr-[58px]"
+          className="lead-popup-form max-h-[min(86vh,760px)] overflow-y-auto pr-[58px]"
           title="Something Specific To Your Speciality?"
           responseTime="24 hours"
         />

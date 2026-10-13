@@ -127,7 +127,7 @@ function AboutSection() {
             <img
               src={aboutImage}
               alt="Reach Media support specialist"
-              className="relative z-[3] max-h-[350px] w-auto object-contain sm:max-h-[610px] lg:max-h-[725px]"
+              className="about-us-img relative z-[3] max-h-[350px] w-auto object-contain sm:max-h-[610px] lg:max-h-[725px]"
             />
           </div>
 
@@ -140,7 +140,7 @@ function AboutSection() {
             <div className="heading">
               <h4>A SOCIAL INITIATIVE BY REINVENT DIGITAL</h4>
               <h2>
-                A Hardcore Healthcare Marketing Team{' '}
+                A Hardcore Healthcare Marketing Team,{' '}
                 <span className="text-[#3c7f2b]">
                   Not Just A Generic Posting Agency!
                 </span>
@@ -178,7 +178,7 @@ function AboutSection() {
         </div>
 
         <div
-          className={`relative z-[2] w-full overflow-hidden rounded-[26px] border border-white/10 bg-[#101a1f] px-[18px] pb-[36px] pt-[38px] md:mt-[-265px] md:px-[34px] lg:px-[52px] lg:pb-[46px] lg:pl-[430px] lg:pt-[54px]`}
+          className={`about-partner relative z-[2] w-full overflow-hidden rounded-[26px] border border-white/10 bg-[#101a1f] px-[18px] pb-[36px] pt-[38px] md:mt-[-265px] md:px-[34px] lg:px-[52px] lg:pb-[46px] lg:pl-[430px] lg:pt-[54px]`}
         >
           <div
             className="pointer-events-none absolute inset-0 opacity-50"

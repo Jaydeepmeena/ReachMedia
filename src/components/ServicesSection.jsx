@@ -89,7 +89,7 @@ function ServicesSection() {
   return (
     <section
       ref={sectionRef}
-      className="overflow-hidden rounded-t-[28px] bg-[#070909] py-[60px] text-white md:py-[86px] lg:py-[110px]"
+      className="service-sec overflow-hidden rounded-t-[28px] bg-[#070909] py-[60px] text-white md:py-[86px] lg:py-[110px]"
       id="services"
     >
       <div className="container">
@@ -166,7 +166,7 @@ function ServicesSection() {
                         </p>
                         <ul className="mb-[30px] grid gap-[14px] text-[17px] text-white">
                           {service.points.map((point) => (
-                            <li key={point} className="flex gap-[10px]">
+                            <li key={point} className="service-li flex gap-[10px]">
                               <span className="text-[22px] leading-[20px]">
                                 +
                               </span>
