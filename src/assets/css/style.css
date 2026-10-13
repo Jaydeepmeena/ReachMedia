@@ -1263,18 +1263,35 @@
   }
 
   .heading h2 {
-    font-size: 36px;
-    line-height: 46px;
+    font-size: 34px;
+    line-height: 42px;
   }
 
   .heading h2.testi-heading {
-    font-size: 46px;
-    line-height: 52px;
+    font-size: 36px;
+    line-height: 42px;
   }
 
   .heading h3 {
-    font-size: 32px;
-    line-height: 42px;
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .heading h4 {
+    font-size: 11px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+  }
+
+  .section-tag {
+    font-size: 11px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 24px;
   }
 
   .rm-navbar-desktop {
@@ -1360,6 +1377,50 @@
   .rm-nav-cta .btn-icon {
     width: 30px;
     height: 30px;
+  }
+
+  .about-us-img {
+    max-height: 460px;
+  }
+
+  .about-partner {
+    margin-top: -70px;
+    padding-left: 52px;
+  }
+
+  .service-li {
+    font-size: 14px;
+  }
+
+  .service-sec {
+    padding: 50px 0;
+  }
+
+  .what-we-do-box {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .what-we-do-btn button {
+    font-size: 15px;
+    min-height: 58px;
+  }
+
+  .what-we-do-bx,
+  .what-we-do-detail-bx {
+    min-height: auto;
+  }
+
+  .why-head-point h3 {
+    font-size: 15px;
+  }
+
+  .why-head-bx {
+    grid-template-columns: 50% 50%;
+  }
+
+  .why-head-point p {
+    margin-top: 0px;
+    font-size: 12px;
   }
 
   .faq-grid {
@@ -1845,6 +1906,70 @@
 
   .rm-navbar-mobile {
     min-height: 76px;
+  }
+
+  .lead-popup {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .lead-popup-panel {
+    max-width: 100%;
+  }
+
+  .lead-popup-close {
+    top: 8px;
+    right: 8px;
+    height: 34px;
+    width: 34px;
+  }
+
+  .lead-popup-form {
+    max-height: min(84vh, 560px) !important;
+    padding: 20px !important;
+  }
+
+  .lead-popup-form h3 {
+    margin-top: 10px;
+    font-size: 21px !important;
+    line-height: 27px !important;
+  }
+
+  .lead-popup-form > span {
+    font-size: 11px;
+  }
+
+  .lead-popup-form > div {
+    margin-top: 14px !important;
+    gap: 14px !important;
+  }
+
+  .lead-popup-form input,
+  .lead-popup-form textarea {
+    font-size: 13px;
+    padding-bottom: 8px !important;
+  }
+
+  .lead-popup-form textarea {
+    height: 44px !important;
+  }
+
+  .lead-popup-form label.mt-\[28px\] {
+    margin-top: 12px !important;
+    font-size: 12px;
+  }
+
+  .lead-popup-form button {
+    margin-top: 16px !important;
+    height: 42px !important;
+    font-size: 12px;
+  }
+
+  .lead-popup-form button span {
+    height: 32px !important;
+    width: 32px !important;
   }
 }
 

@@ -41,7 +41,7 @@ function LeadPopup() {
 
   return (
     <div
-      className="lead-popup fixed inset-0 z-[99] flex items-center justify-center bg-[#060706]/95 px-[16px] py-[26px] backdrop-blur-[20px]"
+      className="lead-popup fixed inset-0 z-[1200] flex items-center justify-center bg-[#060706]/95 px-[16px] py-[26px] backdrop-blur-[20px]"
       role="dialog"
       aria-modal="true"
       aria-label="Project enquiry form"
