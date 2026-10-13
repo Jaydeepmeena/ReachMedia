@@ -1361,6 +1361,78 @@
     width: 30px;
     height: 30px;
   }
+
+  .faq-grid {
+    grid-template-columns: 0.78fr 1.22fr;
+    align-items: start;
+  }
+
+  .faq-lead-form {
+    position: sticky;
+    top: 150px;
+  }
+
+  .faq-lead-form h3 {
+    font-size: 30px !important;
+    line-height: 38px !important;
+  }
+
+  .lead-popup-panel {
+    max-width: 460px;
+  }
+
+  .lead-popup-close {
+    top: 10px;
+    right: 10px;
+    height: 36px;
+    width: 36px;
+  }
+
+  .lead-popup-form {
+    max-height: min(82vh, 560px) !important;
+    padding: 22px !important;
+  }
+
+  .lead-popup-form h3 {
+    margin-top: 14px;
+    font-size: 23px !important;
+    line-height: 29px !important;
+  }
+
+  .lead-popup-form > span {
+    font-size: 12px;
+  }
+
+  .lead-popup-form > div {
+    margin-top: 18px !important;
+    gap: 16px !important;
+  }
+
+  .lead-popup-form input,
+  .lead-popup-form textarea {
+    font-size: 13px;
+    padding-bottom: 10px !important;
+  }
+
+  .lead-popup-form textarea {
+    height: 50px !important;
+  }
+
+  .lead-popup-form label.mt-\[28px\] {
+    margin-top: 16px !important;
+    font-size: 13px;
+  }
+
+  .lead-popup-form button {
+    margin-top: 20px !important;
+    height: 46px !important;
+    font-size: 13px;
+  }
+
+  .lead-popup-form button span {
+    height: 36px !important;
+    width: 36px !important;
+  }
 }
 
 @media screen and (max-width: 992px) {

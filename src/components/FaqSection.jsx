@@ -60,8 +60,8 @@ function FaqSection() {
       ></div>
 
       <div className="container relative z-[2]">
-        <div className="grid gap-[42px] lg:grid-cols-[0.78fr_1.22fr] lg:items-start lg:gap-[64px]">
-          <LeadForm className="lg:sticky lg:top-[176px]" />
+        <div className="faq-grid grid gap-[42px] lg:grid-cols-[0.78fr_1.22fr] lg:items-start lg:gap-[64px]">
+          <LeadForm className="faq-lead-form lg:sticky lg:top-[176px]" />
 
           <div className="pt-[4px]">
             <div>
