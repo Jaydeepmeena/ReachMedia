@@ -182,7 +182,7 @@ function TestimonialsSection() {
             <div>
               <div className="heading" data-reveal="left">
                 <h4>Word From Our Clients</h4>
-                <h2>
+                <h2 className="text-[45px] leading-[52px] md:text-[64px] md:leading-[70px]">
                   <span className="block text-[#d8e0eb]">What They Have Actually</span>
                   <span className="heading-accent block">Felt, Seen & Received!</span>
                 </h2>
