@@ -178,7 +178,7 @@ function AboutSection() {
         </div>
 
         <div
-          className={`about-partner relative z-[2] w-full overflow-hidden rounded-[26px] border border-white/10 bg-[#101a1f] px-[18px] pb-[36px] pt-[38px] md:mt-[-265px] md:px-[34px] lg:px-[52px] lg:pb-[46px] lg:pl-[430px] lg:pt-[54px]`}
+          className={`about-partner relative z-[2] w-full overflow-hidden rounded-[26px] border border-white/10 bg-[#101a1f] px-[18px] pb-[36px] pt-[38px] md:mt-[-268px] md:px-[34px] lg:px-[52px] lg:pb-[46px] lg:pl-[430px] lg:pt-[54px]`}
         >
           <div
             className="pointer-events-none absolute inset-0 opacity-50"

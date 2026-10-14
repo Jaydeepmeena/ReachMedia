@@ -1399,12 +1399,11 @@
   }
 
   .about-us-img {
-    max-height: 460px;
+    max-height: 630px;
   }
 
   .about-partner {
-    margin-top: -70px;
-    padding-left: 52px;
+    margin-top: -250px;
   }
 
   .service-li {
@@ -1540,6 +1539,10 @@
 
   .container {
     max-width: 100%;
+  }
+
+  .about-partner {
+    margin-top: 0;
   }
 }
 

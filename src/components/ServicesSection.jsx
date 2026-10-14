@@ -94,7 +94,7 @@ function ServicesSection() {
     >
       <div className="container">
         <div className="overflow-hidden px-[0px]">
-          <div className="mb-[54px] grid gap-[28px] lg:grid-cols-[180px_minmax(0,1fr)_220px]">
+          <div className="mb-[54px] grid items-start gap-[28px] lg:grid-cols-[180px_minmax(0,1fr)_220px]">
             <div className="flex items-center gap-[12px] text-[15px] font-semibold text-white py-[15px]">
               <span className="h-[10px] w-[10px] shrink-0 bg-white"></span>
               Our Services
