@@ -94,14 +94,17 @@ function ServicesSection() {
     >
       <div className="container">
         <div className="overflow-hidden px-[0px]">
-          <div className="mb-[54px] grid items-end gap-[28px] lg:grid-cols-[minmax(0,1fr)_220px]">
+          <div className="mb-[54px] grid gap-[28px] lg:grid-cols-[180px_minmax(0,1fr)_220px]">
+            <div className="text-[15px] font-semibold text-white py-[15px]">
+              Our Services
+            </div>
+
             <div
               className={`heading ${isVisible
                   ? 'about-slide-left about-motion-in'
                   : 'about-slide-left'
                 }`}
             >
-              <h4>Our Services</h4>
               <h2 className="max-w-[650px] !text-white">
                 Every speciality has its own{' '}
                 <span className="heading-accent">marketing plan</span>
