@@ -190,7 +190,7 @@ function ServicesSection() {
                   <div className="py-[0px] lg:py-[0px]">
                     <div
                       className={`overflow-hidden transition-[height] duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive
-                          ? 'max-h-[400px] h-[190px] sm:h-[230px] lg:h-[360px]'
+                          ? 'max-h-[400px] h-[190px] sm:h-[230px] lg:h-auto lg:aspect-[3/2]'
                           : 'h-[58px] sm:h-[78px] lg:h-[82px]'
                         }`}
                     >
