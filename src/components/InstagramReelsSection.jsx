@@ -112,7 +112,7 @@ function InstagramReelsSection() {
         <div className="mb-[30px] grid gap-[24px] lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
           <div className="heading" data-reveal="left">
             <h4>Work Samples</h4>
-            <h2 className="max-w-[1040px] font-['Nunito'] text-[40px] font-[800] leading-[48px] text-[#070909] md:text-[58px] md:leading-[66px] xl:text-[64px] xl:leading-[72px]">
+            <h2 className="max-w-[1040px] !text-[#070909]">
               <span className="block xl:whitespace-nowrap">
                 Reels, Carousels & Campaigns
               </span>
@@ -184,7 +184,7 @@ function InstagramReelsSection() {
         <div className="mt-[58px] flex items-end justify-between gap-[24px]">
           <div className="heading" data-reveal="left">
             <h4>Work Samples</h4>
-            <h2 className="font-['Nunito'] text-[40px] font-[800] leading-[48px] text-[#070909] md:text-[58px] md:leading-[66px]">
+            <h2 className="!text-[#070909]">
               Recent <span className="text-[#3c7f2b]">Campaign Posts</span>
             </h2>
           </div>

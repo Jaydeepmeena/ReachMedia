@@ -132,7 +132,7 @@ function HowWeWorkSection() {
                         <span className="inline-flex rounded-full bg-[#0b0c0c] px-[16px] py-[8px] text-[13px] font-[700] text-white/72">
                           {step.duration}
                         </span>
-                        <h3 className="mt-[22px] font-['Nunito'] text-[28px] font-[800] leading-[34px] text-white transition-colors duration-300 group-hover:text-[#333]">
+                        <h3 className="mt-[22px] text-[28px] font-[800] leading-[34px] text-white transition-colors duration-300 group-hover:text-[#333]">
                           {step.title}
                         </h3>
                         <p className="mt-[14px] text-[16px] leading-[29px] text-white/58 transition-colors duration-300 group-hover:text-[#333]">
@@ -158,7 +158,7 @@ function HowWeWorkSection() {
                         <span className="inline-flex rounded-full bg-[#0b0c0c] px-[16px] py-[8px] text-[13px] font-[700] text-white/72">
                           {step.duration}
                         </span>
-                        <h3 className="mt-[22px] font-['Nunito'] text-[28px] font-[800] leading-[34px] text-white transition-colors duration-300 group-hover:text-[#333]">
+                        <h3 className="mt-[22px] text-[28px] font-[800] leading-[34px] text-white transition-colors duration-300 group-hover:text-[#333]">
                           {step.title}
                         </h3>
                         <p className="mt-[14px] text-[16px] leading-[29px] text-white/58 transition-colors duration-300 group-hover:text-[#333]">
@@ -173,7 +173,7 @@ function HowWeWorkSection() {
                       <span className="inline-flex rounded-full bg-[#0b0c0c] px-[14px] py-[7px] text-[12px] font-[700] text-white/72">
                         {step.duration}
                       </span>
-                      <h3 className="mt-[20px] font-['Nunito'] text-[25px] font-[800] leading-[31px] text-white transition-colors duration-300 group-hover:text-[#333]">
+                      <h3 className="mt-[20px] text-[25px] font-[800] leading-[31px] text-white transition-colors duration-300 group-hover:text-[#333]">
                         {step.title}
                       </h3>
                       <p className="mt-[12px] text-[15px] leading-[27px] text-white/58 transition-colors duration-300 group-hover:text-[#333]">

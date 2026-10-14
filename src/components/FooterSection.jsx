@@ -106,7 +106,7 @@ function FooterSection() {
             className="h-[58px] w-[58px] shrink-0 object-contain sm:h-[72px] sm:w-[72px] md:h-[110px] md:w-[110px]"
           />
 
-          <h2 className="font-['Nunito'] text-[28px] font-[800] leading-none text-white sm:text-[42px] md:text-[76px]">
+          <h2 className="text-[28px] font-[800] leading-none text-white sm:text-[42px] md:text-[76px]">
             {brandLetters.map((letter, index) => (
               <span className="footer-letter-mask" key={`${letter}-${index}`}>
                 <span
@@ -122,7 +122,7 @@ function FooterSection() {
 
         <div className="grid gap-[40px] py-[50px] sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1.2fr]">
           <div>
-            <h3 className="max-w-[440px] font-['Nunito'] text-[24px] font-[800] leading-[32px] text-white">
+            <h3 className="max-w-[440px] text-[24px] font-[800] leading-[32px] text-white">
               Let&apos;s grow your clinic&apos;s enquiries together
             </h3>
 

@@ -152,7 +152,7 @@ function ServicesSection() {
                   <div className="py-[22px] lg:px-[64px]">
                     <a
                       href="#!"
-                      className={`service-title-link mb-[18px] inline-block font-['Nunito'] text-[29px] font-[800] leading-[38px] transition duration-[400ms] md:text-[34px] md:leading-[44px] ${isActive ? 'text-white' : 'text-white/45'
+                      className={`service-title-link mb-[18px] inline-block text-[29px] font-[800] leading-[38px] transition duration-[400ms] md:text-[34px] md:leading-[44px] ${isActive ? 'text-white' : 'text-white/45'
                         }`}
                       onClick={(event) => event.preventDefault()}
                     >

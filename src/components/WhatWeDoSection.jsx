@@ -134,7 +134,7 @@ function WhatWeDoSection() {
         <div className="mb-[58px] grid gap-[28px] lg:grid-cols-[1fr_0.86fr] lg:items-end">
           <div className="heading" data-reveal="left">
             <h4>WHAT WE HANDLE</h4>
-            <h2 className="font-['Nunito'] text-[40px] font-[800] leading-[46px] text-black md:text-[56px] md:leading-[62px]">
+            <h2 className="!text-black">
               Everything From The Idea
               <span className="block text-[#3c7f2b]">To The Appointment</span>
             </h2>
@@ -199,7 +199,7 @@ function WhatWeDoSection() {
               className="work-detail-animate what-we-do-box grid w-full items-center gap-[34px] lg:grid-cols-[minmax(0,1fr)_minmax(250px,340px)] xl:gap-[58px]"
             >
               <div className="work-detail-copy max-w-[720px]">
-                <h3 className="mb-[20px] font-['Nunito'] text-[22px] font-[800] leading-[28px] text-black md:text-[25px] md:leading-[32px]">
+                <h3 className="mb-[20px] text-[22px] font-[800] leading-[28px] text-black md:text-[25px] md:leading-[32px]">
                   {activeItem.metric}
                 </h3>
                 <p className="mb-[28px] max-w-[720px] text-[15px] leading-[26px] max-md:text-[13px] max-md:leading-[19px] text-slate-700">
@@ -227,7 +227,7 @@ function WhatWeDoSection() {
               <aside className="work-stat-animate mx-auto flex w-full max-w-[340px] flex-col items-center justify-center rounded-[34px] bg-white px-[28px] py-[42px] text-center shadow-[0_24px_70px_rgba(29,45,61,0.06)] lg:min-h-[310px]">
                 <div className="relative flex h-[148px] w-[148px] items-center justify-center rounded-full border border-[#dbe1ea]">
                   <div className="flex h-[116px] w-[116px] flex-col items-center justify-center rounded-full border border-[#60bd6a]">
-                    <strong className="font-['Nunito'] text-[36px] font-[800] leading-none text-black md:text-[40px]">
+                    <strong className="text-[36px] font-[800] leading-none text-black md:text-[40px]">
                       {activeItem.stat.value}
                     </strong>
                     <i

@@ -113,7 +113,7 @@ function WhyChooseUsSection() {
             <div className="heading" data-reveal="left">
               <h4>Why Choose Reach Media</h4>
 
-              <h2 className="max-w-[680px] font-['Nunito'] text-[40px] font-[800] leading-[48px] text-[#101820] md:text-[58px] md:leading-[66px]">
+              <h2 className="max-w-[680px] !text-[#101820]">
                 Healthcare-Focused Marketing Agency
                 <span className="block text-[#3c7f2b]">
                   From Lead To <span className="whitespace-nowrap">Walk-Ins!</span>
@@ -149,7 +149,7 @@ function WhyChooseUsSection() {
                     <i className="fa-solid fa-check"></i>
                   </span>
                   <div>
-                    <h3 className="font-['Nunito'] text-[17px] md:text-[19px] font-[800] leading-[25px] text-[#101820]">
+                    <h3 className="text-[17px] md:text-[19px] font-[800] leading-[25px] text-[#101820]">
                       {item.title}
                     </h3>
                     <p className="mt-[10px] text-[13px] md:text-[14px] leading-normal text-[#6d747b]">
@@ -197,7 +197,7 @@ function WhyChooseUsSection() {
                   <span>Generating lead reply</span>
                 </div>
 
-                <h3 className="mx-auto max-w-[390px] font-['Nunito'] text-[23px] font-[800] leading-[30px] text-[#101820] xl:text-[25px] xl:leading-[32px]">
+                <h3 className="mx-auto max-w-[390px] text-[23px] font-[800] leading-[30px] text-[#101820] xl:text-[25px] xl:leading-[32px]">
                   Instantly qualify leads with AI chat.
                 </h3>
               </article>
@@ -206,7 +206,7 @@ function WhyChooseUsSection() {
             <SwiperSlide>
               <article className="min-h-[350px] rounded-[22px] border-[6px] border-white bg-[#101112] p-[34px] text-white shadow-none lg:shadow-[0_18px_60px_rgba(37,56,80,0.08)]">
                 <div className="flex items-start justify-between gap-[20px]">
-                  <strong className="font-['Nunito'] text-[60px] font-[800] leading-none text-[#b8ee00] md:text-[70px]">
+                  <strong className="text-[60px] font-[800] leading-none text-[#b8ee00] md:text-[70px]">
                     <CounterNumber
                       value={96.8}
                       suffix="%"
@@ -226,7 +226,7 @@ function WhyChooseUsSection() {
 
                 <div className="my-[28px] h-px bg-white/10"></div>
 
-                <h3 className="font-['Nunito'] text-[27px] font-[800] leading-[34px]">
+                <h3 className="text-[27px] font-[800] leading-[34px]">
                   Audience Match
                 </h3>
                 <p className="mt-[14px] max-w-[360px] text-[16px] leading-[29px] text-white/54">
@@ -238,7 +238,7 @@ function WhyChooseUsSection() {
 
             <SwiperSlide>
               <article className={`why-walkins-card ${countersActive ? 'is-active' : ''} relative flex h-full min-h-[350px] overflow-hidden rounded-[22px] bg-white p-[24px] shadow-none lg:shadow-[0_18px_60px_rgba(37,56,80,0.08)]`}>
-                <span className="why-walkins-multiplier absolute right-[22px] top-[20px] select-none font-['Nunito'] text-[84px] font-[800] italic leading-none text-[#101112]">
+                <span className="why-walkins-multiplier absolute right-[22px] top-[20px] select-none text-[84px] font-[800] italic leading-none text-[#101112]">
                   <CounterNumber
                     value={2}
                     suffix="x"
@@ -251,7 +251,7 @@ function WhyChooseUsSection() {
                     <span className="text-[12px] font-[800] uppercase tracking-[0.18em] text-[#60bd6a]">
                       Patient Growth
                     </span>
-                    <h3 className="why-walkins-heading mt-[8px] max-w-[300px] font-['Nunito'] text-[25px] font-[800] leading-[30px] text-[#8f9495]">
+                    <h3 className="why-walkins-heading mt-[8px] max-w-[300px] text-[25px] font-[800] leading-[30px] text-[#8f9495]">
                       Walk-ins per month
                     </h3>
                   </div>
@@ -265,7 +265,7 @@ function WhyChooseUsSection() {
                       <span className="why-walkins-bar-text text-[18px] font-[600] leading-[23px]">
                         Walk-ins after 8 months
                       </span>
-                      <strong className="why-walkins-bar-text font-['Nunito'] text-[23px] font-[800] leading-none">
+                      <strong className="why-walkins-bar-text text-[23px] font-[800] leading-none">
                         <CounterNumber
                           value={11500}
                           isActive={countersActive}
@@ -278,7 +278,7 @@ function WhyChooseUsSection() {
                       <span className="inline-flex min-h-[64px] items-center rounded-[13px] bg-[#eeeee6] px-[20px] text-[18px] font-[600] leading-[23px] text-[#242520]">
                         Walk-ins before
                       </span>
-                      <strong className="font-['Nunito'] text-[23px] font-[800] leading-none text-[#242520]">
+                      <strong className="text-[23px] font-[800] leading-none text-[#242520]">
                         <CounterNumber
                           value={5500}
                           isActive={countersActive}

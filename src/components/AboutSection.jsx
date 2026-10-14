@@ -160,7 +160,7 @@ function AboutSection() {
                     <i className={feature.icon}></i>
                   </span>
                   <div>
-                    <h3 className="mb-[4px] font-['Nunito'] text-[28px] font-[800] leading-[32px] text-slate-950">
+                    <h3 className="mb-[4px] text-[28px] font-[800] leading-[32px] text-slate-950">
                       <CounterNumber
                         value={feature.value}
                         suffix={feature.suffix}

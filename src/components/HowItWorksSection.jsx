@@ -216,7 +216,7 @@ function HowItWorksSection() {
                 </div>
 
                 <div key={activeStep.title} className="how-it-card work-detail-animate mt-[52px]">
-                  <h3 className="font-['Nunito'] text-[24px] font-[800] leading-[30px] text-white md:text-[31px] md:leading-[39px]">
+                  <h3 className="text-[24px] font-[800] leading-[30px] text-white md:text-[31px] md:leading-[39px]">
                     {activeStep.title}
                   </h3>
                   <p className="mt-[14px] max-w-[650px] text-[15px] leading-[26px] text-white/72 md:text-[17px] md:leading-[31px]">
@@ -230,7 +230,7 @@ function HowItWorksSection() {
                           <i className="fa-solid fa-check"></i>
                         </span>
                         <div>
-                          <h4 className="font-['Nunito'] text-[19px] font-[800] leading-[25px] text-white md:text-[22px] md:leading-[30px]">
+                          <h4 className="text-[19px] font-[800] leading-[25px] text-white md:text-[22px] md:leading-[30px]">
                             {point.title}
                           </h4>
                           <p className="mt-[8px] text-[14px] leading-[24px] text-white/64 md:text-[16px] md:leading-[27px]">

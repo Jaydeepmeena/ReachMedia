@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 @layer base {
@@ -78,13 +78,13 @@
 
   .heading h2 {
     @apply m-0 text-[54px] font-[800] leading-[60px] text-[#333];
-    font-family: "Nunito", Arial, sans-serif;
+    font-family: "Poppins", Arial, sans-serif;
     text-transform: capitalize;
   }
 
   .heading h3 {
     @apply m-0 text-[40px] font-extrabold leading-[50px] text-[#333];
-    font-family: "Nunito", Arial, sans-serif;
+    font-family: "Poppins", Arial, sans-serif;
   }
 
   .heading h4 {
@@ -102,7 +102,7 @@
   .hero-section h1,
   .page-section h1 {
     @apply mx-auto mb-[20px] max-w-[780px] text-[48px] font-extrabold leading-tight text-slate-950;
-    font-family: "Nunito", Arial, sans-serif;
+    font-family: "Poppins", Arial, sans-serif;
   }
 
   .hero-section p,

@@ -182,7 +182,7 @@ function TestimonialsSection() {
             <div>
               <div className="heading" data-reveal="left">
                 <h4>Word From Our Clients</h4>
-                <h2 className="testi-heading text-[70px]">
+                <h2>
                   <span className="block text-[#d8e0eb]">What They Have Actually</span>
                   <span className="block text-[#48a75c]">Felt, Seen & Received!</span>
                 </h2>
@@ -233,7 +233,7 @@ function TestimonialsSection() {
 
                       <i className="fa-solid fa-quote-left mt-[32px] block text-[38px] text-[#b8ee00]"></i>
 
-                      <h3 className="mt-[22px] max-w-[460px] font-['Nunito'] text-[31px] font-[800] leading-[39px] text-white md:text-[42px] md:leading-[51px]">
+                      <h3 className="mt-[22px] max-w-[460px] text-[31px] font-[800] leading-[39px] text-white md:text-[42px] md:leading-[51px]">
                         {testimonial.headline}
                       </h3>
 
@@ -250,7 +250,7 @@ function TestimonialsSection() {
                             <img src={userIcon} alt="" aria-hidden="true" />
                           </span>
                           <div>
-                            <h4 className="font-['Nunito'] text-[17px] font-[800] text-white/82 md:text-[19px]">
+                            <h4 className="text-[17px] font-[800] text-white/82 md:text-[19px]">
                               {testimonial.name}
                             </h4>
                             <p className="mt-[6px] text-[13px] text-white/52 md:text-[15px]">

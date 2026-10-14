@@ -93,7 +93,7 @@ function StatCard({ stat, index, isActive }) {
       }`}
       style={{ animationDelay: `${revealDelay}ms` }}
     >
-      <strong className="block font-['Nunito'] text-[30px] font-[800] leading-none md:text-[44px]">
+      <strong className="block text-[30px] font-[800] leading-none md:text-[44px]">
         <CounterNumber
           value={stat.value}
           suffix={stat.suffix}
@@ -160,7 +160,7 @@ function HeroBanner() {
             <p className="hero-eyebrow-slide mb-[18px] text-[14px] font-[700] uppercase tracking-[0.22em] text-[#b8ee00]">
               An Initiative by Reinvent Digital
             </p>
-            <h1 className="font-['Nunito'] text-[38px] font-[800] leading-[44px] md:text-[48px] md:leading-[54px] lg:text-[52px] lg:leading-[58px] xl:text-[56px] xl:leading-[62px] 2xl:text-[60px] 2xl:leading-[66px]">
+            <h1 className="text-[38px] font-[800] leading-[44px] md:text-[48px] md:leading-[54px] lg:text-[52px] lg:leading-[58px] xl:text-[56px] xl:leading-[62px] 2xl:text-[60px] 2xl:leading-[66px]">
               <span className="hero-title-line md:whitespace-nowrap [animation-delay:120ms]">
                 Content Built for Real Patients
               </span>

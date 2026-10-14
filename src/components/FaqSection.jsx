@@ -64,12 +64,12 @@ function FaqSection() {
           <LeadForm className="faq-lead-form lg:sticky lg:top-[176px]" />
 
           <div className="pt-[4px]">
-            <div>
+            <div className="heading">
               <span className="inline-flex items-center gap-[12px] text-[14px] font-[700] uppercase tracking-[0.08em] text-white/46">
                 <span className="h-[10px] w-[10px] rounded-full bg-[#d7ff2f] shadow-[0_0_18px_rgba(215,255,47,0.55)]"></span>
                 {`{${faqCount}} FAQs`}
               </span>
-              <h2 className="mt-[20px] max-w-[720px] font-['Nunito'] text-[36px] font-[800] leading-[42px] text-white md:text-[44px] md:leading-[52px]">
+              <h2 className="mt-[20px] max-w-[720px] !text-white">
                 What every clinic owner
                 <span className="block text-[#b8ee00]">wants to know first</span>
               </h2>
@@ -98,10 +98,10 @@ function FaqSection() {
                       aria-expanded={isOpen}
                     >
                       <span className="flex items-center gap-[22px]">
-                        <span className="font-['Nunito'] text-[18px] font-[800] text-white/44">
+                        <span className="text-[18px] font-[800] text-white/44">
                           {String(index + 1).padStart(2, '0')}
                         </span>
-                        <span className="font-['Nunito'] text-[17px] font-[800] leading-[24px] text-white">
+                        <span className="text-[17px] font-[800] leading-[24px] text-white">
                           {faq.question}
                         </span>
                       </span>
