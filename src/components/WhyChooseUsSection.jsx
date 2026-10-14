@@ -214,7 +214,7 @@ function WhyChooseUsSection() {
                       isActive={countersActive}
                     />
                   </strong>
-                  <div className="flex -space-x-[10px] pt-[7px]">
+                  <div className="audience-match-icons flex -space-x-[10px] pt-[7px]">
                     <span className="inline-flex h-[42px] w-[42px] items-center justify-center rounded-full border-2 border-[#101112] bg-[#60bd6a] text-[15px]">
                       <i className="fa-solid fa-user-doctor"></i>
                     </span>

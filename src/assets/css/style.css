@@ -1504,6 +1504,10 @@
     height: 36px !important;
     width: 36px !important;
   }
+
+  .audience-match-icons {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 992px) {
