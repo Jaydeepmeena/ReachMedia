@@ -55,10 +55,10 @@ function Navbar() {
 
   useEffect(() => {
     const cursorPosition = {
-      currentX: -80,
-      currentY: -80,
-      targetX: -80,
-      targetY: -80,
+      currentX: 0,
+      currentY: 0,
+      targetX: 0,
+      targetY: 0,
     }
     let animationFrame = 0
 
@@ -226,7 +226,7 @@ function Navbar() {
     <>
       <span
         ref={cursorRef}
-        className="service-cursor-dot pointer-events-none fixed left-[-80px] top-[-80px] z-[9999] hidden lg:block"
+        className="service-cursor-dot pointer-events-none fixed left-0 top-0 z-[9999] hidden lg:block"
         aria-hidden="true"
       ></span>
 
