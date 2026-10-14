@@ -77,7 +77,7 @@
   }
 
   .heading h2 {
-    @apply m-0 text-[54px] font-[800] leading-[60px] text-[#333];
+    @apply m-0 text-[48px] font-[700] leading-[56px] text-[#333];
     font-family: "Poppins", Arial, sans-serif;
     text-transform: capitalize;
   }
