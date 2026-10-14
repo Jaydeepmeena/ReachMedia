@@ -94,10 +94,10 @@ function HowWeWorkSection() {
           <h4 className="justify-center">How We Work</h4>
           <h2 className="mt-[16px] !text-white">
             The Process Behind Every Month
-            <span className="mt-[6px] flex items-center justify-center gap-[18px] text-[#b8ee00]">
-              <i className="fa-solid fa-arrow-right-long rotate-180 text-[0.58em]"></i>
+            <span className="heading-accent mt-[6px] flex items-center justify-center gap-[18px]">
+              <i className="heading-accent fa-solid fa-arrow-right-long rotate-180 text-[0.58em]"></i>
               Start To Finish
-              <i className="fa-solid fa-arrow-right-long text-[0.58em]"></i>
+              <i className="heading-accent fa-solid fa-arrow-right-long text-[0.58em]"></i>
             </span>
           </h2>
           <p className="mx-auto mt-[20px] max-w-[620px] text-[17px] leading-[31px] text-white/62">
@@ -128,7 +128,7 @@ function HowWeWorkSection() {
                 >
                   <div className="hidden lg:col-start-1 lg:block">
                     {!isRight && (
-                      <div className="how-work-card group rounded-[18px] border border-white/10 bg-[#151616] p-[28px] transition-colors duration-300 hover:bg-[#a1d002]">
+                      <div className="how-work-card group rounded-[18px] border border-white/10 bg-[#151616] p-[28px] transition-colors duration-300">
                         <span className="inline-flex rounded-full bg-[#0b0c0c] px-[16px] py-[8px] text-[13px] font-[700] text-white/72">
                           {step.duration}
                         </span>
@@ -145,7 +145,7 @@ function HowWeWorkSection() {
                   <div
                     className={`absolute left-0 top-[20px] z-[2] inline-flex h-[48px] w-[48px] items-center justify-center rounded-full text-[18px] font-[800] transition duration-300 lg:static lg:col-start-2 lg:mx-auto ${
                       isVisible
-                        ? 'bg-[#b8ee00] text-[#070909]'
+                        ? 'brand-gradient-bg text-[#070909]'
                         : 'bg-[#151616] text-white/46'
                     }`}
                   >
@@ -154,7 +154,7 @@ function HowWeWorkSection() {
 
                   <div className="hidden lg:col-start-3 lg:block">
                     {isRight && (
-                      <div className="how-work-card group rounded-[18px] border border-white/10 bg-[#151616] p-[28px] transition-colors duration-300 hover:bg-[#a1d002]">
+                      <div className="how-work-card group rounded-[18px] border border-white/10 bg-[#151616] p-[28px] transition-colors duration-300">
                         <span className="inline-flex rounded-full bg-[#0b0c0c] px-[16px] py-[8px] text-[13px] font-[700] text-white/72">
                           {step.duration}
                         </span>
@@ -169,7 +169,7 @@ function HowWeWorkSection() {
                   </div>
 
                   <div className="lg:hidden">
-                    <div className="how-work-card group rounded-[18px] border border-white/10 bg-[#151616] p-[24px] transition-colors duration-300 hover:bg-[#a1d002]">
+                    <div className="how-work-card group rounded-[18px] border border-white/10 bg-[#151616] p-[24px] transition-colors duration-300">
                       <span className="inline-flex rounded-full bg-[#0b0c0c] px-[14px] py-[7px] text-[12px] font-[700] text-white/72">
                         {step.duration}
                       </span>

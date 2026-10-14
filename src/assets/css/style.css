@@ -84,7 +84,8 @@
     text-transform: capitalize;
   }
 
-  .heading-accent {
+  .heading-accent,
+  .heading-accent::before {
     background: linear-gradient(90deg, #43a0a1, #7ad739);
     -webkit-background-clip: text;
     background-clip: text;
@@ -289,9 +290,14 @@
   }
 
   .how-work-progress-line {
+    background: linear-gradient(180deg, #43a0a1, #7ad739);
     transform: scaleY(var(--timeline-progress, 0));
     transform-origin: top;
     transition: transform 220ms ease-out;
+  }
+
+  .brand-gradient-bg {
+    background: linear-gradient(135deg, #43a0a1, #7ad739);
   }
 
   .how-work-card {
@@ -299,6 +305,10 @@
       background-color 420ms ease,
       border-color 420ms ease,
       color 420ms ease;
+  }
+
+  .how-work-card:hover {
+    background: linear-gradient(135deg, #43a0a1, #7ad739);
   }
 
   .how-it-card {
