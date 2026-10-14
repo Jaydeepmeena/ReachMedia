@@ -14,8 +14,8 @@ const testimonials = [
     name: 'Dr. R. Mehta',
     role: 'Founder, Dental Clinic',
     initials: 'RM',
-    color: '#60bd6a',
-    cardColor: '#203348',
+    color: '#9aa1ac',
+    cardColor: '#2b2e33',
   },
   {
     tag: 'IVF & Fertility',
@@ -24,8 +24,8 @@ const testimonials = [
     name: 'S. Kapoor',
     role: 'Marketing Head, IVF & Fertility Centre',
     initials: 'SK',
-    color: '#5b7cff',
-    cardColor: '#26356e',
+    color: '#9aa1ac',
+    cardColor: '#34383e',
   },
   {
     tag: 'Eye Hospital',
@@ -35,7 +35,7 @@ const testimonials = [
     role: 'Director, Eye Hospital',
     initials: 'AN',
     color: '#43A0A1',
-    cardColor: '#1f5557',
+    cardColor: '#143f41',
   },
   {
     tag: 'Multi-Speciality Hospital',
@@ -44,8 +44,8 @@ const testimonials = [
     name: 'V. Rao',
     role: 'Operations Head, Multi-Speciality Hospital',
     initials: 'VR',
-    color: '#8b6ff0',
-    cardColor: '#2f4663',
+    color: '#9aa1ac',
+    cardColor: '#3c4046',
   },
   {
     tag: 'Dental Care Chain',
@@ -54,8 +54,8 @@ const testimonials = [
     name: 'Dr. P. Sharma',
     role: 'Founder, Dental Care Chain',
     initials: 'PS',
-    color: '#e0a634',
-    cardColor: '#315443',
+    color: '#60bd6a',
+    cardColor: '#1b4430',
   },
 ]
 
