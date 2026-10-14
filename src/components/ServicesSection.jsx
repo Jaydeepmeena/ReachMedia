@@ -152,7 +152,7 @@ function ServicesSection() {
                   <div className="py-[22px] lg:px-[64px]">
                     <a
                       href="#!"
-                      className={`service-title-link mb-[18px] inline-block text-[29px] font-[800] leading-[38px] transition duration-[400ms] md:text-[34px] md:leading-[44px] ${isActive ? 'text-white' : 'text-white/45'
+                      className={`service-title-link mb-[18px] inline-block text-[24px] font-[600] leading-[32px] transition duration-[400ms] md:text-[27px] md:leading-[36px] ${isActive ? 'text-white' : 'text-white/45'
                         }`}
                       onClick={(event) => event.preventDefault()}
                     >
@@ -190,7 +190,7 @@ function ServicesSection() {
                   <div className="py-[0px] lg:py-[0px]">
                     <div
                       className={`overflow-hidden transition-[height] duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive
-                          ? 'max-h-[400px] h-[190px] sm:h-[230px] lg:h-auto lg:aspect-[3/2]'
+                          ? 'max-h-[400px] h-[190px] sm:h-[230px] lg:h-[360px]'
                           : 'h-[58px] sm:h-[78px] lg:h-[82px]'
                         }`}
                     >
