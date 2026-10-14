@@ -128,10 +128,10 @@ function WhyChooseUsSection() {
 
               <a
                 href="#contact"
-                className="mt-[34px] inline-flex h-[66px] items-center overflow-hidden rounded-[9px] bg-[#101112] pl-[28px] text-[15px] font-[800] text-white transition duration-300 hover:bg-[#60bd6a]"
+                className="group mt-[34px] inline-flex h-[66px] items-center overflow-hidden rounded-[9px] bg-[#101112] pl-[28px] text-[15px] font-[800] text-white transition duration-300 hover:bg-[#60bd6a]"
               >
                 <span className="pr-[36px]">Why Partner With Us</span>
-                <span className="mr-[6px] inline-flex h-[56px] w-[56px] items-center justify-center rounded-[8px] bg-white text-[18px] text-[#101112] transition duration-300">
+                <span className="mr-[6px] inline-flex h-[56px] w-[56px] items-center justify-center rounded-[8px] bg-[#60bd6a] text-[18px] text-white transition duration-300 group-hover:bg-white group-hover:text-[#101112]">
                   <i className="fa-solid fa-arrow-up-long rotate-45"></i>
                 </span>
               </a>
@@ -206,7 +206,7 @@ function WhyChooseUsSection() {
             <SwiperSlide>
               <article className="min-h-[350px] rounded-[22px] border-[6px] border-white bg-[#101112] p-[34px] text-white shadow-none lg:shadow-[0_18px_60px_rgba(37,56,80,0.08)]">
                 <div className="flex items-start justify-between gap-[20px]">
-                  <strong className="text-[60px] font-[800] leading-none text-[#b8ee00] md:text-[70px]">
+                  <strong className="text-[60px] font-[800] leading-none text-[#60bd6a] md:text-[70px]">
                     <CounterNumber
                       value={96.8}
                       suffix="%"
