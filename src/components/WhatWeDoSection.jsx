@@ -136,7 +136,7 @@ function WhatWeDoSection() {
             <h4>WHAT WE HANDLE</h4>
             <h2 className="!text-black">
               Everything From The Idea
-              <span className="block text-[#3c7f2b]">To The Appointment</span>
+              <span className="heading-accent block">To The Appointment</span>
             </h2>
           </div>
           <div data-reveal="right">

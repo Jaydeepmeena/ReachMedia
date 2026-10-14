@@ -173,7 +173,7 @@ function HowItWorksSection() {
             <h4 className="justify-center">The Reach Media Difference</h4>
             <h2 className="mt-[16px] !text-white">
               From First Scroll to First Appointment,
-              <span className="block text-[#b8ee00]">Built for Healthcare!</span>
+              <span className="heading-accent block">Built for Healthcare!</span>
             </h2>
             <p className="mx-auto mt-[20px] max-w-[680px] text-[17px] leading-[31px] text-white/66">
               Healthcare-only planning, paid media alignment, consent checks

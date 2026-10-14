@@ -82,6 +82,13 @@
     text-transform: capitalize;
   }
 
+  .heading-accent {
+    background: linear-gradient(90deg, #43a0a1, #7ad739);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
   .heading h3 {
     @apply m-0 text-[40px] font-extrabold leading-[50px] text-[#333];
     font-family: "Poppins", Arial, sans-serif;
@@ -1030,7 +1037,7 @@
   }
 }
 
-@media screen and (min-width: 1201px) and (max-width: 1450px) {
+@media screen and (min-width: 1201px) and (max-width: 1500px) {
   .heading h2 {
     font-size: 40px;
     line-height: 45px;

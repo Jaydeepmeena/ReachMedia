@@ -115,8 +115,8 @@ function WhyChooseUsSection() {
 
               <h2 className="max-w-[680px] !text-[#101820]">
                 Healthcare-Focused Marketing Agency
-                <span className="block text-[#3c7f2b]">
-                  From Lead To <span className="whitespace-nowrap">Walk-Ins!</span>
+                <span className="heading-accent block">
+                  From Lead To <span className="heading-accent whitespace-nowrap">Walk-Ins!</span>
                 </span>
               </h2>
 

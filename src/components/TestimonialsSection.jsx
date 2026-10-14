@@ -184,7 +184,7 @@ function TestimonialsSection() {
                 <h4>Word From Our Clients</h4>
                 <h2>
                   <span className="block text-[#d8e0eb]">What They Have Actually</span>
-                  <span className="block text-[#48a75c]">Felt, Seen & Received!</span>
+                  <span className="heading-accent block">Felt, Seen & Received!</span>
                 </h2>
               </div>
             </div>

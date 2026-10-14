@@ -71,7 +71,7 @@ function FaqSection() {
               </span>
               <h2 className="mt-[20px] max-w-[720px] !text-white">
                 What every clinic owner
-                <span className="block text-[#b8ee00]">wants to know first</span>
+                <span className="heading-accent block">wants to know first</span>
               </h2>
               <p className="mt-[18px] max-w-[620px] text-[14px] leading-[26px] text-white/52">
                 Something specific to your speciality? Email us the question -

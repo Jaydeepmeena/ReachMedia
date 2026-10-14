@@ -96,7 +96,7 @@ function CtaSection() {
             <div className="heading">
               <h2 className="mx-auto mt-[22px] max-w-[600px] !text-white">
                 Get a Free Social Media
-                <span className="block text-[#b8ee00]">Audit for Your Profile</span>
+                <span className="heading-accent block">Audit for Your Profile</span>
               </h2>
             </div>
 

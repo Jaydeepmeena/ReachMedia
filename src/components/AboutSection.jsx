@@ -141,7 +141,7 @@ function AboutSection() {
               <h4>A SOCIAL INITIATIVE BY REINVENT DIGITAL</h4>
               <h2>
                 A Hardcore Healthcare Marketing Team,{' '}
-                <span className="text-[#3c7f2b]">
+                <span className="heading-accent">
                   Not Just A Generic Posting Agency!
                 </span>
               </h2>

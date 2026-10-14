@@ -116,7 +116,7 @@ function InstagramReelsSection() {
               <span className="block xl:whitespace-nowrap">
                 Reels, Carousels & Campaigns
               </span>
-              <span className="block text-[#3c7f2b]">We Have Actually Posted!</span>
+              <span className="heading-accent block">We Have Actually Posted!</span>
             </h2>
             <p className="mt-[18px] max-w-[780px] text-[17px] leading-[31px] text-slate-600">
               Real work for real clinics, hospitals & doctors, across dental,
@@ -185,7 +185,7 @@ function InstagramReelsSection() {
           <div className="heading" data-reveal="left">
             <h4>Work Samples</h4>
             <h2 className="!text-[#070909]">
-              Recent <span className="text-[#3c7f2b]">Campaign Posts</span>
+              Recent <span className="heading-accent">Campaign Posts</span>
             </h2>
           </div>
 

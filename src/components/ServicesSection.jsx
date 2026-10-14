@@ -109,7 +109,7 @@ function ServicesSection() {
             >
               <h2 className="max-w-[650px] !text-white">
                 Every speciality has its own{' '}
-                <span className="text-[#b8ee00]">marketing plan</span>
+                <span className="heading-accent">marketing plan</span>
               </h2>
               <p className="mt-[22px] max-w-[760px] text-[17px] leading-[30px] text-white/72">
                 A couple researching IVF, a 62-year-old worried about their
