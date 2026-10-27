@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 import logo from '../assets/images/reach-media-logo-1.png'
 
 const menuItems = [
+  { label: 'About Us', href: '#about' },
   { label: 'Specialities', href: '#specialities' },
   { label: 'Services', href: '#services' },
-  { label: 'Process', href: '#process' },
-  { label: 'Why Us', href: '#why-choose-us' },
+  { label: 'Why Choose', href: '#why-choose-us' },
   { label: 'How We Work', href: '#how-we-work' },
   { label: 'Work Samples', href: '#reels' },
   { label: 'FAQs', href: '#faqs' },

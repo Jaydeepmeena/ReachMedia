@@ -5,10 +5,10 @@ const brandLetters = 'Reach Media'.split('')
 const footerYear = new Date().getFullYear()
 
 const quickLinks = [
+  { label: 'About Us', href: '#about' },
   { label: 'Specialities', href: '#specialities' },
   { label: 'Services', href: '#services' },
-  { label: 'Process', href: '#process' },
-  { label: 'Why Us', href: '#why-choose-us' },
+  { label: 'Why Choose', href: '#why-choose-us' },
   { label: 'Work Samples', href: '#reels' },
 ]
 

@@ -178,7 +178,7 @@ function TestimonialsSection() {
 
       <div className="testimonials-sticky-panel py-[60px]">
         <div className="container">
-          <div className="grid items-center gap-[48px] lg:grid-cols-[0.86fr_1.14fr] lg:gap-[76px]">
+          <div className="testi-layout grid items-center gap-[48px] lg:grid-cols-[0.86fr_1.14fr] lg:gap-[76px]">
             <div>
               <div className="heading" data-reveal="left">
                 <h4>Word From Our Clients</h4>
@@ -241,7 +241,7 @@ function TestimonialsSection() {
                         {testimonial.body}
                       </p>
 
-                      <div className="mt-[34px] border-t border-white/16 pt-[26px] md:mt-[42px] md:pt-[34px]">
+                      <div className="testi-card-footer mt-[34px] border-t border-white/16 pt-[26px] md:mt-[42px] md:pt-[34px]">
                         <div className="flex items-center gap-[16px]">
                           <span
                             className="testi-avatar inline-flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-full"

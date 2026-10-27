@@ -90,14 +90,14 @@ function ServicesSection() {
     <section
       ref={sectionRef}
       className="service-sec overflow-hidden rounded-t-[28px] bg-[#070909] py-[60px] text-white md:py-[86px] lg:py-[110px]"
-      id="services"
+      id="specialities"
     >
       <div className="container">
         <div className="overflow-hidden px-[0px]">
           <div className="mb-[54px] grid items-start gap-[28px] lg:grid-cols-[180px_minmax(0,1fr)_220px]">
             <div className="flex items-center gap-[12px] text-[15px] font-semibold text-white py-[15px]">
               <span className="h-[10px] w-[10px] shrink-0 bg-white"></span>
-              Our Services
+              Our Speciality
             </div>
 
             <div
@@ -145,7 +145,7 @@ function ServicesSection() {
                   onFocus={() => setActiveIndex(index)}
                 >
                   <div className="border-white/20 py-[22px] text-[15px] text-white/70 lg:border-r">
-                    Service : {String(index + 1).padStart(2, '0')}
+                    Speciality : {String(index + 1).padStart(2, '0')}
                   </div>
 
                   <div className="py-[22px] lg:px-[64px]">

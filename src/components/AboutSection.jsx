@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import aboutImage from '../assets/images/about-us-img.png'
+import AboutPhoneCarousel from './AboutPhoneCarousel'
+import MobilePartnerWall from './MobilePartnerWall'
 import credenceDentalLogo from '../assets/images/credence-dental.avif'
 import dentalRootsLogo from '../assets/images/dental-roots.avif'
 import eledentInternationalLogo from '../assets/images/eledent-international.avif'
@@ -112,23 +113,16 @@ function AboutSection() {
 
   return (
     <section
-      id="specialities"
+      id="about"
       ref={sectionRef}
       className="overflow-hidden py-[60px]"
     >
       <div className="container">
         <div className="grid items-start gap-[34px] lg:grid-cols-[0.9fr_1.1fr]">
           <div
-            className={`relative z-[3] order-2 flex justify-center lg:order-1 ${isVisible
-                ? 'about-slide-left about-motion-in'
-                : 'about-slide-left'
-              }`}
+            className="relative z-[3] order-2 flex min-w-0 justify-center lg:order-1 lg:h-[725px]"
           >
-            <img
-              src={aboutImage}
-              alt="Reach Media support specialist"
-              className="about-us-img relative z-[3] max-h-[350px] w-auto object-contain sm:max-h-[610px] lg:max-h-[725px]"
-            />
+            <AboutPhoneCarousel />
           </div>
 
           <div
@@ -178,7 +172,7 @@ function AboutSection() {
         </div>
 
         <div
-          className={`about-partner relative z-[2] w-full overflow-hidden rounded-[26px] border border-white/10 bg-[#101a1f] px-[18px] pb-[36px] pt-[38px] md:mt-[-268px] md:px-[34px] lg:px-[52px] lg:pb-[46px] lg:pl-[430px] lg:pt-[54px]`}
+          className="relative z-[2] mt-[24px] w-full overflow-hidden rounded-[26px] border border-white/10 bg-[#101a1f] px-[18px] pb-[36px] pt-[38px] max-md:mx-[-16px] max-md:w-[calc(100%+32px)] max-md:rounded-none max-md:border-0 max-md:bg-[#0f0f0f] md:px-[34px] lg:mt-[-268px] lg:px-[52px] lg:pb-[70px] lg:pl-[430px] lg:pt-[54px]"
         >
           <div
             className="pointer-events-none absolute inset-0 opacity-50"
@@ -195,21 +189,23 @@ function AboutSection() {
             </h3>
           </div>
 
+          <MobilePartnerWall partners={partners} />
+
           <div
-            className="partner-marquee relative overflow-hidden"
+            className="partner-marquee relative hidden overflow-hidden md:block"
             aria-label="Partner logos"
           >
             <div className="partner-track flex w-max items-center gap-[35px]">
               {marqueeItems.map((partner, index) => (
                 <div
-                  className="partner-logo-card group flex h-[76px] w-[160px] shrink-0 items-center justify-center rounded-[10px] border border-white/10 bg-white/[0.035] px-[12px] transition-colors duration-300 focus:outline-none"
+                  className="partner-logo-card group flex h-[76px] w-[160px] shrink-0 items-center justify-center rounded-[10px] border border-white bg-white px-[12px] transition-colors duration-300 focus:outline-none"
                   tabIndex={0}
                   key={`${partner.name}-${index}`}
                 >
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="max-h-[52px] max-w-full object-contain opacity-55 grayscale transition duration-300"
+                    className="max-h-[52px] max-w-full object-contain opacity-100 transition duration-300"
                   />
                 </div>
               ))}

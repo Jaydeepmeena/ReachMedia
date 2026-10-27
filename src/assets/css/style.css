@@ -180,6 +180,52 @@
     animation: partner-marquee 24s linear infinite;
   }
 
+  .mobile-partner-wall {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    aspect-ratio: 351 / 506;
+    max-height: 560px;
+    overflow: hidden;
+    isolation: isolate;
+    mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 86%, transparent);
+  }
+
+  .mobile-partner-track {
+    display: flex;
+    flex-direction: column;
+    animation: mobile-partner-rise var(--partner-duration) linear infinite;
+    animation-delay: var(--partner-delay);
+    will-change: transform;
+  }
+
+  .mobile-partner-track--reverse {
+    animation-direction: reverse;
+  }
+
+  .mobile-partner-wall:hover .mobile-partner-track,
+  .mobile-partner-wall:focus-within .mobile-partner-track {
+    animation-play-state: paused;
+  }
+
+  .mobile-partner-item {
+    display: flex;
+    height: 120px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-partner-logo {
+    display: block;
+    width: 100%;
+    max-width: 100px;
+    height: 42px;
+    object-fit: contain;
+    filter: grayscale(0.5);
+    opacity: 0.5;
+    transition: filter 300ms, opacity 300ms;
+  }
+
   .partner-marquee:hover .partner-track {
     animation-play-state: paused;
   }
@@ -516,8 +562,8 @@
 
   .testimonials-sticky-panel {
     overflow: hidden;
-    padding-top: 76px !important;
-    padding-bottom: 72px !important;
+    padding-top: var(--testi-panel-padding, 76px) !important;
+    padding-bottom: var(--testi-panel-padding, 72px) !important;
   }
 
   .testi-section-bg-mark {
@@ -803,6 +849,16 @@
 
   to {
     transform: translateX(calc(-50% - 11px));
+  }
+}
+
+@keyframes mobile-partner-rise {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
   }
 }
 
@@ -1519,6 +1575,94 @@
   }
 }
 
+@media screen and (min-width: 991px) and (max-width: 1400px) {
+  .testi-layout {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 40px;
+  }
+
+  .testimonials-sticky-panel {
+    --testi-panel-padding: 44px;
+  }
+
+  .testi-right-panel {
+    max-width: 560px;
+    padding-right: 112px;
+  }
+
+  .testi-card-deck {
+    max-width: 440px;
+    min-height: 470px;
+  }
+
+  .testi-swiper {
+    min-height: 470px;
+  }
+
+  .testi-card {
+    min-height: 470px;
+    padding: 28px;
+  }
+
+  .testi-card > i {
+    margin-top: 24px;
+    font-size: 28px;
+  }
+
+  .testi-card h3 {
+    margin-top: 18px;
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .testi-card > p {
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .testi-card-footer {
+    margin-top: 24px;
+    padding-top: 20px;
+  }
+
+  .testi-card-footer h4 {
+    font-size: 17px;
+  }
+
+  .testi-card-footer p {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .testi-avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .testi-nav-row {
+    margin-top: 36px;
+  }
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1400px) {
+  .testi-right-panel {
+    max-width: 620px;
+    padding-right: 128px;
+  }
+
+  .testi-card-deck {
+    max-width: 480px;
+  }
+}
+
+@media screen and (min-width: 991px) and (max-width: 1400px) and (max-height: 800px) {
+  .testimonials-sticky-panel {
+    --testi-panel-padding: 16px;
+    top: 148px;
+  }
+}
+
 @media screen and (max-width: 992px) {
 
   .desk-view {
@@ -2001,6 +2145,22 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .mobile-partner-wall {
+    aspect-ratio: auto;
+    max-height: none;
+    overflow: visible;
+    mask-image: none;
+  }
+
+  .mobile-partner-track {
+    animation: none;
+    will-change: auto;
+  }
+
+  .mobile-partner-set--copy {
+    display: none;
+  }
+
   .partner-track {
     animation: none;
   }

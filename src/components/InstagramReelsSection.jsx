@@ -118,11 +118,6 @@ function InstagramReelsSection() {
               </span>
               <span className="heading-accent block">We Have Actually Posted!</span>
             </h2>
-            <p className="mt-[18px] max-w-[780px] text-[17px] leading-[31px] text-slate-600">
-              Real work for real clinics, hospitals & doctors, across dental,
-              fertility, eye care and multi-speciality, shaped by the
-              deep-driven process we follow for each account.
-            </p>
           </div>
 
           <div className="flex items-end justify-between gap-[24px] lg:justify-self-end" data-reveal="right">

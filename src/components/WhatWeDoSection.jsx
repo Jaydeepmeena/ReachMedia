@@ -1,4 +1,11 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
+import '../assets/css/services-strips.css'
+import socialMediaImage from '../assets/images/social-media-img.jpg'
+import creativeImage from '../assets/images/content-creation-img.jpg'
+import reelsImage from '../assets/images/video-and-reels-img.jpg'
+import paidMediaImage from '../assets/images/paid-media-img.jpg'
+import creatorImage from '../assets/images/healthcare-influencer-img.jpg'
+import reportingImage from '../assets/images/reporting-img.jpg'
 
 const workItems = [
   {
@@ -114,134 +121,174 @@ const workItems = [
   },
 ]
 
-function WhatWeDoSection() {
-  const tabRefs = useRef([])
-  const [activeIndex, setActiveIndex] = useState(0)
-  const activeItem = workItems[activeIndex]
+const serviceMedia = [
+  { src: socialMediaImage, alt: 'Social media content planning and platform management' },
+  { src: creativeImage, alt: 'Creative content production and design' },
+  { src: reelsImage, alt: 'Video and Instagram Reels production' },
+  { src: paidMediaImage, alt: 'Paid advertising and campaign planning' },
+  { src: creatorImage, alt: 'A healthcare professional recording educational content' },
+  { src: reportingImage, alt: 'Campaign reporting and performance analysis' },
+]
 
-  const handleTabClick = (index) => {
-    setActiveIndex(index)
-    tabRefs.current[index]?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center',
-    })
-  }
+function ServiceMedia({ item, media }) {
+  return (
+    <figure className="services-strip-media">
+      <div className="services-strip-visual">
+        <img
+          src={media.src}
+          alt={media.alt}
+          loading="lazy"
+          decoding="async"
+          className="services-strip-photo"
+          width={1500}
+          height={1000}
+        />
+      </div>
+      <figcaption className="services-strip-stat">
+        <p>{item.stat.caption}</p>
+      </figcaption>
+    </figure>
+  )
+}
+
+function WhatWeDoSection() {
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return undefined
+
+    const stack = section.querySelector('.services-strip-stack')
+    const panels = [...section.querySelectorAll('.services-strip')]
+    const contents = panels.map((panel) => panel.querySelector('.services-strip-inner'))
+    const header = document.querySelector('.rm-site-header')
+    const desktop = window.matchMedia('(min-width: 1024px)')
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let dimensions = []
+    let collapsedHeight = 112
+    let frame = 0
+
+    const update = () => {
+      frame = 0
+      if (!desktop.matches || reducedMotion.matches || !dimensions.length) {
+        panels.forEach((panel) => {
+          panel.style.removeProperty('height')
+          panel.dataset.collapsed = 'false'
+        })
+        return
+      }
+
+      // Keep the delayed trigger, but soften both ends of the collapse over a longer scroll interval.
+      const distance = Math.max(240, window.innerHeight * 0.26)
+      const headerHeight = header?.offsetHeight ?? 0
+      const triggerOffset = Math.max(150, window.innerHeight * 0.17)
+      const trigger = Math.min(headerHeight + triggerOffset + 16, window.innerHeight - dimensions[0] - 24)
+      let top = stack.getBoundingClientRect().top
+
+      panels.forEach((panel, index) => {
+        const progress = index === panels.length - 1 || panel.matches(':focus-within')
+          ? 0
+          : Math.min(1, Math.max(0, (trigger - top) / distance))
+        const easedProgress = progress * progress * (3 - 2 * progress)
+        const height = dimensions[index] - (dimensions[index] - collapsedHeight) * easedProgress
+        panel.style.height = `${height.toFixed(2)}px`
+        panel.dataset.collapsed = progress === 1 ? 'true' : 'false'
+        top += height
+      })
+    }
+
+    const requestUpdate = () => {
+      if (!frame) frame = window.requestAnimationFrame(update)
+    }
+
+    const measure = () => {
+      dimensions = contents.map((content) => Math.ceil(content.offsetHeight) + 1)
+      collapsedHeight = Math.max(112, ...contents.map((content) => {
+        const topPadding = parseFloat(getComputedStyle(content).paddingTop) || 0
+        return Math.ceil(topPadding + content.querySelector('.services-strip-title').offsetHeight + 16)
+      }))
+      requestUpdate()
+    }
+
+    const resizeObserver = new ResizeObserver(measure)
+    contents.forEach((content) => resizeObserver.observe(content))
+    measure()
+    window.addEventListener('scroll', requestUpdate, { passive: true })
+    window.addEventListener('resize', measure)
+    section.addEventListener('focusin', requestUpdate)
+    section.addEventListener('focusout', requestUpdate)
+    desktop.addEventListener('change', measure)
+    reducedMotion.addEventListener('change', measure)
+
+    return () => {
+      resizeObserver.disconnect()
+      window.cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', requestUpdate)
+      window.removeEventListener('resize', measure)
+      section.removeEventListener('focusin', requestUpdate)
+      section.removeEventListener('focusout', requestUpdate)
+      desktop.removeEventListener('change', measure)
+      reducedMotion.removeEventListener('change', measure)
+    }
+  }, [])
 
   return (
-    <section id="process" className="what-we-do-section bg-white py-[60px] md:py-[70px]">
-      <div className="container">
-        <div className="mb-[58px] grid gap-[28px] lg:grid-cols-[1fr_0.86fr] lg:items-end">
-          <div className="heading" data-reveal="left">
-            <h4>WHAT WE HANDLE</h4>
-            <h2 className="!text-black">
-              Everything From The Idea
-              <span className="heading-accent block">To The Appointment</span>
-            </h2>
-          </div>
-          <div data-reveal="right">
-            <p className="max-w-[560px] text-[17px] leading-[31px] text-slate-600">
-              From the first brief to the calendar, the content, the trends,
-              the shoot, the ads and the reporting, one team runs it all, so
-              you only have to watch for the results.
-            </p>
-            <a
-              href="#services"
-              className="group relative mt-[30px] inline-block pb-[5px] text-[13px] font-extrabold uppercase tracking-[0.4px] text-[#070909]"
-            >
-              View All Services
-              <span className="absolute bottom-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-[#60bd6a] transition-transform duration-300 group-hover:scale-x-100"></span>
-            </a>
-          </div>
+    <section id="services" ref={sectionRef} className="services-strip-section">
+      <div className="container services-strip-intro">
+        <div className="heading" data-reveal="up">
+          <h4>WHAT WE HANDLE</h4>
+          <h2 className="!text-black">
+            Everything From The Idea
+            <span className="heading-accent block">To The Appointment</span>
+          </h2>
         </div>
+        <div className="services-strip-intro-copy" data-reveal="up" style={{ '--reveal-delay': '80ms' }}>
+          <p>
+            From the first brief to the calendar, the content, the trends,
+            the shoot, the ads and the reporting, one team runs it all, so
+            you only have to watch for the results.
+          </p>
+          <a href="#service-offerings" className="services-strip-link">
+            View All Services
+            <i className="fa-solid fa-arrow-down" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
 
-        <div className="relative grid items-stretch lg:left-1/2 lg:min-h-[500px] lg:w-[min(1500px,calc(100vw-96px))] lg:-translate-x-1/2 lg:grid-cols-[390px_minmax(0,1fr)] min-[1400px]:grid-cols-[460px_minmax(0,1fr)]" data-reveal="up">
-          <div className="what-we-do-bx relative min-h-[470px] rounded-[34px] bg-black px-[20px] py-[30px] text-white md:px-[34px] md:py-[44px] lg:min-h-[640px] lg:rounded-r-[0px] lg:pr-[0px] xl:px-[42px]">
-            <div className="what-we-do-btn grid gap-[12px] md:gap-[16px] lg:gap-[18px]">
-              {workItems.map((item, index) => (
-                <button
-                  key={item.title}
-                  ref={(node) => {
-                    tabRefs.current[index] = node
-                  }}
-                  type="button"
-                  aria-pressed={activeIndex === index}
-                  className={`group relative flex min-h-[72px] w-full max-w-[390px] items-center overflow-visible rounded-full text-left text-[17px] font-extrabold leading-[23px] transition-[width,background-color,color,box-shadow,padding,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:text-[20px] md:leading-[25px] lg:max-w-none ${activeIndex === index
-                      ? 'z-[40] bg-[#60bd6a] pl-[24px] pr-[76px] text-white shadow-[0_16px_34px_rgba(96,189,106,0.24)] lg:w-[calc(100%+70px)] min-[1400px]:w-[calc(100%+96px)]'
-                      : 'z-[20] bg-transparent px-[24px] text-white hover:text-[#60bd6a] focus-visible:text-[#60bd6a]'
-                    }`}
-                  onClick={() => handleTabClick(index)}
-                >
-                  <span
-                    className={`relative z-[1] block max-w-[245px] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:max-w-[275px] ${activeIndex === index
-                        ? 'translate-x-0'
-                        : 'group-hover:translate-x-[8px] group-focus-visible:translate-x-[8px]'
-                      }`}
-                  >
-                    {item.title}
+      <div id="service-offerings" className="services-strip-stack">
+        {workItems.map((item, index) => (
+          <article
+            key={item.title}
+            className="services-strip"
+            aria-labelledby={`service-strip-title-${index}`}
+          >
+            <div className="container services-strip-inner">
+              <div className="services-strip-copy">
+                <div className="services-strip-title" data-reveal="up">
+                  <span className="services-strip-number">
+                    Service : {String(index + 1).padStart(2, '0')}
                   </span>
-                  <span
-                    className={`absolute right-[9px] top-1/2 inline-flex h-[54px] w-[54px] -translate-y-1/2 items-center justify-center rounded-full bg-black text-[20px] text-white transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${activeIndex === index
-                        ? 'scale-100 opacity-100'
-                        : 'scale-75 opacity-0'
-                      }`}
-                  >
-                    <i className="fa-solid fa-arrow-right"></i>
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="what-we-do-detail-bx relative z-[10] mt-[18px] flex min-h-[470px] items-center rounded-[42px] bg-[#f5f5f8] p-[28px] md:p-[54px] lg:ml-[-44px] lg:mt-[0px] lg:min-h-[640px] lg:py-[62px] lg:pl-[100px] lg:pr-[56px] min-[1400px]:ml-[-62px] min-[1400px]:pl-[96px] min-[1400px]:pr-[72px]">
-            <div
-              key={activeItem.title}
-              className="work-detail-animate what-we-do-box grid w-full items-center gap-[34px] lg:grid-cols-[minmax(0,1fr)_minmax(250px,340px)] xl:gap-[58px]"
-            >
-              <div className="work-detail-copy max-w-[720px]">
-                <h3 className="mb-[20px] text-[22px] font-[800] leading-[28px] text-black md:text-[25px] md:leading-[32px]">
-                  {activeItem.metric}
-                </h3>
-                <p className="mb-[28px] max-w-[720px] text-[15px] leading-[26px] max-md:text-[13px] max-md:leading-[19px] text-slate-700">
-                  {activeItem.description}
-                </p>
-                <ul className="grid min-h-[110px] gap-[14px] text-[14px] font-medium text-black">
-                  {activeItem.points.slice(0, 5).map((point) => (
-                    <li key={point} className="flex items-center gap-[12px]">
-                      <span className="inline-flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full bg-[#60bd6a] text-[11px] text-white">
-                        <i className="fa-solid fa-check"></i>
-                      </span>
-                      {point}
+                  <h3 id={`service-strip-title-${index}`}>{item.title}</h3>
+                </div>
+                <p className="services-strip-metric" data-reveal="up">{item.metric}</p>
+                <p className="services-strip-description" data-reveal="up">{item.description}</p>
+                <ul className="services-strip-points" data-reveal="up">
+                  {item.points.map((point) => (
+                    <li key={point}>
+                      <i className="fa-solid fa-arrow-turn-up fa-rotate-90" aria-hidden="true"></i>
+                      <span>{point}</span>
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="#contact"
-                  className="group relative mt-[30px] inline-block pb-[5px] text-[13px] font-extrabold uppercase tracking-[0.4px] text-[#070909]"
-                >
+                <a href="#contact" className="services-strip-link" data-reveal="up">
                   Learn More
-                  <span className="absolute bottom-0 left-0 h-[2px] w-full origin-left scale-x-100 bg-[#60bd6a] transition-transform duration-300 group-hover:scale-x-75"></span>
+                  <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
                 </a>
               </div>
-
-              <aside className="work-stat-animate mx-auto flex w-full max-w-[340px] flex-col items-center justify-center rounded-[34px] bg-white px-[28px] py-[42px] text-center shadow-[0_24px_70px_rgba(29,45,61,0.06)] lg:min-h-[310px]">
-                <div className="relative flex h-[148px] w-[148px] items-center justify-center rounded-full border border-[#dbe1ea]">
-                  <div className="flex h-[116px] w-[116px] flex-col items-center justify-center rounded-full border border-[#60bd6a]">
-                    <strong className="text-[36px] font-[800] leading-none text-black md:text-[40px]">
-                      {activeItem.stat.value}
-                    </strong>
-                    <i
-                      className={`fa-solid ${activeItem.stat.icon} mt-[10px] text-[20px] leading-none text-[#60bd6a]`}
-                    ></i>
-                  </div>
-                </div>
-                <p className="mt-[24px] max-w-[230px] text-[14px] leading-[22px] text-black">
-                  {activeItem.stat.caption}
-                </p>
-              </aside>
+              <ServiceMedia item={item} media={serviceMedia[index]} />
             </div>
-          </div>
-        </div>
+          </article>
+        ))}
       </div>
     </section>
   )

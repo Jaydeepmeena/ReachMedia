@@ -106,7 +106,7 @@ function HowWeWorkSection() {
           </p>
         </div>
 
-        <div ref={timelineRef} className="relative mt-[70px]">
+        <div id="process" ref={timelineRef} className="relative mt-[70px]">
           <div className="absolute bottom-0 left-[23px] top-0 w-px bg-white/12 lg:left-1/2 lg:-translate-x-1/2"></div>
           <div
             className="how-work-progress-line absolute bottom-0 left-[23px] top-0 w-[3px] rounded-full bg-[#b8ee00] lg:left-1/2"
