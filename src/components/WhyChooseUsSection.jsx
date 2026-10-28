@@ -11,24 +11,16 @@ const whyUsSliderBreakpoints = {
 
 const reasons = [
   {
-    title: 'Healthcare Only',
-    description:
-      'Every template, script and compliance check for each account is built for your clinics and hospitals.',
+    title: 'Healthcare-Focused Social Media Handling',
   },
   {
-    title: 'Planned Alongside Paid Media',
-    description:
-      'Our parent team already runs Google and Meta ads for healthcare clients, so your content gets planned to feed that funnel, not published in isolation from it.',
+    title: 'Social Media Planned Alongside Paid Media',
   },
   {
-    title: 'Consent and Compliance First',
-    description:
-      'We check patient consent, advertising norms and claim language before anything goes live, so your account never becomes the case study for what not to post.',
+    title: 'Consent and Compliance Prioritised',
   },
   {
-    title: 'Enquiries, Not Just Likes',
-    description:
-      "We report on DMs, enquiries and consults booked, because that's the only number that was ever going to matter to the person paying for this.",
+    title: 'Reports With Real Enquiries, Not Vague Data',
   },
 ]
 
@@ -111,20 +103,14 @@ function WhyChooseUsSection() {
         <div>
           <div className="why-head-bx grid gap-[42px] lg:grid-cols-[minmax(0,0.92fr)_minmax(380px,0.72fr)] lg:items-end xl:gap-[78px]">
             <div className="heading" data-reveal="left">
-              <h4>Why Choose Reach Media</h4>
+              <h4>HEALTHCARE FOCUSED MARKETING AGENCY</h4>
 
               <h2 className="max-w-[680px] !text-[#101820]">
-                Healthcare-Focused Marketing Agency
+                From Lead to Walk-Ins,
                 <span className="heading-accent block">
-                  From Lead To Walk-Ins!
+                  Tracking Every Micros!
                 </span>
               </h2>
-
-              <p className="mt-[34px] max-w-[690px] text-[16px] leading-[30px] text-[#6d747b] md:text-[17px] md:leading-[34px]">
-                We plan healthcare marketing with the same seriousness as a
-                patient acquisition campaign: speciality content, consent
-                checks, paid-media alignment and enquiry tracking.
-              </p>
 
               <a
                 href="#contact"
@@ -152,9 +138,6 @@ function WhyChooseUsSection() {
                     <h3 className="text-[17px] md:text-[19px] font-[800] leading-[25px] text-[#101820]">
                       {item.title}
                     </h3>
-                    <p className="mt-[10px] text-[13px] md:text-[14px] leading-normal text-[#6d747b]">
-                      {item.description}
-                    </p>
                   </div>
                 </article>
               ))}

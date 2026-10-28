@@ -8,53 +8,49 @@ const serviceItems = [
   {
     title: 'IVF & Fertility',
     image: fertilityImage,
-    description:
-      'Fertility research often happens privately over months before a clinic visit. Content should patiently address treatment costs, processes, and success rates without pressuring couples to enquire.',
     points: [
       'IVF & IUI Process Explainers',
       'Success-Rate Context, Stated Plainly',
       'Content That Acknowledges The Emotional Weight Of Trying Again',
       'Cost & Instalment Clarity, Upfront',
     ],
+    stat: { value: '3.1X', caption: 'More Enquiry DMs. Typical 6 Month Engagement' },
     cta: 'Audit My IVF & Fertility Presence',
   },
   {
     title: 'Eye Hospitals',
     image: eyeImage,
-    description:
-      'Eye patients often seek consultations quickly after noticing symptoms. Content should address urgency without causing fear and explain procedures clearly, helping older patients feel informed and reassured.',
     points: [
       'Symptom-Recognition Content ("Signs Not To Ignore")',
       'Cataract & Lasik Procedure Explainers',
       'Pre-Op & Post-Op Expectation-Setting',
       'Content Built For An Older, More Cautious Audience',
     ],
+    stat: { value: '+48%', caption: 'LASIK Enquiry Share. Typical 6 Month Engagement' },
     cta: 'Audit My Eye Clinic/Hospital Presence',
   },
   {
     title: 'Dental Clinics',
     image: dentalImage,
-    description:
-      'Dental patients make quicker decisions when they see treatment results. Clear visual content, treatment explanations, and transparent pricing help build trust and address cost concerns.',
     points: [
       'Implant & Aligner Explainers',
-      'Documented, Consented Before-After Content',
+      'Documented, Consented Before--After Content',
       'Clear Pricing & Instalment Information',
       'Local Reputation & Review-Led Content',
     ],
+    stat: { value: '2.4X', caption: 'Consultation Bookings. Typical 6 Month Engagement' },
     cta: 'Audit My Dental Clinic/Hospital Presence',
   },
   {
     title: 'Multi-Speciality Hospitals',
     image: hospitalImage,
-    description:
-      'Multi-speciality hospitals need tailored content for each department while maintaining a consistent brand identity. Strategic content planning helps build trust across all specialities.',
     points: [
       'Department-Specific Content Calendars',
       'Doctor-Led Authority Content, By Department',
       'Facility & Infrastructure Films',
       'Patient Experience Stories, With Consent',
     ],
+    stat: { value: '11', caption: 'Departments Run Monthly. Typical 6 Month Engagement' },
     cta: 'Audit My Multi-Speciality Presence',
   },
 ]
@@ -97,7 +93,7 @@ function ServicesSection() {
           <div className="mb-[54px] grid items-start gap-[28px] lg:grid-cols-[180px_minmax(0,1fr)_220px]">
             <div className="flex items-center gap-[12px] text-[15px] font-semibold text-white py-[15px]">
               <span className="h-[10px] w-[10px] shrink-0 bg-white"></span>
-              Our Speciality
+              SPECIALITIES
             </div>
 
             <div
@@ -107,16 +103,9 @@ function ServicesSection() {
                 }`}
             >
               <h2 className="max-w-[650px] !text-white">
-                Every speciality has its own{' '}
-                <span className="heading-accent">marketing plan</span>
+                Every Speciality Has Its Own{' '}
+                <span className="heading-accent">Marketing Plan!</span>
               </h2>
-              <p className="mt-[22px] max-w-[760px] text-[17px] leading-[30px] text-white/72">
-                A couple researching IVF, a 62-year-old worried about their
-                vision, and a parent weighing braces prices are all making real
-                decisions; just not on the same clock. That's what 10+ years in
-                healthcare marketing taught us: one calendar can't carry every
-                speciality.
-              </p>
             </div>
 
             <a
@@ -160,9 +149,6 @@ function ServicesSection() {
 
                     <div className={`service-panel ${isActive ? 'is-open' : ''}`}>
                       <div className="service-panel-inner overflow-hidden">
-                        <p className="mb-[24px] text-[17px] leading-[30px] text-white/75">
-                          {service.description}
-                        </p>
                         <ul className="mb-[30px] grid gap-[14px] text-[17px] text-white">
                           {service.points.map((point) => (
                             <li key={point} className="service-li flex gap-[10px]">
@@ -173,6 +159,14 @@ function ServicesSection() {
                             </li>
                           ))}
                         </ul>
+                        <p className="mb-[24px]">
+                          <strong className="block text-[32px] font-[700] leading-[38px] text-white md:text-[36px] md:leading-[42px]">
+                            {service.stat.value}
+                          </strong>
+                          <span className="mt-[6px] block text-[15px] leading-[24px] text-white/75">
+                            {service.stat.caption}
+                          </span>
+                        </p>
                         <a
                           href="#contact"
                           className="inline-flex h-[50px] w-fit items-center gap-[14px] rounded-full border border-white/30 pr-[24px] text-[15px] font-semibold text-white transition duration-[400ms] hover:border-white hover:bg-white hover:text-[#070909]"

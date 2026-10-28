@@ -158,18 +158,18 @@ function HeroBanner() {
         <div className="hero-banner-inner flex min-h-[460px] flex-col items-center justify-center py-[64px] text-center sm:min-h-[560px] md:py-[80px] lg:min-h-[720px] lg:py-[92px]">
           <div className="hero-copy mx-auto max-w-[1180px]">
             <p className="hero-eyebrow-slide mb-[18px] text-[14px] font-[700] uppercase tracking-[0.22em] text-[#b8ee00]">
-              An Initiative by Reinvent Digital
+              AN INITIATIVE BY REINVENT DIGITAL
             </p>
             <h1 className="text-[38px] font-[800] leading-[44px] md:text-[48px] md:leading-[54px] lg:text-[52px] lg:leading-[58px] xl:text-[56px] xl:leading-[62px] 2xl:text-[60px] 2xl:leading-[66px]">
               <span className="hero-title-line md:whitespace-nowrap [animation-delay:120ms]">
-                Content Built for Real Patients
+                Social Media Optimised
               </span>
               <span className="hero-title-line md:whitespace-nowrap [animation-delay:240ms]">
-                Not for the Random Viewers!
+                For Real Conversions
               </span>
             </h1>
             <p className="hero-reveal [animation-delay:360ms] mx-auto mt-[18px] max-w-[650px] text-[14px] font-[700] uppercase tracking-[0.1em] text-[#b8ee00] md:text-[15px]">
-              Likes. Shares. Follows. Impressions &gt;&gt; Booked Appointments
+              Likes. Shares. Follows. Impressions &gt; &gt; Booked Appointments
             </p>
             <p className="hero-reveal [animation-delay:480ms] text-[18px] leading-[32px] text-[#fff] font-[700]">
               Instagram | LinkedIn | Facebook | YouTube

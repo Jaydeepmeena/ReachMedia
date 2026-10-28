@@ -11,7 +11,7 @@ const workItems = [
   {
     title: 'Social Media Handling',
     description:
-      'End-to-end ownership of Instagram, LinkedIn, Facebook and YouTube: strategy, calendar, publishing, community management and reporting, run as one system instead of six separate hand-offs.',
+      'Instagram, LinkedIn, Facebook & YouTube. Strategy, calendar, publishing, community management and reporting.',
     points: [
       'Account Setup for New Profiles, or a Full Audit for Existing Ones',
       'Three-Month Content Strategy, Reviewed Monthly',
@@ -31,7 +31,7 @@ const workItems = [
   {
     title: 'Content Creation & Design',
     description:
-      "Medically accurate, on-brand creative, plus captions and copywriting in your brand's own voice, not a generic agency tone borrowed from another industry.",
+      "Medically accurate, on-brand creative, plus captions and copywriting in your brand's own voice.",
     points: [
       'Treatment Explainer Carousels',
       'Doctor Credibility and Achievement Posts',
@@ -39,7 +39,7 @@ const workItems = [
       'Festival, Camp and Offer Campaigns',
       'Captions Written in Your Brand Voice',
     ],
-    metric: '12-30 Assets / Month',
+    metric: '12\u201330 Assets / Month',
     stat: {
       value: '30',
       caption: '12-30 assets planned each month',
@@ -68,7 +68,7 @@ const workItems = [
   {
     title: 'Paid Media',
     description:
-      "Reach and content don't fill a waiting room on their own. We run the paid campaigns that turn the right person watching into the right person calling.",
+      'Reach Media runs the paid campaigns that turn the right person watching into the right person calling.',
     points: [
       'Meta and Instagram Ads for High-Intent Treatments',
       'LinkedIn Ads for Referral and Corporate Audiences',
@@ -86,7 +86,7 @@ const workItems = [
   {
     title: 'Healthcare Influencer Marketing',
     description:
-      'Not every healthcare creator is right for every clinic. We match your speciality to creators whose audience, tone and compliance history actually fit.',
+      'We match your speciality to healthcare creators whose audience, tone and compliance history actually fit.',
     points: [
       'Creator Identification and Vetting, by Speciality',
       'Collaboration Briefs Written for Medical Accuracy',
