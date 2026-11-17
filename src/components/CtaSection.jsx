@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
+import { submitLead } from '../api/submitLead'
 import ctaShape from '../assets/images/website-shap.webp'
 
 const checklist = [
@@ -29,6 +30,7 @@ const dotPattern = {
 
 function CtaSection() {
   const [email, setEmail] = useState('')
+  const [status, setStatus] = useState('idle')
   const [rotation, setRotation] = useState(0)
 
   useEffect(() => {
@@ -53,15 +55,24 @@ function CtaSection() {
     }
   }, [])
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
+    if (status === 'sending') return
 
-    const subject = encodeURIComponent('Free social media audit request')
-    const body = encodeURIComponent(
-      `Hi Reach Media,\n\nI'd like to get a free social media audit for my profile.\nMy email: ${email}`,
-    )
+    setStatus('sending')
 
-    window.location.href = `mailto:contact@reachmedia.co.in?subject=${subject}&body=${body}`
+    try {
+      await submitLead({
+        source: 'Free audit (CTA section)',
+        email,
+        message: 'Requested a free social media audit.',
+        wantsPlan: true,
+      })
+      setEmail('')
+      setStatus('success')
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -125,10 +136,21 @@ function CtaSection() {
                 type="submit"
                 className="inline-flex h-[52px] shrink-0 items-center justify-center gap-[10px] rounded-[12px] bg-white px-[26px] text-[13px] font-[700] text-[#101112] transition duration-300 hover:bg-[#b8ee00] sm:rounded-full md:text-[14px]"
               >
-                Get Audit
+                {status === 'sending' ? 'Sending...' : 'Get Audit'}
                 <i className="fa-solid fa-arrow-right"></i>
               </button>
             </form>
+
+            {status === 'success' && (
+              <p role="status" className="mt-[16px] text-[14px] text-[#b8ee00]">
+                Thank you! We will send your audit details soon.
+              </p>
+            )}
+            {status === 'error' && (
+              <p role="alert" className="mt-[16px] text-[14px] text-red-400">
+                Something went wrong. Please try again or email contact@reachmedia.co.in.
+              </p>
+            )}
 
             <div className="mt-[28px] flex flex-wrap items-center justify-center gap-x-[26px] gap-y-[14px]">
               {checklist.map((item) => (
