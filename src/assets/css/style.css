@@ -27,6 +27,13 @@
   }
 }
 
+/* Sirf header ka container badi screens par 95rem rahega. */
+@media (width >= 96rem) {
+  .rm-site-header .container {
+    max-width: 95rem;
+  }
+}
+
 @layer base {
 
   html,

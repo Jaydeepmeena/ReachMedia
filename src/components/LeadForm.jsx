@@ -9,6 +9,7 @@ function LeadForm({
   const [values, setValues] = useState({ name: '', email: '', message: '' })
   const [wantsPlan, setWantsPlan] = useState(true)
   const [status, setStatus] = useState('idle')
+  const [errorText, setErrorText] = useState('')
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -25,7 +26,8 @@ function LeadForm({
       await submitLead({ source: 'Free audit form', ...values, wantsPlan })
       setValues({ name: '', email: '', message: '' })
       setStatus('success')
-    } catch {
+    } catch (error) {
+      setErrorText(error.message)
       setStatus('error')
     }
   }
@@ -112,7 +114,7 @@ function LeadForm({
       )}
       {status === 'error' && (
         <p role="alert" className="mt-[18px] text-[14px] text-red-400">
-          Something went wrong. Please try again or email contact@reachmedia.co.in.
+          Something went wrong{errorText ? ` (${errorText})` : ''}. Please try again or email contact@reachmedia.co.in.
         </p>
       )}
     </form>

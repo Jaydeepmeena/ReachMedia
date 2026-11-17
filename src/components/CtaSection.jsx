@@ -31,6 +31,7 @@ const dotPattern = {
 function CtaSection() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle')
+  const [errorText, setErrorText] = useState('')
   const [rotation, setRotation] = useState(0)
 
   useEffect(() => {
@@ -70,7 +71,8 @@ function CtaSection() {
       })
       setEmail('')
       setStatus('success')
-    } catch {
+    } catch (error) {
+      setErrorText(error.message)
       setStatus('error')
     }
   }
@@ -148,7 +150,7 @@ function CtaSection() {
             )}
             {status === 'error' && (
               <p role="alert" className="mt-[16px] text-[14px] text-red-400">
-                Something went wrong. Please try again or email contact@reachmedia.co.in.
+                Something went wrong{errorText ? ` (${errorText})` : ''}. Please try again or email contact@reachmedia.co.in.
               </p>
             )}
 

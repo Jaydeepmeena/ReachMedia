@@ -17,18 +17,29 @@ export async function submitLead({ source, name, email, message, wantsPlan }) {
 
   if (LEAD_CC_EMAILS.length) payload._cc = LEAD_CC_EMAILS.join(',')
 
-  const response = await fetch(
-    `https://formsubmit.co/ajax/${encodeURIComponent(LEAD_EMAIL)}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(payload),
-    },
-  )
+  const controller = new AbortController()
+  const timeoutId = window.setTimeout(() => controller.abort(), 15000)
 
-  const result = await response.json().catch(() => ({}))
+  try {
+    const response = await fetch(
+      `https://formsubmit.co/ajax/${encodeURIComponent(LEAD_EMAIL)}`,
+      {
+        method: 'POST',
+        signal: controller.signal,
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      },
+    )
 
-  if (!response.ok || String(result.success) === 'false') {
-    throw new Error(result.message || 'Could not send the form')
+    const result = await response.json().catch(() => ({}))
+
+    if (!response.ok || String(result.success) === 'false') {
+      throw new Error(result.message || `Request failed (${response.status})`)
+    }
+  } catch (error) {
+    console.error('Lead form error:', error)
+    throw error.name === 'AbortError' ? new Error('Request timed out') : error
+  } finally {
+    window.clearTimeout(timeoutId)
   }
 }
