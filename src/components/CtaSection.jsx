@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import { submitLead } from '../api/submitLead'
@@ -30,6 +31,7 @@ const dotPattern = {
 
 function CtaSection() {
   const [email, setEmail] = useState('')
+  const navigate = useNavigate()
   const [status, setStatus] = useState('idle')
   const [errorText, setErrorText] = useState('')
   const [rotation, setRotation] = useState(0)
@@ -71,6 +73,7 @@ function CtaSection() {
       })
       setEmail('')
       setStatus('success')
+      navigate('/thank-you')
     } catch (error) {
       setErrorText(error.message)
       setStatus('error')

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { submitLead } from '../api/submitLead'
 
 function LeadForm({
@@ -8,6 +9,7 @@ function LeadForm({
 }) {
   const [values, setValues] = useState({ name: '', email: '', message: '' })
   const [wantsPlan, setWantsPlan] = useState(true)
+  const navigate = useNavigate()
   const [status, setStatus] = useState('idle')
   const [errorText, setErrorText] = useState('')
 
@@ -26,6 +28,7 @@ function LeadForm({
       await submitLead({ source: 'Free audit form', ...values, wantsPlan })
       setValues({ name: '', email: '', message: '' })
       setStatus('success')
+      navigate('/thank-you')
     } catch (error) {
       setErrorText(error.message)
       setStatus('error')

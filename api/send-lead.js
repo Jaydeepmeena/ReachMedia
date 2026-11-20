@@ -3,8 +3,16 @@ import nodemailer from 'nodemailer'
 // Vercel serverless function: website form -> email over SMTP.
 // Settings come from Vercel Environment Variables (never from the code):
 //   SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS  - mail account used to send
-//   LEAD_TO_EMAIL  - who receives the leads (comma separated for many)
 //   SMTP_FROM      - optional, defaults to SMTP_USER
+//
+// Leads kis-kis mail par jayengi: neeche LEAD_RECIPIENTS list mein hai.
+// Mail ADD karne ke liye nayi line jodo, REMOVE karne ke liye line hata do,
+// phir push karo (Vercel apne aap deploy kar deta hai).
+const LEAD_RECIPIENTS = [
+  'rohityadav@reinventdigital.com',
+  'contact@reachmedia.co.in',
+  'rupal@reinventdigital.com',
+]
 
 const escapeHtml = (value) =>
   String(value ?? '')
@@ -23,10 +31,9 @@ export default async function handler(req, res) {
     return res.status(405).json({ ok: false, error: 'Method not allowed' })
   }
 
-  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, LEAD_TO_EMAIL, SMTP_FROM } =
-    process.env
+  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM } = process.env
 
-  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS || !LEAD_TO_EMAIL) {
+  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS || !LEAD_RECIPIENTS.length) {
     console.error('send-lead: SMTP environment variables are missing')
     return res.status(500).json({ ok: false, error: 'Mail is not configured' })
   }
@@ -79,7 +86,7 @@ export default async function handler(req, res) {
   try {
     await transporter.sendMail({
       from: `"Reach Media Website" <${SMTP_FROM || SMTP_USER}>`,
-      to: LEAD_TO_EMAIL.split(',').map((item) => item.trim()).filter(Boolean),
+      to: LEAD_RECIPIENTS,
       replyTo: lead.email,
       subject: `New lead from Reach Media website (${lead.source})`,
       text,
