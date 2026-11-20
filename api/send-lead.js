@@ -10,8 +10,7 @@ import nodemailer from 'nodemailer'
 // phir push karo (Vercel apne aap deploy kar deta hai).
 const LEAD_RECIPIENTS = [
   'rohityadav@reinventdigital.com',
-  'contact@reachmedia.co.in',
-  'rupal@reinventdigital.com',
+  'contact@reachmedia.co.in'
 ]
 
 const escapeHtml = (value) =>
